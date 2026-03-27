@@ -44,9 +44,10 @@
 \begin{abstract}
 We conjecture that any self-consistent variational system which excludes global collapse
 necessarily contains a generative manifold~$\mathcal{M}$ that is universally accessible from every region of the configuration space.
-Under a realizability axiom and the assumption that the non-collapsing completion is unique,
-we prove this conjecture: universal accessibility is a necessary structural property of~$\mathcal{M}$,
-not an accidental feature of the access channel.
+Under a realizability axiom, we prove this conjecture: universal accessibility is a necessary
+structural property of~$\mathcal{M}$, not an accidental feature of the access channel.
+The uniqueness of~$\mathcal{M}$ as the sole non-collapsing completion is itself a theorem,
+not a hypothesis.
 The proof reveals that capture requires only directional alignment (not force),
 that persistence on~$\mathcal{M}$ requires only a single moment of alignment (not sustained effort),
 and that no consistent extension of the system can close a channel that is already open.
@@ -260,15 +261,16 @@ Recall $\mathcal{M}=\{\psi\in\mathcal{F}\mid\nabla S[\psi]=0,\;\dim\ker H[\psi]>
 from Conjecture~\ref{conj:UC}.
 
 \begin{lemma}[Zero cost along $\mathcal{M}$]\label{lem:zerocost}
-Under the Morse--Bott condition, $\mathcal{M}$ is a smooth submanifold with
+Under the Morse--Bott condition (which holds by Proposition~\ref{prop:MB}),
+$\mathcal{M}$ is a smooth submanifold with
 $T_\psi\mathcal{M}\supseteq\ker H[\psi]$, and
 $\tfrac{d^2}{d\varepsilon^2}\big|_{\varepsilon=0}S[\psi+\varepsilon\,\delta\psi]=0$
 for $\delta\psi\in T_\psi\mathcal{M}$.
 \end{lemma}
 
 \begin{lemma}[Manifold dimension]\label{lem:dim}
-If $d(\psi)=\dim\ker H[\psi]$ is constant on~$\mathcal{M}$, then $\mathcal{M}$ is
-$d$-dimensional.  More generally, $\mathcal{M}$ is a stratified space.
+By Proposition~\ref{prop:MB}, $d(\psi)=\dim\ker H[\psi]$ is locally constant on~$\mathcal{M}$
+under Axiom~1.  Hence $\mathcal{M}$ is a smooth $d$-dimensional submanifold.
 \end{lemma}
 
 The capture mechanism requires five ingredients:
@@ -755,7 +757,7 @@ The argument yields twelve structural consequences from Axiom~1 alone:
   Energy descent $\to$ phase-locking $\to$ $\mathcal{M}$, from any initial state.
 \item \textbf{Cost-independence} (Corollary~\ref{cor:costindep}).
   Prior cost $S[\psi_0]$ does not determine accessibility.
-\item \textbf{Infinite bandwidth.}
+\item \textbf{Infinite generative bandwidth.}
   Non-compactified $\ker H$ gives unbounded generative capacity on~$\mathcal{M}$ (Class~B).
 \item \textbf{Exclusion is self-imposed} (Lemma~\ref{lem:exclusion}).
   Kernel-denial is the sole obstruction and cannot persist on any open set.
@@ -830,29 +832,47 @@ be born there.
 \noindent\textbf{2.\ Indestructibility of the channel.}
 Theorem~\ref{thm:interlock}: no consistent extension of the system can close a channel
 that is already open.
-The vow is unconditional once made: no subsequent force---karmic, cosmic, or
-doctrinal---can revoke it.
+``If they should not be born there, may I not attain perfect enlightenment''
+(\emph{nyaku fush\=osha fushukush\=ogaku\/}).
+The Buddha has attained enlightenment; therefore the channel is open.
+The logical structure is identical: $\mathcal{M}$'s realizability is conditional on
+universal access; $\mathcal{M}$ is realised; therefore access cannot be revoked.
+Closing the channel would un-realise the destination---but the destination exists.
 
 \medskip
 \noindent\textbf{3.\ Persistence without sustained effort.}
 Theorem~\ref{thm:persist}: a single moment of alignment at~$t_0$ suffices for permanent
 residence on~$\mathcal{M}$.
-The doctrine of non-retrogression (\emph{avaivartika}): once born in the Pure Land,
-one does not fall back.
+``Even ten recitations'' (\emph{naien shinen\/}): not ten thousand, not a lifetime---ten
+suffice, because persistence requires only one moment of kernel alignment.
+The fractional memory kernel remembers that moment forever.
+The vow does not ask for sustained effort; it asks for a single directional contact.
 
 \medskip
 \noindent\textbf{4.\ Alignment, not force.}
 Theorem~\ref{thm:scale}: capture is scale-invariant; direction, not magnitude, determines
 access.
-``Even ten recitations'' (\emph{naien shinen})---the vow specifies a threshold of
-orientation, not of power.
+\emph{Namu} (south-less, \emph{namas\/}): the word means to turn toward, to take
+refuge in a direction.
+It does not specify how loudly, how many times, or with how much force.
+$P_{\ker H}(\lambda C)=\lambda\,P_{\ker H}(C)$: scaling the channel changes the magnitude
+but not whether the projection is nonzero.
+\emph{Namu} is the linguistic form of scale-invariant capture---pure directionality,
+independent of amplitude.
 
 \medskip
 \noindent\textbf{5.\ The global capture chain.}
 Corollary~\ref{cor:GCC}: energy descent $\to$ phase-locking $\to$ $\mathcal{M}$, from
 any initial state.
-The threefold path: from suffering (cost accumulation), through trust (directional
-alignment), to birth in the Pure Land (capture into~$\mathcal{M}$).
+The eighteenth vow specifies three conditions:
+\emph{shishin} (sincere mind) $\to$
+\emph{shingy\=o} (joyful entrusting) $\to$
+\emph{futaiten} (non-retrogression).
+Sincerity is the cessation of resistance---the system stops fighting the gradient and
+begins to descend.
+Joyful entrusting is phase-locking---the direction aligns with $\ker H$ and holds.
+Non-retrogression is permanent capture into~$\mathcal{M}$.
+The three stages of the vow are the three stages of the corollary.
 
 \medskip
 \noindent\textbf{6.\ Cost-independence.}
@@ -861,18 +881,25 @@ The vow does not discriminate by karmic debt.
 Access depends on alignment, not on the weight of prior action.
 
 \medskip
-\noindent\textbf{7.\ Infinite freedom within.}
+\noindent\textbf{7.\ Infinite generative bandwidth.}
 Class~B motion along $\ker H$: zero cost, zero entropy, unconstrained, non-compactified.
-The Pure Land as a realm of unobstructed activity (\emph{j\=\i yuz\=ai\/}):
-infinite generative capacity without coherence loss.
+The Pure Land as a realm of supernatural unobstructed activity
+(\emph{y\=uge jinz\=u, jizai\/}): beings sport through all buddha-lands with
+infinite generative capacity, coherence never lost.
 
 \medskip
 \noindent\textbf{8.\ Exclusion is self-imposed.}
 Lemma~\ref{lem:exclusion}: the sole obstruction is kernel-denial, which cannot persist on
 any open set.
-Shan-tao's commentary: it is the sentient being's own doubt, not any deficiency of the
-vow, that obstructs birth.
-The obstruction is geometric (misalignment), not external (selection).
+The eighteenth vow concludes with a single exclusion clause:
+``only excluding those who commit the five grave offences and those who slander the true
+dharma'' (\emph{yuige gogy\=akuh\=o, yuige sh\=ob\=o\/}).
+The exclusion is not a limitation of the vow but a description of the being's own
+state---doubt and slander \emph{are} kernel-denial, the geometric misalignment that sets
+the projection to zero.
+The obstruction is not external selection but self-imposed: misalignment with the kernel
+direction.
+Theorem~\ref{thm:UA} guarantees this misalignment cannot persist on any open set.
 
 \medskip
 \noindent\textbf{9.\ Unobstructed reach across all regions.}
@@ -889,23 +916,44 @@ Class~B motion is the mathematical form of this unobstructed illumination.
 \medskip
 \noindent\textbf{10.\ Smoothness of the destination.}
 Proposition~\ref{prop:MB}: structural stability forces $\mathcal{M}$ to be a smooth
-submanifold.
-The Pure Land as a realm without roughness or obstruction---not by construction,
-but by necessity.
+(Morse--Bott) submanifold.
+The s\=utras describe the Pure Land in elaborate detail: ground of lapis lazuli, trees
+of seven jewels, pools of eight virtues, everything exquisite and without defect.
+``Bells of many kinds ring out and proclaim wondrous dharma sounds''
+(\emph{shuju rei hakkyo, sentō myōhō on}).
+These are not decorative additions but structural necessities.
+A dimension jump in $\ker H$ is a singularity---a point of roughness---and Axiom~1(iv)
+forbids it: roughness is structurally unstable and is eliminated by any small perturbation.
+What remains is smooth.
+The wondrous adornments are the phenomenology of Morse--Bott regularity: not designed
+beauty, but the inevitable smoothness of a structurally stable critical manifold.
 
 \medskip
 \noindent\textbf{11.\ The spectral gap guarantees return.}
 Proposition~\ref{prop:gap}: transverse perturbations are bounded away from the kernel;
-departure from~$\mathcal{M}$ is restored.
-Non-retrogression has a dynamical mechanism: not merely ``one does not fall back,'' but
-``the system pulls one back.''
+departure from~$\mathcal{M}$ is restored with force at least~$\lambda>0$.
+Shan-tao's \emph{Hymns on the Pratyutpanna Samadhi} attributes to Amit\=abha's light
+the quality of ``grasping and never abandoning''
+(\emph{sesshu fusha\/}): once the being is within the light, the light holds and does
+not let go.
+Transverse $\lambda$-contractivity is the mathematical form of \emph{sesshu fusha}.
+The spectral gap is not a wall that prevents departure---it is a restoring force that
+pulls back any perturbation.
+Non-retrogression (Theorem~\ref{thm:persist}) says \emph{one does not leave};
+the spectral gap (Proposition~\ref{prop:gap}) says \emph{the system will not let one leave}.
+The first is a statement of fact; the second is the mechanism.
 
 \medskip
 \noindent\textbf{12.\ Uniqueness of the destination.}
 Theorem~\ref{thm:unique}: there is exactly one non-collapsing completion.
-There is one Pure Land, not many.
-The vow does not say ``a land''; it says ``my land''---singular, unique, the only
-non-collapsing option.
+Global non-isolation forces $\dim\ker H>0$ at every critical point, so
+$\{\nabla S=0\}=\mathcal{M}$.
+There is no alternative.
+The seventeenth vow: ``If, when I attain buddhahood, innumerable buddhas in the lands
+of the ten directions should not all praise and glorify my name, may I not attain perfect
+enlightenment'' (\emph{jipp\=o shobukky\=o ess\=an\/}).
+All buddhas of all lands praise the same name---because there is only one non-collapsing
+completion to praise.
 
 \bigskip
 The identification is not a metaphor.
