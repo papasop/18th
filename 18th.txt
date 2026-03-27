@@ -42,17 +42,14 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-We conjecture that any self-consistent variational system which excludes global collapse
-necessarily contains a generative manifold~$\mathcal{M}$ that is universally accessible
-from every region of the configuration space.
-Under a realizability axiom, we prove this conjecture: universal accessibility is a necessary
-structural property of~$\mathcal{M}$, not an accidental feature of the access channel.
-The uniqueness of~$\mathcal{M}$ as the sole non-collapsing completion is itself a theorem,
-not a hypothesis.
-The proof reveals that capture requires only directional alignment (not force),
-that persistence on~$\mathcal{M}$ requires only a single moment of alignment (not sustained
-effort), and that no consistent extension of the system can close a channel that is already
-open.
+What kind of structure must exist in a variational system that forbids the annihilation
+of all configurations?
+We show: exactly one---a smooth generative manifold~$\mathcal{M}$, universally accessible,
+permanently retentive, and equipped with infinite cost-free degrees of freedom.
+From a single realizability axiom, twelve necessary properties of~$\mathcal{M}$ are derived:
+access is basin-independent, capture depends on alignment alone, the channel infrastructure
+is indestructible under any consistent extension, and exclusion is geometrically self-imposed.
+The manifold is not postulated; it is the unique survivor of structural stability.
 
 \medskip\noindent
 \textit{Series position.}
