@@ -22,7 +22,7 @@ From this single axiom, twelve theorems follow. Each theorem has a precise mathe
 
 - **Theorem:** No consistent extension of the system can close a channel that is already open.
 - **Mathematics:** Any extension that reduces ker H destroys persistence, contradicting the axiom. So kernel directions are preserved — not just their count, but the specific directions themselves.
-- **Pure Land:** 愿力不可破坏 — once the vow is established, no subsequent force can revoke it.
+- **Pure Land:** 若不生者不取正覺 (nyaku fushōsha fushuku shōgaku) — "If they should not be born there, may I not attain perfect enlightenment." The Buddha has attained enlightenment; therefore the channel is open. The logical structure is identical: M's realizability is conditional on universal access; M is realised; therefore access cannot be revoked. Closing the channel would un-realise the destination — but the destination exists.
 
 ---
 
@@ -30,7 +30,7 @@ From this single axiom, twelve theorems follow. Each theorem has a precise mathe
 
 - **Theorem:** A single moment of alignment at t₀ suffices for permanent residence on M.
 - **Mathematics:** The fractional (Caputo) derivative has long memory. The initial alignment is encoded in the kernel and never forgotten. Transverse perturbations decay via Mittag-Leffler (algebraic, not exponential).
-- **Pure Land:** 不退转 (avaivartika) — once born in the Pure Land, one does not fall back.
+- **Pure Land:** 乃至十念 (naien shinen) — "even ten recitations." Not ten thousand, not a lifetime — ten suffice, because persistence requires only one moment of kernel alignment. The fractional memory kernel remembers that moment forever. The vow does not ask for sustained effort; it asks for a single directional contact.
 
 ---
 
@@ -38,7 +38,7 @@ From this single axiom, twelve theorems follow. Each theorem has a precise mathe
 
 - **Theorem:** Capture is scale-invariant. C → λC does not change whether capture occurs.
 - **Mathematics:** P_ker H(λC) = λ P_ker H(C). The projection is nonzero or zero regardless of scaling. Direction is everything; magnitude is nothing.
-- **Pure Land:** 乃至十念 (naien shinen) — even ten recitations suffice. The vow specifies a threshold of orientation, not of power.
+- **Pure Land:** 南無 (namu, namas) — the word means to turn toward, to take refuge in a direction. It does not specify how loudly, how many times, or with how much force. Namu is the linguistic form of scale-invariant capture — pure directionality, independent of amplitude.
 
 ---
 
@@ -46,7 +46,7 @@ From this single axiom, twelve theorems follow. Each theorem has a precise mathe
 
 - **Theorem:** From any initial state: energy descent → phase-locking → M.
 - **Mathematics:** Coercivity of S_eff drives trajectories toward M; phase-locking aligns them with ker H; capture follows. No open region is excluded (by Theorem 1).
-- **Pure Land:** 从苦经信到往生 — from suffering (cost accumulation), through trust (directional alignment), to birth in the Pure Land (capture into M). A threefold path.
+- **Pure Land:** 至心 → 信樂 → 不退転 (shishin → shingyō → futaiten). The eighteenth vow's three conditions map to the three stages. 至心 (sincere mind) is the cessation of resistance — the system stops fighting the gradient and begins to descend. 信樂 (joyful entrusting) is phase-locking — the direction aligns with ker H and holds. 不退転 (non-retrogression) is permanent capture into M. The three stages of the vow are the three stages of the corollary.
 
 ---
 
@@ -58,19 +58,19 @@ From this single axiom, twelve theorems follow. Each theorem has a precise mathe
 
 ---
 
-### 7. Infinite Freedom Within
+### 7. Infinite Generative Bandwidth
 
 - **Theorem:** Class B motion on M is zero-cost, zero-entropy, unconstrained, non-compactified.
 - **Mathematics:** Motion tangent to M along ker H incurs no cost and carries no entropy. The kernel is non-compact, so the degrees of freedom are unbounded — infinite generative capacity without coherence loss.
-- **Pure Land:** 自由自在 (jiyūzai) — unobstructed activity in the Pure Land. Infinite freedom, not as the absence of structure, but as the presence of unconstrained generative capacity.
+- **Pure Land:** 游戏神通，自在 (yuge jinzū, jizai) — beings in the Pure Land sport through all buddha-lands with supernatural unobstructed powers. Not freedom as emptiness, but freedom as infinite generative capacity — playing through all realms, coherence never lost.
 
 ---
 
 ### 8. Exclusion Is Self-Imposed
 
 - **Theorem:** The sole obstruction to reaching M is kernel-denial (P_ker H(C) = 0), and it cannot persist on any open set.
-- **Mathematics:** Kernel-denial is a geometric condition — misalignment — not an external selection rule. Theorem 1 guarantees it cannot persist everywhere.
-- **Pure Land:** 善导大师：众生自障，非佛不救 — it is the sentient being's own doubt, not any deficiency of the vow, that obstructs birth. The obstruction is geometric (misalignment), not external (rejection).
+- **Mathematics:** Kernel-denial is a geometric condition — misalignment with the kernel direction sets the projection to zero. It is not an external selection rule. Theorem 1 guarantees it cannot persist everywhere.
+- **Pure Land:** 唯除五逆，誹謗正法 (yuige gogyakuhō, yuige shōbō) — the eighteenth vow's sole exclusion clause: "only excluding those who commit the five grave offences and those who slander the true dharma." The exclusion is not a limitation of the vow but a description of the being's own state. Doubt and slander *are* kernel-denial — the geometric misalignment that sets the projection to zero. The barrier is self-imposed: not that the vow rejects, but that the being refuses to align.
 
 ---
 
@@ -85,16 +85,16 @@ From this single axiom, twelve theorems follow. Each theorem has a precise mathe
 ### 10. Smoothness of the Destination
 
 - **Theorem:** Structural stability forces M to be a smooth (Morse–Bott) submanifold.
-- **Mathematics:** If dim ker H jumps along the critical set, the jump point is unstable under perturbation — contradicting Axiom 1(iv). So dim ker H is locally constant, and M is smooth by the constant-rank theorem.
-- **Pure Land:** 净土无粗糙无障碍 — the Pure Land is smooth and without obstruction. Not by design, but by necessity — roughness is structurally unstable.
+- **Mathematics:** If dim ker H jumps along the critical set, the jump point is a singularity — a point of roughness. Such points are structurally unstable: an arbitrarily small perturbation either regularizes them or fragments them, contradicting Axiom 1(iv). So dim ker H is locally constant, and M is smooth by the constant-rank theorem.
+- **Pure Land:** 种种铃发响，宣吐妙法音 (shuju rei hakkyō, sentō myōhō on) — "Bells of many kinds ring out and proclaim wondrous dharma sounds." The sūtras describe the Pure Land in elaborate detail: ground of lapis lazuli, trees of seven jewels, pools of eight virtues, everything exquisite and without defect. These are not decorative additions but structural necessities. A dimension jump in ker H is a singularity — roughness — and Axiom 1(iv) forbids it. What remains after all structurally unstable features are eliminated is smooth. The wondrous adornments are the phenomenology of Morse–Bott regularity: not designed beauty, but the inevitable smoothness of a structurally stable critical manifold.
 
 ---
 
 ### 11. The Spectral Gap Guarantees Return
 
 - **Theorem:** Transverse perturbations are bounded away from the kernel by a spectral gap λ > 0.
-- **Mathematics:** If positive transverse eigenvalues could be pushed to zero by perturbation, dim ker H would change, contradicting Morse–Bott regularity (Theorem 10) and Axiom 1(iv). So the positive spectrum has a floor.
-- **Pure Land:** 不退转的动力学保证 — non-retrogression is not merely "one does not fall back" but "the system actively pulls one back." The spectral gap is the restoring force.
+- **Mathematics:** If positive transverse eigenvalues could be pushed to zero by perturbation, dim ker H would change, contradicting Morse–Bott regularity (Theorem 10) and Axiom 1(iv). So the positive spectrum has a floor. Any displacement away from M encounters a restoring force of magnitude at least λ.
+- **Pure Land:** 摂取不捨 (sesshu fusha) — "grasping and never abandoning." Shan-tao's *Hymns on the Pratyutpanna Samadhi* attributes to Amitābha's light the quality of grasping the being and never letting go. Transverse λ-contractivity is the mathematical form of sesshu fusha. The spectral gap is not a wall that prevents departure — it is a restoring force that pulls back any perturbation. Theorem 3 (persistence) says *one does not leave*; Proposition 38 (spectral gap) says *the system will not let one leave*. The first is a statement of fact; the second is the mechanism.
 
 ---
 
@@ -102,7 +102,7 @@ From this single axiom, twelve theorems follow. Each theorem has a precise mathe
 
 - **Theorem:** There is exactly one non-collapsing completion.
 - **Mathematics:** Global non-isolation (Axiom 1(iii)) requires dim ker H > 0 at every critical point. Therefore {∇S = 0} = {∇S = 0, dim ker H > 0} = M. Any non-collapsing completion is a subset of M. There is nowhere else to go.
-- **Pure Land:** 第十八愿说"我之国土" — singular, not plural. One land, not many. The destination is unique because every critical structure that avoids collapse is already part of M.
+- **Pure Land:** 十方諸佛皆共讚歎 (jippō shobukkyo essan) — the seventeenth vow: "If, when I attain buddhahood, innumerable buddhas in the lands of the ten directions should not all praise and glorify my name, may I not attain perfect enlightenment." All buddhas of all lands praise the same name — because there is only one non-collapsing completion to praise.
 
 ---
 
@@ -139,12 +139,31 @@ Axiom 1 (Realizability)
 │
 ├─→ Cost-independence               (Cor 23: S[ψ₀] irrelevant)                            [6]
 │
-├─→ Infinite freedom                (Class B: ker H non-compact)                          [7]
+├─→ Infinite generative bandwidth  (Class B: ker H non-compact)                          [7]
 │
 ├─→ Exclusion is self-imposed       (Lemma 27: kernel-denial only)                        [8]
 │
 └─→ Unobstructed internal reach     (Prop 34: Class B connects all components)            [9]
 ```
+
+---
+
+## Summary Table
+
+| # | English Title | Theorem | Mathematical Content | 净土对应 |
+|---|---|---|---|---|
+| 1 | **Universal access** | Thm 2 | 每个开集都有通向 M 的路径 | 十方众生皆可往生 |
+| 2 | **Indestructibility of the channel** | Thm 3 | 任何自洽扩展都不能关闭已打开的通道 | 若不生者不取正覺 |
+| 3 | **Persistence without sustained effort** | Thm 9 | 一次对齐即永久驻留 | 乃至十念 |
+| 4 | **Alignment, not force** | Thm 19 | 捕获对缩放不变，方向决定一切 | 南無 (namu) |
+| 5 | **The global capture chain** | Cor 21 | 能量下降 → 锁相 → M，从任意起点 | 至心 → 信樂 → 不退転 |
+| 6 | **Cost-independence** | Cor 23 | 之前积累多少代价不影响可达性 | 不论罪福多少 |
+| 7 | **Infinite generative bandwidth** | Class B | ker H 上零代价、零熵、无界运动 | 游戏神通，自在 |
+| 8 | **Exclusion is self-imposed** | Lem 27 | 唯一障碍是核否认，且不能永久持续 | 唯除五逆，誹謗正法 |
+| 9 | **Unobstructed reach across all regions** | Prop 34 | Class B 路径零代价穿越 M 所有部分，无壁垒 | 光明遍照十方世界無所障礙 |
+| 10 | **Smoothness of the destination** | Prop 37 | 结构稳定性迫使 M 是光滑 Morse–Bott 流形 | 种种铃发响，宣吐妙法音 |
+| 11 | **The spectral gap guarantees return** | Prop 38 | 横向扰动被谱间隙 λ > 0 拉回 | 摂取不捨 (sesshu fusha) |
+| 12 | **Uniqueness of the destination** | Thm（唯一性）| 非坍缩完备化有且仅有一个 | 十方諸佛皆共讚歎 |
 
 ---
 
