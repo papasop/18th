@@ -480,25 +480,14 @@ without coherence loss.
 How does a configuration reach $\mathcal{M}$?
 Through kernel-aligned injection, whose criterion depends on direction alone.
 
-\begin{lemma}[Zero cost along $\mathcal{M}$]\label{lem:zerocost}
-Under the Morse--Bott condition (which holds by Proposition~\ref{prop:MB}),
-$\mathcal{M}$ is a smooth submanifold with
+\begin{lemma}[Structure of $\mathcal{M}$]\label{lem:zerocost}
+By Proposition~\ref{prop:MB}, $d(\psi)=\dim\ker H[\psi]$ is locally constant
+on~$\mathcal{M}$ under Axiom~1.
+Hence $\mathcal{M}$ is a smooth $d$-dimensional submanifold with
 $T_\psi\mathcal{M}\supseteq\ker H[\psi]$, and
 $\tfrac{d^2}{d\varepsilon^2}\big|_{\varepsilon=0}S[\psi+\varepsilon\,\delta\psi]=0$
 for $\delta\psi\in T_\psi\mathcal{M}$.
 \end{lemma}
-
-\begin{lemma}[Manifold dimension]\label{lem:dim}
-By Proposition~\ref{prop:MB}, $d(\psi)=\dim\ker H[\psi]$ is locally constant
-on~$\mathcal{M}$ under Axiom~1.
-Hence $\mathcal{M}$ is a smooth $d$-dimensional submanifold.
-\end{lemma}
-
-\begin{definition}[Transverse contractivity]\label{def:TC}
-$\lambda$-contractive transverse to $\ker H$:
-$\langle v,H[\psi]v\rangle\ge\lambda\|v\|^2$
-for all $v\perp\ker H[\psi]$ near~$\mathcal{M}$.
-\end{definition}
 
 \begin{definition}[Uniform kernel overlap]\label{def:UKO}
 $C$ has \emph{uniform kernel overlap} on~$U$ if
@@ -506,12 +495,6 @@ $C$ has \emph{uniform kernel overlap} on~$U$ if
   \frac{\|P_{\ker H[\psi]}(C[\psi])\|}{\|C[\psi]\|}\ge\delta^*>0
 \]
 for all $\psi\in U$ with $C[\psi]\neq0$.
-\end{definition}
-
-\begin{definition}[Null-capture criterion]\label{def:NCC}
-Capture into~$\mathcal{M}$ occurs if there exists finite~$t^*$ with
-$\|P_{\ker H[\psi(t^*)]}(C[\psi(t^*)])\|>0$, and thereafter
-$\limsup_{t\to\infty}\|P_{\ker H[\psi(t)]}(C[\psi(t)])\|>0$.
 \end{definition}
 
 \begin{definition}[Kernel-projected coherence]\label{def:KPC}
