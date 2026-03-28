@@ -181,7 +181,7 @@ One axiom — the universe does not permit the annihilation of all structure —
 
 ## Paper Structure (v2)
 
-The paper (9 pages) is organized as:
+The paper (8 pages) is organized as:
 
 | Section | Content |
 |---|---|
