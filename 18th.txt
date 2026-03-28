@@ -63,8 +63,7 @@ $\to$ the present work.
 %% ====================================================================
 \section{The Axiom and the Conjecture}\label{sec:axiom}
 
-The entire paper follows from a single meta-axiom.
-We state it first, then the conjecture it generates.
+The entire paper follows from a single axiom.
 
 Let $\mathcal{F}$ be a real Hilbert space, $S:\mathcal{F}\to\mathbb{R}_{\ge0}$ twice
 Fr\'echet-differentiable.
@@ -178,9 +177,11 @@ $\ker H=\{0\}$ implies $\psi^*$ is isolated, contradicting Axiom~1(iii).
 Under the following conditions on $H[\psi^*]$:
 \begin{enumerate}[label=\textbf{(\Alph*)},nosep]
 \item positive temporal cost: $\exists\,e_t$ with $\langle e_t,He_t\rangle>0$;
-\item zero-threshold spatial directions: $\exists\,e_s\neq0$ with $He_s=0$;
+\item zero-threshold spatial directions: $\exists\,e_s\neq0$ with $He_s=0$
+      (this follows from Theorem~\ref{thm:nullity});
 \end{enumerate}
 $H[\psi^*]$ is indefinite.
+Condition~\textbf{(A)} is the only input beyond Axiom~1.
 \end{proposition}
 
 \begin{proof}
@@ -421,10 +422,7 @@ Once a configuration reaches $\mathcal{M}$, it does not leave, even after the ex
 channel~$C$ is removed.
 
 \begin{theorem}[Persistence without continuous injection]\label{thm:persist}
-Assume
-\emph{(i)}~$\mathcal{M}$ is invariant for the unforced gradient flow
-$\partial_t\psi=-\nabla S[\psi]$;
-\emph{(ii)}~transverse directions are $\lambda$-contractive
+Assume transverse directions are $\lambda$-contractive
 (Proposition~\ref{prop:gap} shows $\lambda>0$ follows from Axiom~1).
 For the dynamics
 $\partial_t\psi=-\nabla S[\psi]+\varepsilon\,C[\psi]$,
@@ -438,8 +436,8 @@ if $\psi(t_0)\in\mathcal{M}$, then:
 
 \begin{proof}
 Let $V(t)=\mathrm{dist}(\psi(t),\mathcal{M})^2$.
-On~$\mathcal{M}$, $\nabla S=0$, so the unforced flow is stationary: $\mathcal{M}$~is
-invariant.
+On~$\mathcal{M}$, $\nabla S=0$, so the unforced gradient flow is stationary and
+$\mathcal{M}$~is automatically invariant.
 For transverse perturbations, $\lambda$-contractivity gives $\dot V\le-\lambda V$,
 hence $V(t)\le V(t_0)\,e^{-\lambda t}$.
 Since $V(t_0)=0$ (because $\psi(t_0)\in\mathcal{M}$), we have $V(t)=0$ for all $t\ge t_0$.
@@ -533,6 +531,15 @@ if $\kappa(\psi_0;C)\ge\kappa^*>0$, there exists finite~$\tau_{\mathrm{lock}}$ a
 $\|P_{\ker H}(C)\|\ge\delta^*\|C\|$ and $\kappa\ge\kappa^*/2$.
 \end{theorem}
 
+\begin{proof}[Proof sketch]
+Condition~(iv) forces $S$ to decrease at rate~$\sigma$ outside~$U$, so the trajectory
+enters~$U$ in finite time.
+Inside~$U$, condition~(iii) guarantees kernel overlap~$\ge\delta^*$,
+and $\lambda$-contractivity suppresses transverse drift.
+The coherence~$\kappa$ is bounded below by continuity once the trajectory is within~$U$,
+giving phase-locking after finite~$\tau_{\mathrm{lock}}$.
+\end{proof}
+
 \begin{corollary}[Global capture chain]\label{cor:GCC}
 Assume condition~\emph{(iv)} of Theorem~\ref{thm:PL} holds globally:
 $\dot S\le-\sigma<0$ for all~$\psi$ outside every neighbourhood
@@ -567,11 +574,14 @@ By Theorem~\ref{thm:UA}, this cannot persist on any open set.
 \end{definition}
 
 \begin{lemma}[Exclusion is self-imposed]\label{lem:exclusion}
-Exclusion from~$\mathcal{M}$ occurs iff kernel-denial persists:
+If kernel-denial persists, the configuration is excluded from~$\mathcal{M}$:
 \[
-  \limsup_{t\to\infty}\|P_{\ker H[\psi(t)]}(C[\psi(t)])\|=0.
+  \limsup_{t\to\infty}\|P_{\ker H[\psi(t)]}(C[\psi(t)])\|=0
+  \quad\Longrightarrow\quad
+  \psi(t)\notin\mathcal{M}\;\text{for all large }t.
 \]
-This is a geometric constraint, not an external selection rule.
+By Theorem~\ref{thm:UA}, such persistence cannot occur on any open set.
+Exclusion is a geometric constraint, not an external selection rule.
 \end{lemma}
 
 %% ====================================================================
