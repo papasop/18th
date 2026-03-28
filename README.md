@@ -6,6 +6,12 @@ One axiom (Realizability): a self-consistent variational system does not permit 
 
 From this single axiom, twelve theorems follow. Each theorem has a precise mathematical statement and a structural correspondence to Pure Land Buddhist doctrine.
 
+The paper itself contains a condensed remark noting the structural coincidence. This document expands the twelve correspondences in full.
+
+### Paper Abstract
+
+> What kind of structure must exist in a variational system that forbids the annihilation of all configurations? We show: exactly one — a smooth generative manifold M, universally accessible, permanently retentive, and equipped with infinite cost-free degrees of freedom. From a single realizability axiom, twelve necessary properties of M are derived: access is basin-independent, capture depends on alignment alone, the channel infrastructure is indestructible under any consistent extension, and exclusion is geometrically self-imposed. The manifold is not postulated; it is the unique survivor of structural stability.
+
 ---
 
 ## The Twelve Consequences
@@ -170,3 +176,20 @@ Axiom 1 (Realizability)
 ## One Sentence
 
 One axiom — the universe does not permit the annihilation of all structure — generates a unique, smooth, universally accessible manifold whose twelve mathematical properties correspond, one by one, to the twelve structural features of the Eighteenth Vow and its doctrinal consequences.
+
+---
+
+## Paper Structure (v2)
+
+The paper (9 pages) is organized as:
+
+| Section | Content |
+|---|---|
+| §1 | Axiom + Conjecture |
+| §2 | Algebraic consequences (ker H, indefiniteness, Lorentzian, Morse–Bott, spectral gap) |
+| §3 | Uniqueness + Universal access |
+| §4 | Persistence + Capture mechanism |
+| §5 | Connectedness + Internal structure |
+| §6 | Summary (twelve consequences) + Open questions + Remark on structural coincidence |
+
+The twelve correspondences are noted in a single condensed remark at the end of §6. This README provides the expanded version.
