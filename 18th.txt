@@ -452,18 +452,10 @@ $\varepsilon\|C\|$ was small relative to~$\lambda$.
 A single moment of alignment at~$t_0$ is sufficient for permanent residence
 on~$\mathcal{M}$.
 No sustained effort is required.
+Under Axiom~1(v), this extends to singular separation: since
+$\overline{\mathcal{M}}\cap\Sigma_S=\varnothing$, no trajectory on~$\mathcal{M}$
+can reach the singular set of~$S$.
 \end{remark}
-
-\begin{corollary}[Singular indestructibility]\label{cor:sing}
-Under Axiom~1, no continuous trajectory starting on~$\mathcal{M}$ can reach the
-singular set~$\Sigma_S$ in finite or infinite time.
-\end{corollary}
-
-\begin{proof}
-By Theorem~\ref{thm:persist}, $\psi(t)\in\mathcal{M}$ for all $t\ge t_0$.
-By Axiom~1(v), $\overline{\mathcal{M}}\cap\Sigma_S=\varnothing$,
-so $\mathrm{dist}(\psi(t),\Sigma_S)>0$ for all~$t$.
-\end{proof}
 
 \begin{remark}[Two classes of motion on $\mathcal{M}$]\label{rem:classes}
 Motion on~$\mathcal{M}$ decomposes into:
@@ -664,9 +656,8 @@ The argument yields twelve structural consequences from Axiom~1 alone:
   basin-independent capture from every open set.
 \item \textbf{Indestructible channels} (Thm~\ref{thm:interlock}):
   no consistent extension can close an open channel.
-\item \textbf{Persistence} (Thm~\ref{thm:persist}, Cor~\ref{cor:sing}):
-  a single moment of alignment suffices permanently; no singularity of~$S$
-  can be reached from~$\mathcal{M}$.
+\item \textbf{Persistence} (Thm~\ref{thm:persist}):
+  a single moment of alignment suffices permanently.
 \item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
   alignment, not magnitude, determines access.
 \item \textbf{Global capture chain} (Cor~\ref{cor:GCC}):
