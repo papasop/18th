@@ -438,66 +438,37 @@ We now ask: what happens upon arrival, and how does arrival occur?
 Once a configuration reaches $\mathcal{M}$, it does not leave, even after the external
 channel~$C$ is removed.
 
-\begin{definition}[Caputo fractional derivative]\label{def:caputo}
-For $\psi\in AC^1([t_0,T];\mathcal{F})$ and $\alpha\in(0,1)$,
-\[
-  {}^C\!D^\alpha_t\psi(t)
-  :=\frac{1}{\Gamma(1-\alpha)}\int_{t_0}^{t}
-      \frac{\dot\psi(\tau)}{(t-\tau)^\alpha}\,d\tau,
-  \qquad t>t_0.
-\]
-Unlike local derivatives, ${}^C\!D^\alpha_t$ couples the present to the entire history
-since~$t_0$.  The initial alignment is encoded in the kernel $(t-\tau)^{-\alpha}$ and never
-forgotten.
-\end{definition}
-
-\begin{remark}[Well-posedness]\label{rem:wp}
-We assume local Lipschitz continuity of the right-hand side, so that mild solutions of the
-Caputo evolution exist on~$[t_0,T]$.
-\end{remark}
-
-\begin{definition}[Structural Change Index]\label{def:SCI}
-Let $H(t)$ be the effective structural entropy and
-$\Phi_\alpha(t)=\int_{t_0}^{t}\|{}^C\!D^\alpha_\tau\psi(\tau)\|^2\,d\tau$
-the fractional flux.  The \emph{Structural Change Index} is
-$\mathrm{SCI}(t):=\dfrac{dH/dt}{d\Phi_\alpha/dt}$.
-\end{definition}
-
-\begin{theorem}[Additive structural conservation]\label{thm:SCI}
-If $\mathrm{SCI}(t)=1$ for all $t\ge t_0$, then
-$H(t)=H(t_0)+\Phi_\alpha(t)$.
-Structural entropy tracks fractional flux without dissipation.
-\end{theorem}
-
 \begin{theorem}[Persistence without continuous injection]\label{thm:persist}
 Assume
-\emph{(i)}~$\mathcal{M}$ is invariant for the unforced fractional flow;
+\emph{(i)}~$\mathcal{M}$ is invariant for the unforced gradient flow
+$\partial_t\psi=-\nabla S[\psi]$;
 \emph{(ii)}~transverse directions are $\lambda$-contractive
 (Proposition~\ref{prop:gap} shows $\lambda>0$ follows from Axiom~1).
 For the dynamics
-${}^C\!D^\alpha_t\psi=-\nabla S[\psi]+\varepsilon\,C[\psi]$,
-if $\psi(t_0)\in\mathcal{M}$ and $\mathrm{SCI}(t_0)=1$, then:
+$\partial_t\psi=-\nabla S[\psi]+\varepsilon\,C[\psi]$,
+if $\psi(t_0)\in\mathcal{M}$, then:
 \begin{enumerate}
 \item[\emph{(i)}] $\psi(t)\in\mathcal{M}$ for all $t\ge t_0$.
-\item[\emph{(ii)}] $\mathrm{SCI}(t)=1$ persists under small perturbations.
-\item[\emph{(iii)}] $C$ can be removed after $t>t_0$ without retrogression, provided
+\item[\emph{(ii)}] $C$ can be removed after $t>t_0$ without retrogression, provided
       $\varepsilon\|C\|<\lambda/2$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-The Lyapunov functional $V(t)=\mathrm{dist}(\psi(t),\mathcal{M})^2$ starts at zero.
-Transverse perturbations decay via Mittag-Leffler:
-$V(t)\le V(t_0)\,E_\alpha(-\lambda t^\alpha)\to 0$.
-The decay is algebraic (power-law), not exponential, reflecting long memory.
-The Caputo derivative of a constant is zero, so $\psi$ on~$\mathcal{M}$
-(where $\nabla S=0$) is self-consistent.
+\begin{proof}
+Let $V(t)=\mathrm{dist}(\psi(t),\mathcal{M})^2$.
+On~$\mathcal{M}$, $\nabla S=0$, so the unforced flow is stationary: $\mathcal{M}$~is
+invariant.
+For transverse perturbations, $\lambda$-contractivity gives $\dot V\le-\lambda V$,
+hence $V(t)\le V(t_0)\,e^{-\lambda t}$.
+Since $V(t_0)=0$ (because $\psi(t_0)\in\mathcal{M}$), we have $V(t)=0$ for all $t\ge t_0$.
+When $C$ is removed, the unforced flow on~$\mathcal{M}$ is stationary and the transverse
+restoring force $\lambda>0$ persists, so no retrogression occurs provided the perturbation
+$\varepsilon\|C\|$ was small relative to~$\lambda$.
 \end{proof}
 
 \begin{remark}[What persistence means]\label{rem:persist}
 A single moment of alignment at~$t_0$ is sufficient for permanent residence
 on~$\mathcal{M}$.
-The fractional kernel remembers the initial alignment forever.
 No sustained effort is required.
 \end{remark}
 
