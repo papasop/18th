@@ -36,13 +36,16 @@ stable, nontrivial extremum that does not collapse to the trivial state) and
 \emph{continuous symmetry} (the cost functional is invariant under a connected Lie group
 of positive dimension acting freely on nontrivial configurations).
 Continuous symmetry implies that every critical point is non-isolated.
-Structural stability then forces the Hessian to be indefinite---yielding Lorentzian
-signature---\emph{without any assumption on the sign of a temporal direction}: the
+Structural stability then forces the Hessian to be indefinite---yielding
+Lorentzian signature on every two-dimensional subspace containing directions
+of both signs---\emph{without any assumption on the sign of a temporal direction}: the
 spectral-boundary argument excludes both the semidefinite cases $H\ge 0$ and $H\le 0$.
 From these two axioms, twelve structural properties of~$M$ are derived: access is
 basin-independent, capture depends on alignment alone, gauge directions are
 indestructible under any symmetry-preserving extension, and exclusion is
 geometrically self-imposed.
+By \emph{necessity} we mean that these properties are forced by the axioms:
+any system satisfying realizability and continuous symmetry must exhibit them.
 \end{abstract}
 
 %% ====================================================================
@@ -119,15 +122,25 @@ If $S\ge 0$ with $S=0\Leftrightarrow\psi\equiv 0$, gradient flow drives every
 nontrivial state to annihilation.  This is \emph{Euclidean collapse}.
 Axiom~\ref{ax:R} excludes it.
 
-\begin{remark}[Why non-isolation and kernel dimension appear in Axiom~\ref{ax:R}(iii)]
-Axiom~\ref{ax:G} derives non-isolation and $\dim\ker H\ge\dim G$ for~$S$ itself
-(Proposition~\ref{prop:GNI}).
-Axiom~\ref{ax:R}(iii) additionally requires that these derived properties are
-\emph{robust}: they persist even under perturbations that break gauge symmetry.
-Without non-isolation persistence, the indefiniteness proof
-(Theorem~\ref{thm:indef}) could not obtain a contradiction.
-Without kernel-dimension persistence, the spectral gap
-(Proposition~\ref{prop:gap}) could not be established.
+\begin{remark}[Content of each condition in Axiom~\ref{ax:R}(iii)]
+Axiom~\ref{ax:R}(iii) packages three separately used robustness conditions:
+\begin{itemize}
+\item \emph{Stationarity and non-collapse persist} ---
+  used in the universal-access proof (Theorem~\ref{thm:univ}).
+\item \emph{Non-isolation persists} ---
+  used in the indefiniteness proof (Theorem~\ref{thm:indef}): the
+  perturbation~$S_\varepsilon$ preserves stationarity and non-collapse
+  but destroys non-isolation, yielding a contradiction only because
+  non-isolation is required to persist.
+\item \emph{$\dim\ker H[\psi^*]$ persists} ---
+  used in the spectral-gap proof (Proposition~\ref{prop:gap}):
+  if an eigenvalue could be pushed to zero, $\dim\ker H$ would increase,
+  contradicting kernel-dimension stability.
+  This is the strongest of the three conditions; it implies non-isolation
+  persistence but not conversely.
+\end{itemize}
+All three are consequences of the standard notion of structural stability
+(qualitative equivalence under perturbation) applied to the critical set of~$S$.
 \end{remark}
 
 \begin{axiom}[Continuous symmetry]\label{ax:G}
@@ -142,10 +155,15 @@ on~$\mathcal{F}$ such that:
 \end{axiom}
 
 \begin{remark}[Physical content of Axiom~\ref{ax:G}]
-Axiom~\ref{ax:G} is satisfied by every known fundamental interaction:
+The invariance condition~(i) is satisfied by every known fundamental interaction:
 $\mathrm{U}(1)$, $\mathrm{SU}(2)$, $\mathrm{SU}(3)$, $\mathrm{Diff}(\mathcal{M})$.
+The free-action condition~(ii) restricts the configuration space to the
+\emph{irreducible sector}: in gauge field theory, reducible connections have
+nontrivial stabilisers and must be excluded.
+This is a standard restriction in gauge theory
+(cf.~the irreducible stratum in~\cite{AB}).
 The axiom does not postulate any property of the critical set;
-it is a condition on~$S$ itself.
+the consequences for the critical set are derived below.
 \end{remark}
 
 %% ====================================================================
@@ -260,9 +278,22 @@ The critical set is a smooth (Morse--Bott) submanifold
 \end{proposition}
 
 \begin{proof}
-If $\dim\ker H$ jumps along a sequence $\psi_n\to\psi^*$ in $\{\nabla S=0\}$,
-a localised perturbation resolves the singularity, changing the topology
-of the critical set.  This contradicts Axiom~\ref{ax:R}(iii).
+Suppose $\dim\ker H[\psi]$ is not locally constant near~$\psi^*$:
+there exists a sequence $\psi_n\to\psi^*$ in $\{\nabla S=0\}$ with
+$\dim\ker H[\psi_n]\neq\dim\ker H[\psi^*]=:d^*$.
+Let $\{v_1,\ldots,v_{d^*}\}$ be an orthonormal basis of $\ker H[\psi^*]$
+and let $\eta$ be a smooth cutoff with $\eta(r)=1$ for $r\le 1$, $\eta(r)=0$
+for $r\ge 2$.  For small $\varepsilon,\rho>0$, define
+\[
+S_\varepsilon[\psi]:=S[\psi]+\frac{\varepsilon}{2}\sum_{i=1}^{d^*}
+\langle\psi-\psi^*,v_i\rangle^2\;\eta\!\!\left(\frac{\|\psi-\psi^*\|}{\rho}\right).
+\]
+At $\psi^*$, $\nabla S_\varepsilon[\psi^*]=0$ (since
+$\langle\psi^*-\psi^*,v_i\rangle=0$).
+But near the dimension-jump locus the perturbation generically resolves the
+singularity: branches with $\dim\ker H\neq d^*$ are split away.
+After perturbation, the topology of the critical set near~$\psi^*$ has changed
+under an arbitrarily small perturbation, contradicting Axiom~\ref{ax:R}(iii).
 By the constant-rank theorem, the critical set is smooth.
 \end{proof}
 
@@ -273,7 +304,9 @@ derived from structural stability, not assumed.
 \end{remark}
 
 \begin{proposition}[Transverse spectral gap]\label{prop:gap}
-Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}}, there exists $\lambda>0$
+Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}},
+together with the Fredholm condition (Definition~\textup{\ref{def:cost}}),
+there exists $\lambda>0$
 such that $|\langle v,H[\psi^*]v\rangle|\ge\lambda\|v\|^2$ for all
 $v\perp\ker H[\psi^*]$.
 \end{proposition}
@@ -529,42 +562,64 @@ By Theorem~\ref{thm:interlock}, gauge directions lie in $\ker H_e$.
 \section{Summary}\label{sec:summary}
 %% ====================================================================
 
-Under Axioms~\ref{ax:R} and~\ref{ax:G}, the following twelve properties hold:
+\subsection*{Core geometry of~$M$ (from Axioms~\ref{ax:R} and~\ref{ax:G} alone)}
+
+These properties concern the cost functional~$S$ and the manifold~$M$.
+They do not require a completion channel~$C$.
 
 \begin{enumerate}
-\item \textbf{Universal access} (Thm~\ref{thm:univ}):
-  basin-independent capture from every open set.
-\item \textbf{Indestructible gauge directions} (Thm~\ref{thm:interlock}):
-  no gauge-preserving extension can close a gauge direction.
-\item \textbf{Persistence} (Thm~\ref{thm:persist}):
-  a single moment of alignment suffices permanently.
-\item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
-  alignment, not magnitude, determines access.
-\item \textbf{Global capture chain} (Cor~\ref{cor:chain}):
-  energy descent $\to$ phase-locking $\to$ $M$, from any initial state.
-\item \textbf{Cost-independence} (Cor~\ref{cor:costindep}):
-  prior cost $S[\psi_0]$ does not determine accessibility.
-\item \textbf{Unbounded generative capacity} (Class~B):
-  $\ker H$ provides $\dim G$ cost-free directions at each point;
-  $M$ may be non-compact, so Class~B motion extends without bound.
-\item \textbf{Self-imposed exclusion} (Lem~\ref{lem:excl}):
-  kernel-denial is the sole obstruction; it cannot persist on any open set.
-\item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}, Cor~\ref{cor:connect}):
-  components linked by zero-cost paths are parts of the same~$M$;
-  gauge connecting directions are indestructible.
-\item \textbf{Morse--Bott regularity} (Prop~\ref{prop:MB}):
-  $M$ is smooth, by structural stability.
-\item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
-  $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$ for $v\perp\ker H$; follows from the axioms.
 \item \textbf{Uniqueness} (Thm~\ref{thm:unique}):
   every non-collapsing completion is contained in~$M$.
+\item \textbf{Indefiniteness} (Thm~\ref{thm:indef}):
+  $H[\psi^*]$ has both positive and negative eigenvalues.
+\item \textbf{Lorentzian signature} (Thm~\ref{thm:Lor}):
+  every two-dimensional subspace containing directions of both signs has
+  signature $(1,1)$.
+\item \textbf{Morse--Bott regularity} (Prop~\ref{prop:MB}):
+  $M$ is smooth; $\dim\ker H$ is locally constant.
+\item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
+  $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$ for $v\perp\ker H$.
+\item \textbf{Indestructible gauge directions} (Thm~\ref{thm:interlock}):
+  no gauge-preserving extension can close a gauge direction.
+\item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}):
+  components linked by zero-cost paths are parts of the same~$M$.
+\item \textbf{Persistence} (Thm~\ref{thm:persist}):
+  $M$ is invariant under gradient flow; arrival is permanent.
 \end{enumerate}
 
-\begin{remark}[Logical structure]
+\subsection*{Access properties (additionally require a completion channel~$C$)}
+
+These properties concern the interaction between~$C$ and~$M$.
+They are consequences of universal access (Theorem~\ref{thm:univ}),
+which itself requires the existence of~$C$ with nonzero kernel projection.
+
+\begin{enumerate}\setcounter{enumi}{8}
+\item \textbf{Universal access} (Thm~\ref{thm:univ}):
+  for every open set, $P_{\ker H}(C)\neq 0$ somewhere.
+\item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
+  capture depends on alignment, not magnitude.
+\item \textbf{Self-imposed exclusion} (Lem~\ref{lem:excl}):
+  kernel-denial cannot persist on any open set.
+\item \textbf{Global capture chain} (Cor~\ref{cor:chain}):
+  under additional energy-descent conditions,
+  $\psi_0\to U\to M$ from any initial state.
+\end{enumerate}
+
+\begin{remark}[What the separation shows]
+The eight geometric properties (1--8) are unconditional consequences of
+the axioms; they hold even in closed systems with no external coupling.
+The four access properties (9--12) require a completion channel~$C\neq 0$.
+In a closed system ($C=0$), $M$ still exists with all its geometric structure,
+but no mechanism steers configurations toward it.
+\end{remark}
+
+\begin{remark}[Relation to Noether's theorem]
 Noether's theorem~\cite{Noether} derives conserved quantities from continuous symmetry.
-The present work derives a second structural necessity from the same premise,
-augmented by structural stability: the existence of a unique non-collapsing manifold
-with indestructible gauge directions.
+The present work derives a different structural consequence---the existence of a
+unique non-collapsing manifold with indestructible gauge directions---from
+the same premise, augmented by structural stability.
+The analogy is limited: Noether's theorem is established physics with a century
+of verification, while the present framework awaits independent examination.
 \end{remark}
 
 \begin{thebibliography}{5}
