@@ -186,8 +186,15 @@ of the potential restricted to constant configurations), while high-frequency
 modes have eigenvalue $\lambda_{k}+W>0$ for $k$ large.
 The Hessian is therefore indefinite for any compact~$\Sigma$---consistent
 with Theorem~\ref{thm:indef}.
-Axiom~\ref{ax:R}(ii)--(iv) and Axiom~\ref{ax:G} can be verified by standard
-transversality and elliptic-regularity arguments.
+The transverse spectral gap can be verified independently:
+$-\Delta+W$ on compact~$\Sigma$ has discrete spectrum, and the gap between
+zero (the gauge eigenvalue) and the nearest nonzero eigenvalue is bounded
+below by $\min(|W|,\lambda_{1}(\Sigma))>0$, where $\lambda_{1}$ is the first
+positive eigenvalue of~$-\Delta$.
+This confirms Axiom~\ref{ax:R}(iii) (including $\dim\ker H$ persistence)
+without circularity.
+Axiom~\ref{ax:R}(ii) and~(iv) and Axiom~\ref{ax:G} can be verified by standard
+elliptic-regularity arguments.
 \end{remark}
 
 %% ====================================================================
