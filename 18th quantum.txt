@@ -158,8 +158,7 @@ the range of~$H$ is closed.  Under this condition, the implicit function theorem
 and the constant-rank theorem apply in the standard way, and small perturbations
 cannot change $\dim\ker H$ discontinuously.
 The Fredholm property holds for elliptic operators on compact manifolds,
-which covers all standard gauge field theories
-($\mathrm{U}(1)$, $\mathrm{SU}(2)$, $\mathrm{SU}(3)$, Yang--Mills on compact domains).
+which covers all standard gauge field theories listed under Premise~G.
 \end{remark}
 
 \begin{remark}[What is not assumed]
@@ -189,9 +188,7 @@ the trivial state is never reached.
 \begin{remark}[Scope of non-collapse]
 Non-collapse is a statement about the physical (unitary) dynamics, not about
 the gradient flow.  The gradient flow \emph{would} collapse every state to
-$\psi=0$; unitarity prevents this.  The cost functional~$S$ defines the
-\emph{landscape} of persistence; unitarity determines that this landscape
-is navigated without collapse.
+$\psi=0$; unitarity prevents this.
 \end{remark}
 
 \begin{proposition}[Non-isolation from gauge symmetry]\label{prop:NI}
@@ -427,9 +424,7 @@ $P_{\ker H}(\lambda C)=\lambda\,P_{\ker H}(C)$.
 \end{proof}
 
 \begin{remark}[Physical content of scale invariance]
-The path to~$M$ requires no force, only direction: since capture is invariant
-under rescaling of~$C$, the decisive quantity is the projection
-$P_{\ker H}(C)$, not the magnitude $\|C\|$.
+The path to~$M$ requires no force, only direction.
 \end{remark}
 
 \begin{theorem}[Phase-locking]\label{thm:PL}
@@ -460,7 +455,6 @@ Theorem~\ref{thm:UA} ensures no open region is excluded.
 
 \begin{definition}[Kernel-denial]\label{def:KD}
 $\psi$ exhibits \emph{kernel-denial} if $P_{\ker H[\psi]}(C[\psi])=0$.
-By Theorem~\ref{thm:UA}, this cannot persist on any open set.
 \end{definition}
 
 \begin{lemma}[Exclusion is self-imposed]\label{lem:excl}
