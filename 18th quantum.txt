@@ -50,7 +50,8 @@ Twelve structural properties of~$M$ are derived from the three premises alone.
 Let $\mathcal{F}$ be a real separable Hilbert space with inner product
 $\langle\cdot,\cdot\rangle$ and norm $\|\cdot\|$.  Elements $\psi\in\mathcal{F}$
 are \emph{configurations}.  The zero vector $\psi=0$ represents the trivial
-(non-existent) state.
+(non-existent) state.  The variational calculus on~$\mathcal{F}$ follows
+Palais~\cite{Palais}.
 
 \begin{definition}[Cost functional]\label{def:cost}
 A \emph{cost functional} is a twice Fr\'echet-differentiable map
@@ -265,7 +266,8 @@ The restriction of~$H$ to $\mathrm{span}\{e_+,e_-\}$ has signature $(1,1)$.
 \begin{proposition}[Morse--Bott regularity]\label{prop:MB}
 Under Premises~G and~S, $\dim\ker H[\psi]$ is locally constant on the critical
 set $\{\nabla S=0\}$ near any nontrivial critical point.
-The critical set is a smooth (Morse--Bott) submanifold near such points.
+The critical set is a smooth (Morse--Bott) submanifold near such points
+(cf.~\cite{Morse,Bott}).
 \end{proposition}
 
 \begin{proof}
@@ -275,6 +277,13 @@ resolves the singularity, changing the topology of the critical set.
 This contradicts Premise~S.
 By the constant-rank theorem, the critical set is a smooth submanifold.
 \end{proof}
+
+\begin{remark}[Precedent in gauge theory]
+The Morse--Bott condition for the critical set of a gauge-invariant functional
+was first exploited by Atiyah and Bott~\cite{AB} in the context of Yang--Mills
+theory over Riemann surfaces.  The present setting differs in that the
+Morse--Bott property is not assumed but derived from structural stability.
+\end{remark}
 
 \begin{proposition}[Transverse spectral gap]\label{prop:gap}
 Under Premises~G and~S, there exists $\lambda>0$ such that
@@ -507,11 +516,42 @@ The right side is a necessary consequence.
 \end{remark}
 
 \begin{remark}[Comparison with Noether's theorem]
-Noether's theorem: continuous symmetry $\to$ conserved quantity.
+Noether's theorem~\cite{Noether}: continuous symmetry $\to$ conserved quantity.
 The present work: continuous symmetry $+$ unitarity $+$ structural stability
 $\to$ existence, uniqueness, and universal accessibility of a non-collapsing
 manifold with indestructible cost-free directions.
 Both results are algebraic consequences of the structure of physical law.
 \end{remark}
+
+\begin{thebibliography}{5}
+
+\bibitem{Noether}
+E.~Noether,
+\textit{Invariante Variationsprobleme},
+Nachr.\ d.\ K\"onig.\ Gesellsch.\ d.\ Wiss.\ zu G\"ottingen,
+Math-phys.\ Klasse (1918) 235--257.
+
+\bibitem{Morse}
+M.~Morse,
+\textit{The Calculus of Variations in the Large},
+American Mathematical Society Colloquium Publications, vol.~18,
+AMS, Providence, RI, 1934.
+
+\bibitem{Bott}
+R.~Bott,
+\textit{Nondegenerate critical manifolds},
+Ann.\ of Math.\ \textbf{60} (1954) 248--261.
+
+\bibitem{Palais}
+R.\,S.~Palais,
+\textit{Morse theory on Hilbert manifolds},
+Topology \textbf{2} (1963) 299--340.
+
+\bibitem{AB}
+M.\,F.~Atiyah, R.~Bott,
+\textit{The Yang--Mills equations over Riemann surfaces},
+Philos.\ Trans.\ R.\ Soc.\ Lond.\ A \textbf{308} (1983) 523--615.
+
+\end{thebibliography}
 
 \end{document}
