@@ -38,7 +38,9 @@ assumption on the sign of a temporal direction}---the indefiniteness follows pur
 the spectral-boundary argument applied to both the semidefinite cases $H\ge 0$ and
 $H\le 0$.  The critical set with nontrivial kernel forms a unique smooth Morse--Bott
 manifold~$M$, and no open region of~$\mathcal{F}$ is excluded from access to~$M$.
-Twelve structural properties of~$M$ are derived from the three premises alone.
+Twelve structural properties of~$M$ are derived; eight follow from
+gauge symmetry and structural stability alone, two additionally require
+unitarity, and two require a completion channel.
 \end{abstract}
 
 %% ====================================================================
@@ -55,8 +57,16 @@ Palais~\cite{Palais}.
 
 \begin{definition}[Cost functional]\label{def:cost}
 A \emph{cost functional} is a twice Fr\'echet-differentiable map
-$S:\mathcal{F}\to\mathbb{R}_{\ge 0}$ satisfying $S[\psi]=0$ if and only if
-$\psi=0$.
+$S:\mathcal{F}\to\mathbb{R}_{\ge 0}$ satisfying:
+\begin{itemize}
+\item $S[\psi]=0$ if and only if $\psi=0$;
+\item at every critical point $\psi^*$ ($\nabla S[\psi^*]=0$), the Hessian
+  $H[\psi^*]$ is a Fredholm operator (finite-dimensional kernel, closed range).
+\end{itemize}
+The Fredholm condition ensures that the implicit function theorem and
+the constant-rank theorem apply at critical points, so that the
+perturbation arguments in Sections~\ref{sec:derive}--\ref{sec:unique}
+are rigorous in infinite dimensions.
 \end{definition}
 
 \begin{definition}[Gradient, Hessian, generative manifold]\label{def:derived}
@@ -149,16 +159,6 @@ Premise~S is the assertion that physical law is robust: the qualitative
 structure of the critical set does not depend on the precise form of~$S$.
 This is a standard genericity assumption in dynamical systems and is satisfied
 by every known physical theory.
-\end{remark}
-
-\begin{remark}[When Premise~S holds rigorously]
-In infinite-dimensional settings, Premise~S is satisfied whenever the Hessian
-$H[\psi^*]$ is a Fredholm operator---that is, $\ker H$ is finite-dimensional and
-the range of~$H$ is closed.  Under this condition, the implicit function theorem
-and the constant-rank theorem apply in the standard way, and small perturbations
-cannot change $\dim\ker H$ discontinuously.
-The Fredholm property holds for elliptic operators on compact manifolds,
-which covers all standard gauge field theories listed under Premise~G.
 \end{remark}
 
 \begin{remark}[What is not assumed]
@@ -331,36 +331,41 @@ Therefore $\{\nabla S=0\}\setminus\{0\}=M$, and $M'\subset M$.
 \end{proof}
 
 \begin{theorem}[Universal access]\label{thm:UA}
-Under Premises~U, G, and~S: for every open set $U\subset\mathcal{F}$,
-there exists $\psi\in U$ with $\|P_{\ker H[\psi]}(C[\psi])\|>0$.
-No open region is excluded from access to~$M$.
+Under Premises~U and~G, $M$ is the unique non-collapsing completion
+(Theorem~\ref{thm:unique}).
+If a completion channel~$C$ satisfies $P_{\ker H[\psi]}(C[\psi])=0$ for all~$\psi$
+in some open set~$U$, then configurations in~$U$ can neither reach~$M$
+(no kernel alignment) nor collapse to $\psi=0$ (unitarity).
+Their only remaining fate is indefinite persistence at non-critical configurations.
+
+Consequently, if the system does not admit such indefinite non-critical persistence---for
+instance, if every orbit of the full dynamics $\partial_t\psi=A[\psi]+\varepsilon\,C[\psi]$
+has an accumulation point in $\{\nabla S=0\}$---then
+$P_{\ker H[\psi]}(C[\psi])\neq 0$ for some~$\psi$ in every open set.
+Access to~$M$ is then basin-independent.
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm:unique}, $M$ is the unique non-collapsing completion.
-Suppose an open set~$U$ satisfies $P_{\ker H[\psi]}(C[\psi])=0$ for all
-$\psi\in U$.  Then no configuration in~$U$ can be captured by~$M$.
-Since $M$ is the \emph{unique} non-collapsing completion, configurations
-in~$U$ have no non-collapsing destination: their only remaining fate
-under the cost-functional landscape is collapse toward $\psi=0$.
-But Premise~U (unitarity) preserves $\|\psi(t)\|=\|\psi(0)\|>0$
-for all nontrivial initial states.
-Hence configurations in~$U$ can neither reach~$M$ nor collapse to
-$\psi=0$---a contradiction, since every nontrivial state must either
-persist at a critical point (which lies in~$M$ by Theorem~\ref{thm:unique})
-or evolve under the unitary dynamics, which preserves~$\|\psi\|$.
-No such~$U$ can exist.
+By Theorem~\ref{thm:unique}, $\{\nabla S=0\}\setminus\{0\}=M$.
+Suppose $P_{\ker H[\psi]}(C[\psi])=0$ for all $\psi\in U$.
+Then no configuration in~$U$ is steered toward~$M$ by the channel~$C$.
+Premise~U preserves $\|\psi(t)\|=\|\psi(0)\|>0$, forbidding collapse.
+If the orbit of any $\psi_0\in U$ has an accumulation point in $\{\nabla S=0\}$,
+that accumulation point lies in~$M$ (by Theorem~\ref{thm:unique}).
+But approach to~$M$ requires $P_{\ker H}(C)\neq 0$ along the trajectory,
+contradicting the assumption.
+Hence no accumulation point in $\{\nabla S=0\}$ exists for orbits in~$U$:
+all configurations in~$U$ persist indefinitely at non-critical points.
+If the dynamics excludes such indefinite non-critical persistence, the
+assumption fails, and access from~$U$ to~$M$ is possible.
 \end{proof}
 
-\begin{remark}[How the two dynamics interact in the proof]
-The proof uses the cost functional and unitarity in complementary roles.
-The cost functional provides the landscape: $M$ is the unique non-collapsing
-completion, so there is no alternative destination.
-Unitarity provides the constraint: $\|\psi\|$ is conserved, so collapse
-to $\psi=0$ is forbidden.
-Together, they force every region to have access to~$M$.
-Neither premise alone suffices: without unitarity, collapse is possible;
-without the cost functional, there is no distinguished~$M$.
+\begin{remark}[The role of~$C$ in universal access]
+Universal access is not a pure consequence of U, G, and~S: it requires the
+completion channel~$C$ to have nonzero kernel projection on a dense set.
+What U, G, and~S \emph{do} guarantee is that $M$ is the unique destination
+and collapse is forbidden.  The channel~$C$ provides the mechanism; the
+premises provide the uniqueness and the obstruction to alternatives.
 \end{remark}
 
 \begin{theorem}[Indestructibility of cost-free directions]\label{thm:interlock}
@@ -492,53 +497,90 @@ By Theorem~\ref{thm:interlock}, $\ker H_e^{\psi\psi}\supseteq\ker H$.
 \end{proof}
 
 %% ====================================================================
-\section{The Twelve Structural Properties}\label{sec:twelve}
+\section{Structural Properties of~$M$}\label{sec:twelve}
 %% ====================================================================
 
-Under Premises~U, G, and~S, the following twelve properties of~$M$ hold.
-Each is a theorem; none is an axiom.
+We classify the structural properties of~$M$ according to which inputs they require.
+
+\subsection*{Properties following from G and S alone}
+
+These require no unitarity and no completion channel.
 
 \begin{enumerate}
-\item \textbf{Universal access} (Thm~\ref{thm:UA}):
-  basin-independent capture from every open set.
-\item \textbf{Indestructible channels} (Thm~\ref{thm:interlock}):
-  no consistent extension can close an open channel.
-\item \textbf{Persistence} (Thm~\ref{thm:persist}):
-  a single moment of alignment suffices permanently.
-\item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
-  alignment, not magnitude, determines access.
-\item \textbf{Global capture chain} (Cor~\ref{cor:chain}):
-  energy descent $\to$ phase-locking $\to$ $M$, from any initial state.
-\item \textbf{Cost-independence}:
-  prior cost $S[\psi_0]$ does not determine accessibility.
-\item \textbf{Infinite generative bandwidth} (Class~B):
-  non-compactified $\ker H$ gives unbounded zero-cost degrees of freedom.
-\item \textbf{Self-imposed exclusion} (Lem~\ref{lem:excl}):
-  kernel-denial is the sole obstruction; it cannot persist on any open set.
-\item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}, Cor~\ref{cor:connect}):
-  components linked by zero-cost paths are parts of the same~$M$;
-  connecting directions are indestructible.
-\item \textbf{Morse--Bott regularity} (Prop~\ref{prop:MB}):
-  $M$ is smooth, by structural stability.
-\item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
-  $\lambda$-contractivity follows from the premises.
 \item \textbf{Uniqueness} (Thm~\ref{thm:unique}):
-  gauge symmetry forces $\{\nabla S=0\}\setminus\{0\}=M$.
+  $\{\nabla S=0\}\setminus\{0\}=M$.  There is exactly one non-collapsing completion.
+\item \textbf{Indefiniteness} (Thm~\ref{thm:indef}):
+  $H[\psi^*]$ has both positive and negative eigenvalues.
+\item \textbf{Lorentzian signature} (Thm~\ref{thm:Lor}):
+  every two-dimensional subspace containing a positive and a negative direction has
+  signature $(1,1)$.
+\item \textbf{Morse--Bott regularity} (Prop~\ref{prop:MB}):
+  $M$ is a smooth submanifold; $\dim\ker H$ is locally constant.
+\item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
+  transverse $\lambda$-contractivity with $\lambda>0$.
+\item \textbf{Indestructible channels} (Thm~\ref{thm:interlock}):
+  $\ker H_e^{\psi\psi}\supseteq\ker H$ for every consistent extension.
+\item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}, Cor~\ref{cor:connect}):
+  components linked by zero-cost paths belong to the same~$M$;
+  connecting directions are indestructible.
+\item \textbf{Infinite generative bandwidth}:
+  non-compactified $\ker H$ gives unbounded zero-cost degrees of freedom (Class~B).
 \end{enumerate}
 
+\subsection*{Properties requiring unitarity (U)}
+
+\begin{enumerate}\setcounter{enumi}{8}
+\item \textbf{Non-collapse} (Prop~\ref{prop:NC}):
+  $\|\psi(t)\|=\|\psi(0)\|>0$; the trivial state is unreachable.
+\item \textbf{Persistence} (Thm~\ref{thm:persist}):
+  a single moment of alignment at~$t_0$ suffices permanently;
+  $\lambda$-contractivity prevents departure.
+\end{enumerate}
+
+\subsection*{Properties requiring the completion channel ($C$)}
+
+These additionally require the existence of a completion channel with
+appropriate kernel overlap (see Theorem~\ref{thm:UA} and the subsequent Remark).
+
+\begin{enumerate}\setcounter{enumi}{10}
+\item \textbf{Universal access} (Thm~\ref{thm:UA}):
+  if the dynamics excludes indefinite non-critical persistence, then
+  $P_{\ker H}(C)\neq 0$ somewhere in every open set.
+\item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
+  the path to~$M$ requires no force, only direction.
+\end{enumerate}
+
+\begin{remark}[What the classification shows]
+Eight properties follow from gauge symmetry and structural stability alone,
+without any dynamical input.  These include uniqueness, Lorentzian signature,
+smoothness, and indestructibility---the core geometric structure of~$M$.
+Unitarity adds non-collapse and persistence.  The completion channel adds
+the access theorems.  The paper does not claim that all properties follow
+from U, G, and~S alone; it claims that each property has a precisely
+identified source.
+\end{remark}
+
 \begin{remark}[Logical structure and comparison with Noether's theorem]
-The twelve properties follow from a chain whose every link is established physics:
 \[
-\underbrace{\text{Unitarity}}_{\text{Premise U}}
-+\underbrace{\text{Gauge symmetry}}_{\text{Premise G}}
+\underbrace{\text{Gauge symmetry}}_{\text{Premise G}}
 +\underbrace{\text{Structural stability}}_{\text{Premise S}}
 \;\longrightarrow\;
-M\text{ exists, is unique, and is universally accessible.}
+M\text{ exists, is unique, Lorentzian, smooth, and indestructible.}
+\]
+\[
++\;\underbrace{\text{Unitarity}}_{\text{Premise U}}
+\;\longrightarrow\;
+\text{non-collapse and persistence.}
+\]
+\[
++\;\underbrace{\text{Completion channel}}_{\text{Framework}}
+\;\longrightarrow\;
+\text{universal access and scale-invariant capture.}
 \]
 Noether's theorem~\cite{Noether} derives conserved quantities from continuous symmetry.
 The present work derives a second structural necessity from the same premise,
-augmented by unitarity and structural stability: the existence of a unique
-non-collapsing manifold with indestructible cost-free directions.
+augmented by structural stability: the existence of a unique non-collapsing
+manifold with indestructible cost-free directions.
 \end{remark}
 
 \begin{thebibliography}{5}
