@@ -37,10 +37,15 @@ set forces the Hessian to be indefinite (yielding Lorentzian signature) \emph{wi
 assumption on the sign of a temporal direction}---the indefiniteness follows purely from
 the spectral-boundary argument applied to both the semidefinite cases $H\ge 0$ and
 $H\le 0$.  The critical set with nontrivial kernel forms a unique smooth Morse--Bott
-manifold~$M$, and no open region of~$\mathcal{F}$ is excluded from access to~$M$.
+manifold~$M$: its existence, uniqueness, Lorentzian signature, smoothness, and
+indestructibility are unconditional consequences of gauge symmetry and structural stability.
+Access to~$M$ requires additional dynamical structure (a completion channel and the
+exclusion of indefinite non-critical persistence).
 Twelve structural properties of~$M$ are derived; eight follow from
 gauge symmetry and structural stability alone, two additionally require
 unitarity, and two require a completion channel.
+By \emph{necessity} we mean the existence and geometric properties of~$M$, not the
+claim that every configuration enters~$M$.
 \end{abstract}
 
 %% ====================================================================
