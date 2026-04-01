@@ -155,11 +155,12 @@ Hence $G\cdot\psi^*\subset\{\nabla S=0\}$.
 The action is free (Axiom~\ref{ax:G}(ii)), so the orbit map is an immersion:
 $\dim(G\cdot\psi^*)=\dim G\ge 1$.
 
-Differentiating $S[\exp(t\xi)\cdot\psi^*]=S[\psi^*]$ twice at $t=0$ gives
-$\langle\xi_\mathcal{F}(\psi^*),H[\psi^*]\xi_\mathcal{F}(\psi^*)\rangle=0$
+Differentiating $\nabla S[\exp(t\xi)\cdot\psi^*]=0$ at $t=0$ gives
+$H[\psi^*]\xi_\mathcal{F}(\psi^*)=0$
 for all $\xi\in\mathfrak{g}$, where
 $\xi_\mathcal{F}(\psi^*)=\frac{d}{dt}\big|_{t=0}\exp(t\xi)\cdot\psi^*$
 is the infinitesimal generator at~$\psi^*$.
+(Here we use $\nabla S[g\cdot\psi^*]=0$ for all $g$, not merely $S[g\cdot\psi^*]=\mathrm{const}$.)
 Since the action is free, $\xi\mapsto\xi_\mathcal{F}(\psi^*)$ is injective,
 so $\ker H[\psi^*]$ contains a subspace of dimension $\ge\dim G$.
 \end{proof}
@@ -225,10 +226,10 @@ needing the sign of any particular direction.
 \end{remark}
 
 \begin{theorem}[Lorentzian signature]\label{thm:Lor}
-Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}}, there exist $e_+,e_-$
-with $\langle e_+,He_+\rangle>0$ and $\langle e_-,He_-\rangle<0$.
+Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}}, there exist $e_+,e_-\in\mathcal{F}$
+with $\langle e_+,H[\psi^*]e_+\rangle>0$ and $\langle e_-,H[\psi^*]e_-\rangle<0$.
 On $\mathrm{span}\{e_+,e_-\}$ the signature is $(1,1)$: Lorentzian.
-The null cone $\mathcal{L}=\{\delta\psi:\langle\delta\psi,H\delta\psi\rangle=0\}$
+The null cone $\mathcal{L}=\{\delta\psi:\langle\delta\psi,H[\psi^*]\delta\psi\rangle=0\}$
 defines causal structure.
 \end{theorem}
 
@@ -309,14 +310,16 @@ No such~$U$ can exist.
 \end{proof}
 
 \begin{theorem}[Indestructibility of cost-free directions]\label{thm:interlock}
-For any consistent extension $S_e=S+R$ with $H^{\psi\psi}_e\ge 0$ near~$M$,
-$\ker H^{\psi\psi}_e\supseteq\ker H$.
+For any consistent extension $S_e=S+R$ of the cost functional, write
+$H_e[\psi^*]$ for the Hessian of~$S_e$ at~$\psi^*$.
+If $H_e[\psi^*]\ge 0$ near~$M$, then
+$\ker H_e[\psi^*]\supseteq\ker H[\psi^*]$.
 No consistent modification can close a channel that is open.
 \end{theorem}
 
 \begin{proof}
-If $v\in\ker H$ and $H^{\psi\psi}_e v\neq 0$, then
-$\langle v,H^{\psi\psi}_e v\rangle>0$, contradicting $\langle v,Hv\rangle=0$.
+If $v\in\ker H[\psi^*]$ and $H_e[\psi^*] v\neq 0$, then
+$\langle v,H_e[\psi^*] v\rangle>0$, contradicting $\langle v,H[\psi^*]v\rangle=0$.
 \end{proof}
 
 \begin{remark}[Analogy with topological protection]
@@ -370,12 +373,25 @@ $P_{\ker H}(\lambda C)=\lambda\,P_{\ker H}(C)$.
 The path to~$M$ requires no force, only direction.
 \end{remark}
 
+\begin{definition}[Uniform kernel overlap]\label{def:UKO}
+$C$ has \emph{uniform kernel overlap} on~$U$ if
+$\|P_{\ker H[\psi]}(C[\psi])\|/\|C[\psi]\|\ge\delta^*>0$
+for all $\psi\in U$ with $C[\psi]\neq 0$.
+\end{definition}
+
+\begin{definition}[Kernel-projected coherence]\label{def:KPC}
+Fix $\psi^\star\in M$ and a unit vector $u^\star\in\ker H[\psi^\star]$.
+The coherence of~$C$ at~$\psi$ is
+$\kappa(\psi;C):=|\langle u^\star,P_{\ker H[\psi]}(C[\psi])\rangle|/\|P_{\ker H[\psi]}(C[\psi])\|$
+when $P_{\ker H[\psi]}(C[\psi])\neq 0$, and $\kappa=0$ otherwise.
+\end{definition}
+
 \begin{theorem}[Phase-locking]\label{thm:PL}
 Under (i)~$\lambda$-contractivity, (ii)~neutrality along $\ker H$,
 (iii)~uniform kernel overlap on~$U$,
 (iv)~$\dot{S}\le-\sigma<0$ outside~$U$:
-there exists finite~$\tau_{\mathrm{lock}}$ after which the kernel-projected
-coherence satisfies $\kappa\ge\kappa^*/2$.
+if $\kappa(\psi_0;C)\ge\kappa^*>0$, there exists finite~$\tau_{\mathrm{lock}}$
+after which the kernel-projected coherence satisfies $\kappa\ge\kappa^*/2$.
 \end{theorem}
 
 \begin{proof}[Proof outline]
@@ -423,11 +439,11 @@ every point has $\dim\ker H>0$, hence $\gamma\subset M$.
 
 \begin{corollary}[Indestructibility of connecting directions]\label{cor:connect}
 If $v\in\ker H[\psi]$ is tangent to a Class~B path connecting two components
-of~$M$, then $v\in\ker H^{\psi\psi}_e$ for every consistent extension.
+of~$M$, then $v\in\ker H_e[\psi^*]$ for every consistent extension with $H_e\ge 0$.
 \end{corollary}
 
 \begin{proof}
-By Theorem~\ref{thm:interlock}, $\ker H^{\psi\psi}_e\supseteq\ker H$.
+By Theorem~\ref{thm:interlock}, $\ker H_e[\psi^*]\supseteq\ker H[\psi^*]$.
 \end{proof}
 
 %% ====================================================================
