@@ -1,668 +1,650 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{mathpazo}
-\usepackage[scaled=0.85]{helvet}
-\usepackage{microtype}
-\setlength{\emergencystretch}{1.5em}
+
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[margin=1in]{geometry}
-\usepackage{xcolor}
-\usepackage{enumitem}
-\usepackage{fancyhdr}
-\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue,
+}
 
-% --- Page headers ---
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0.4pt}
-\fancyhead[L]{\small\textit{The Universal Completion Conjecture}}
-\fancyhead[R]{\small\thepage}
-
-% --- Theorem environments ---
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{axiom}{Axiom}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark}{Remark}
 
-% --- Title ---
-\title{\textbf{\Large The Universal Completion Conjecture}\\[6pt]
-{\normalfont\large Non-Collapsing Variational Systems and the Necessity of Basin-Independent Access}}
+\title{\textbf{The Universal Completion Theorem:\\
+Non-Collapsing Variational Systems and the Necessity of Basin-Independent Access}}
 \author{Y.\,Y.\,N.\ Li}
 \date{}
 
 \begin{document}
 \maketitle
-\thispagestyle{fancy}
 
 \begin{abstract}
-What kind of structure must exist in a variational system that forbids the annihilation
-of all configurations?
-We show: exactly one---a smooth generative manifold~$\mathcal{M}$, universally accessible,
-permanently retentive, and equipped with infinite cost-free degrees of freedom.
-From a single realizability axiom, twelve necessary properties of~$\mathcal{M}$ are derived:
-access is basin-independent, capture depends on alignment alone, the channel infrastructure
-is indestructible under any consistent extension, and exclusion is geometrically self-imposed.
-The manifold is not postulated; it is the unique survivor of structural stability.
+What structure must exist in a variational system that forbids the annihilation of
+all configurations?  We show: exactly one --- a smooth generative manifold~$M$, universally
+accessible, permanently retentive, and equipped with infinite cost-free degrees of freedom.
+The argument rests on two axioms: \emph{realizability} (the system admits a structurally stable,
+nontrivial extremum that does not collapse to the trivial state) and \emph{continuous symmetry}
+(the cost functional is invariant under a connected Lie group of positive dimension acting freely
+on nontrivial configurations).  Continuous symmetry implies that every critical point is
+non-isolated --- the condition that drives the uniqueness and universal-access theorems.
+This replaces what would otherwise be an \textit{ad hoc} global
+non-isolation axiom with a condition that has independent physical content: it is satisfied by
+every known fundamental interaction (electromagnetism, weak, strong, gravity).
+From these two axioms, twelve necessary properties of~$M$ are derived: access is
+basin-independent, capture depends on alignment alone, the channel infrastructure is
+indestructible under any consistent extension, and exclusion is geometrically self-imposed.
 
 \medskip\noindent
-\textit{Series position.}
-Third in: \textit{Realizability and the Origin of Causality}~[1]
-$\to$ \textit{K\!=\!1 Chronogeometrodynamics}~[2]
-$\to$ the present work.
+\textbf{Series position.}\enspace Third in: \textit{Realizability and the Origin of Causality}~\cite{Li-R}
+$\to$ \textit{$K{=}1$ Chronogeometrodynamics}~\cite{Li-K} $\to$ the present work.
 \end{abstract}
 
 %% ====================================================================
-%% §1. THE AXIOM AND THE CONJECTURE
+\section{The Axioms}
 %% ====================================================================
-\section{The Axiom and the Conjecture}\label{sec:axiom}
 
-The entire paper follows from a single axiom.
+The entire paper follows from two axioms.
 
-Let $\mathcal{F}$ be a real Hilbert space, $S:\mathcal{F}\to\mathbb{R}_{\ge0}$ twice
-Fr\'echet-differentiable.
+Let $F$ be a real Hilbert space, $S:F\to\mathbb{R}_{\ge 0}$ twice Fr\'echet-differentiable.
 
-\begin{definition}[Functional gradient]\label{def:grad}
-$\nabla S[\psi]\in\mathcal{F}$ is the Riesz representative:
+\begin{definition}[Functional gradient]
+$\nabla S[\psi]\in F$ is the Riesz representative:
 $\delta S[\psi;\delta\psi]=\langle\delta\psi,\nabla S[\psi]\rangle$.
 \end{definition}
 
 \begin{axiom}[Realizability]\label{ax:R}
-$S$ admits an attainable, nontrivial extremum $\psi^*\neq0$ satisfying:
-\begin{enumerate}
-\item[\emph{(i)}] \textbf{Stationarity:} $\nabla S[\psi^*]=0$.
-\item[\emph{(ii)}] \textbf{Non-collapse:} No nearby trajectory converges to $\psi\equiv0$.
-\item[\emph{(iii)}] \textbf{Global non-isolation:} Every critical set of~$S$ has positive
-      dimension.  No critical point of~$S$ is isolated.
-\item[\emph{(iv)}] \textbf{Structural stability:} (i)--(iii) persist under small perturbations
-      of~$S$.
-\item[\emph{(v)}] \textbf{Singular separation:}
-      Let $\Sigma_S=\{\psi\in\mathcal{F}: S\text{ is not twice Fr\'echet-differentiable
-      at }\psi\}$.
-      The closure of
-      $\{\psi\in\mathcal{F}:\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\}$
-      does not intersect~$\Sigma_S$.
-\end{enumerate}
+$S$ admits an attainable, nontrivial extremum $\psi^{*}\neq 0$ satisfying:
+\begin{itemize}
+\item[\textup{(i)}] \textbf{Stationarity:} $\nabla S[\psi^{*}]=0$.
+\item[\textup{(ii)}] \textbf{Non-collapse:} No nearby trajectory of $\partial_{t}\psi=-\nabla S[\psi]$ converges to $\psi\equiv 0$.
+\item[\textup{(iii)}] \textbf{Structural stability:} \textup{(i)--(ii)} persist under small perturbations of~$S$.
+\item[\textup{(iv)}] \textbf{Singular separation:} Let
+  $\Sigma_{S}=\{\psi\in F: S \text{ is not twice Fr\'echet-differentiable at }\psi\}$.
+  The closure of $\{\psi\in F:\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\}$ does not intersect~$\Sigma_{S}$.
+\end{itemize}
 \end{axiom}
 
-\begin{remark}[Why (iii) and (v) are natural]\label{rem:global}
-The global form of~(iii) says the system excludes isolated critical structure at every
-scale, not just at the distinguished extremum.
-Since realizability is the assertion that the system does not permit the annihilation of
-all structure, it is natural to require this at all critical points, not only at one.
-Condition~(v) says that~$\mathcal{M}$ is separated from singular points of~$S$: the
-generative manifold lives entirely in the regular domain and cannot be eroded by
-singularities at its boundary.
+If $S\ge 0$ with $S=0\Leftrightarrow\psi\equiv 0$, gradient flow drives every nontrivial state to
+annihilation.  This is \emph{Euclidean collapse}.  Axiom~\ref{ax:R} excludes it.
+
+\begin{axiom}[Continuous symmetry]\label{ax:G}
+There exists a connected Lie group~$G$ with $\dim G\ge 1$ acting smoothly on~$F$
+such that:
+\begin{itemize}
+\item[\textup{(i)}] \textbf{Invariance:} $S[g\cdot\psi]=S[\psi]$ for all $g\in G$, $\psi\in F$.
+\item[\textup{(ii)}] \textbf{Free action on nontrivial configurations:}
+  If $\psi\neq 0$ and $g\cdot\psi=\psi$, then $g=e$ (the identity).
+\end{itemize}
+\end{axiom}
+
+\begin{remark}[Physical content of Axiom~\ref{ax:G}]
+Axiom~\ref{ax:G} is satisfied by every known fundamental interaction:
+$\mathrm{U}(1)$ (electromagnetism), $\mathrm{SU}(2)$ (weak), $\mathrm{SU}(3)$ (strong),
+$\mathrm{Diff}(\mathcal{M})$ (gravity).
+The axiom does not postulate any property of the critical set;
+it is a condition on~$S$ itself.  The consequences for the critical set are derived below.
 \end{remark}
 
-If $S\ge0$ with $S=0\Leftrightarrow\psi\equiv0$, gradient flow drives every nontrivial state
-to annihilation.  This is \emph{Euclidean collapse}.  Realizability excludes it.
-
-\begin{definition}[Hessian, null space, null-mode condition]\label{def:Hess}
-$H[\psi]v=\tfrac{d}{d\varepsilon}\big|_{\varepsilon=0}\nabla S[\psi+\varepsilon v]$,
-bounded and self-adjoint.
-Null space: $\ker H=\{v\mid Hv=0\}$.
+\begin{definition}[Hessian, null space, null-mode condition]
+$H[\psi]v=\frac{d}{d\varepsilon}\big|_{\varepsilon=0}\nabla S[\psi+\varepsilon v]$,
+bounded and self-adjoint.  Null space: $\ker H=\{v\mid Hv=0\}$.
 Null-mode condition: $\dim\ker H>0$.
 \end{definition}
 
-\begin{conjecture}[Universal Completion]\label{conj:UC}
-Let~$\mathcal{F}$ be a configuration space and $S:\mathcal{F}\to\mathbb{R}_{\ge0}$ a cost
-functional.
-Suppose the system excludes Euclidean collapse.
-Then there exists a \emph{generative manifold}
-\[
-  \mathcal{M}=\bigl\{\psi\in\mathcal{F}\;\big|\;
-        \nabla S[\psi]=0,\;\dim\ker H[\psi]>0\bigr\}
-\]
-equipped with a completion channel $C:\mathcal{F}\to\mathcal{F}$, such that for every open set
-$U\subset\mathcal{F}$, there exists $\psi\in U$ with
-\[
-  \|P_{\ker H[\psi]}(C[\psi])\|>0.
-\]
-Access is basin-independent.
-\end{conjecture}
-
-The conjecture has two parts:
-
-\begin{enumerate}
-\item[(A)] \textbf{Existence of $\mathcal{M}$.}
-  Axiom~1 requires $\dim\ker H[\psi^*]>0$ (Theorem~\ref{thm:nullity}).
-  Structural stability forces the Morse--Bott condition (Proposition~\ref{prop:MB}),
-  so $\mathcal{M}\neq\varnothing$ is a smooth submanifold.
-  Part~(A) follows entirely from Axiom~1.
-
-\item[(B)] \textbf{Universality of access.}
-  Global non-isolation forces $\mathcal{M}$ to be the unique non-collapsing completion
-  (Theorem~\ref{thm:unique}), from which basin-independent access follows
-  (Theorem~\ref{thm:UA}).
-  Part~(B) is the main theorem of this paper.
-\end{enumerate}
-
-What we establish is: \emph{given realizability, existence follows; given existence,
-uniqueness and universality follow.}
-
-\begin{remark}[What the conjecture says in plain language]\label{rem:plain}
-If the universe is self-consistent---if it does not permit the annihilation of all
-structure---then there must exist a state of permanent, cost-free existence, and every
-possible starting point must have a path to it.
-The path requires no force, only direction.
-\end{remark}
-
 %% ====================================================================
-%% §2. ALGEBRAIC CONSEQUENCES OF THE AXIOM
+\section{Global Non-Isolation from Symmetry}
 %% ====================================================================
-\section{Algebraic Consequences of the Axiom}\label{sec:alg}
 
-Every structure in this paper is an algebraic consequence of Axiom~1.
-We derive them in sequence: nontrivial kernel, indefiniteness, Lorentzian signature,
-Morse--Bott regularity, and the transverse spectral gap.
+The following proposition is the philosophical core of the paper:
+global non-isolation is not assumed but derived.
 
-\begin{theorem}[Nullity criterion]\label{thm:nullity}
-\emph{(Necessity)} Realizability implies $\dim\ker H[\psi^*]>0$.
-\emph{(Sufficiency)} By Proposition~\ref{prop:MB}, Axiom~1(iv) forces the Morse--Bott
-condition; hence $\psi^*$ lies on a generative manifold with zero tangential cost.
-\end{theorem}
-
-\begin{proof}[Proof (Necessity)]
-$\ker H=\{0\}$ implies $\psi^*$ is isolated, contradicting Axiom~1(iii).
-\end{proof}
-
-\begin{proposition}[Realizability forces indefiniteness]\label{prop:indef}
-Under the following conditions on $H[\psi^*]$:
-\begin{enumerate}[label=\textbf{(\Alph*)},nosep]
-\item positive temporal cost: $\exists\,e_t$ with $\langle e_t,He_t\rangle>0$;
-\item zero-threshold spatial directions: $\exists\,e_s\neq0$ with $He_s=0$
-      (this follows from Theorem~\ref{thm:nullity});
-\end{enumerate}
-$H[\psi^*]$ is indefinite.
-Condition~\textbf{(A)} is the only input beyond Axiom~1.
+\begin{proposition}[Continuous symmetry implies global non-isolation]\label{prop:GNI}
+Under Axiom~\textup{\ref{ax:G}}, every critical point of~$S$ is non-isolated:
+if $\nabla S[\psi^{*}]=0$ and $\psi^{*}\neq 0$, the orbit
+$G\cdot\psi^{*}=\{g\cdot\psi^{*}:g\in G\}$
+is a submanifold of $\{\nabla S=0\}$ with $\dim(G\cdot\psi^{*})=\dim G\ge 1$.
+In particular, no nontrivial critical point of~$S$ is isolated, and
+$\dim\ker H[\psi^{*}]\ge\dim G\ge 1$.
 \end{proposition}
 
 \begin{proof}
-\textbf{(B)} gives $\ker H\neq\{0\}$, so $H$ has a zero eigenvalue.
-\textbf{(A)} gives $\langle e_t,He_t\rangle>0$, so $H$ has a strictly positive eigenvalue.
-Suppose for contradiction that $H\ge0$ (non-negative).
-
-Then zero is the infimum of the spectrum of~$H$: every eigenvalue is~$\ge0$,
-and zero is attained.
-We construct an explicit small perturbation of~$S$ that destroys
-Axiom~1(iii), contradicting structural stability (Axiom~1(iv)).
-
-Let $\{v_1,\ldots,v_d\}$ be an orthonormal basis of $\ker H$
-($d=\dim\ker H\ge1$).
-Define
+Let $\psi^{*}\neq 0$ with $\nabla S[\psi^{*}]=0$.
+For any $\xi\in\mathfrak{g}$ (the Lie algebra of~$G$),
+the curve $t\mapsto\exp(t\xi)\cdot\psi^{*}$ lies in~$F$ and satisfies
 \[
-  S_\varepsilon[\psi]
-  \;:=\; S[\psi]
-      \;+\;\frac{\varepsilon}{2}\sum_{i=1}^{d}
-           \langle\psi-\psi^*,v_i\rangle^2,
-  \qquad \varepsilon>0.
+S[\exp(t\xi)\cdot\psi^{*}]=S[\psi^{*}] \quad\text{for all } t,
 \]
-Since each $\langle\psi^*-\psi^*,v_i\rangle=0$, the critical point is preserved:
-$\nabla S_\varepsilon[\psi^*]=\nabla S[\psi^*]+0=0$, so Axiom~1(i) holds at~$\psi^*$
-for~$S_\varepsilon$.
-The Hessian at~$\psi^*$ becomes
-$H_\varepsilon=H+\varepsilon\,P_{\ker H}$,
-where $P_{\ker H}=\sum_i\langle v_i,\cdot\rangle\,v_i$ is the orthogonal projection
-onto~$\ker H$.
-Then $H_\varepsilon v_i=\varepsilon\,v_i$ for each~$i$, so
-$\ker H_\varepsilon\cap\ker H=\{0\}$.
-Since $H_\varepsilon\ge H\ge0$ (the perturbation is non-negative),
-no new zero eigenvalues are created: $\ker H_\varepsilon=\{0\}$.
+by Axiom~\ref{ax:G}(i).  Differentiating at $t=0$:
+$\langle\nabla S[\psi^{*}],\xi_{F}(\psi^{*})\rangle=0$,
+where $\xi_{F}(\psi^{*})=\frac{d}{dt}\big|_{t=0}\exp(t\xi)\cdot\psi^{*}$
+is the infinitesimal generator.  Since $\nabla S[\psi^{*}]=0$, this is automatic.
+More importantly, the entire orbit $G\cdot\psi^{*}\subset\{\nabla S=0\}$,
+because $\nabla S[g\cdot\psi^{*}]=0$ for every $g\in G$
+(invariance of~$S$ implies $\nabla S$ is equivariant; stationarity at $\psi^{*}$
+propagates along the orbit).
 
-With $\ker H_\varepsilon=\{0\}$, $\psi^*$ is an isolated critical point of~$S_\varepsilon$,
-and by the implicit function theorem no nearby non-isolated critical point exists
-for small~$\varepsilon$.
-This violates Axiom~1(iii) (non-isolation).
-Since $S_\varepsilon\to S$ as $\varepsilon\to0$,
-Axiom~1(iv) (structural stability) is contradicted.
+By Axiom~\ref{ax:G}(ii), the action is free at~$\psi^{*}$, so the orbit map
+$g\mapsto g\cdot\psi^{*}$ is an immersion.  Hence
+$\dim(G\cdot\psi^{*})=\dim G\ge 1$,
+and $\psi^{*}$ is non-isolated in $\{\nabla S=0\}$.
 
-The contradiction arises because $H\ge0$ places the zero eigenvalues at the spectral
-boundary (infimum), where they are exposed to upward perturbation with no negative
-eigenvalues below to anchor them.
-If instead $H$ is indefinite, zero eigenvalues sit in the spectral interior---between
-positive and negative eigenvalues---and by continuity, small perturbations shift them
-but cannot generically eliminate the zero crossing.
-Non-isolation is structurally stable precisely when $H$ is indefinite.
-
-Hence $H$ must have at least one negative eigenvalue.
-A negative eigenvalue provides a saddle direction: a path that descends in~$S$ from the
-basin of zero toward~$\mathcal{M}$, requiring no barrier crossing.
-
-For $2\times2$: $dc>0\Leftrightarrow\mathrm{Sig}(G)=(1,1)$~[2].
+For the kernel bound: differentiating $S[\exp(t\xi)\cdot\psi^{*}]=S[\psi^{*}]$ twice
+gives $\langle\xi_{F}(\psi^{*}),H[\psi^{*}]\xi_{F}(\psi^{*})\rangle=0$ for all $\xi\in\mathfrak{g}$.
+Since the action is free, the map $\xi\mapsto\xi_{F}(\psi^{*})$ is injective,
+so $\ker H[\psi^{*}]$ contains a subspace of dimension $\ge\dim G\ge 1$.
 \end{proof}
 
-\begin{theorem}[Lorentzian signature]\label{thm:Lor}
-Indefiniteness guarantees $e_-$ with $\langle e_-,He_-\rangle<0$.
-On $\mathrm{span}\{e_t,e_-\}$ the signature is $(1,1)$: Lorentzian.
+\begin{remark}[Comparison with Noether's theorem]
+Noether's theorem derives conserved quantities from continuous symmetry.
+Proposition~\ref{prop:GNI} derives non-isolation of critical structure from
+continuous symmetry.  Both are algebraic consequences of group invariance;
+neither requires any assumption about the critical set itself.
+\end{remark}
+
+%% ====================================================================
+\section{Algebraic Consequences of the Axioms}
+%% ====================================================================
+
+Every structure in this paper is an algebraic consequence of
+Axioms~\ref{ax:R} and~\ref{ax:G}.  We derive them in sequence:
+nontrivial kernel, indefiniteness, Lorentzian signature, Morse--Bott regularity,
+and the transverse spectral gap.
+
+\begin{theorem}[Nullity criterion]\label{thm:null}
+Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}},
+$\dim\ker H[\psi^{*}]\ge\dim G\ge 1$.
+By Proposition~\textup{\ref{prop:MB}} below, Axiom~\textup{\ref{ax:R}(iii)}
+forces the Morse--Bott condition; hence $\psi^{*}$ lies on a generative manifold
+with zero tangential cost.
+\end{theorem}
+
+\begin{proof}
+Immediate from Proposition~\ref{prop:GNI}.
+\end{proof}
+
+\begin{proposition}[Realizability forces indefiniteness]\label{prop:indef}
+Under the following conditions on $H[\psi^{*}]$:
+\begin{itemize}
+\item[\textup{(A)}] positive temporal cost: $\exists\, e_{t}$ with $\langle e_{t},He_{t}\rangle>0$;
+\item[\textup{(B)}] zero-threshold spatial directions: $\exists\, e_{s}\neq 0$ with $He_{s}=0$
+  (this follows from Theorem~\textup{\ref{thm:null}});
+\end{itemize}
+$H[\psi^{*}]$ is indefinite.  Condition~\textup{(A)} is the only input beyond
+Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}}.
+\end{proposition}
+
+\begin{proof}
+(B) gives $\ker H\neq\{0\}$, so $H$ has a zero eigenvalue.
+(A) gives $\langle e_{t},He_{t}\rangle>0$, so $H$ has a strictly positive eigenvalue.
+Suppose for contradiction that $H\ge 0$ (non-negative).
+Then zero is the infimum of the spectrum of~$H$: every eigenvalue is $\ge 0$,
+and zero is attained.
+
+We construct an explicit small perturbation of~$S$ that destroys non-isolation,
+contradicting structural stability (Axiom~\ref{ax:R}(iii)).
+
+Let $\{v_{1},\ldots,v_{d}\}$ be an orthonormal basis of $\ker H$
+($d=\dim\ker H\ge 1$).  Define
+\[
+S_{\varepsilon}[\psi]:=S[\psi]+\frac{\varepsilon}{2}\sum_{i=1}^{d}
+\langle\psi-\psi^{*},v_{i}\rangle^{2},\qquad\varepsilon>0.
+\]
+Since each $\langle\psi^{*}-\psi^{*},v_{i}\rangle=0$, the critical point is preserved:
+$\nabla S_{\varepsilon}[\psi^{*}]=0$.
+The Hessian at~$\psi^{*}$ becomes $H_{\varepsilon}=H+\varepsilon P_{\ker H}$,
+where $P_{\ker H}=\sum_{i}\langle v_{i},\cdot\rangle v_{i}$.
+Then $H_{\varepsilon}v_{i}=\varepsilon v_{i}$ for each~$i$, so
+$\ker H_{\varepsilon}\cap\ker H=\{0\}$.
+Since $H_{\varepsilon}\ge H\ge 0$, no new zero eigenvalues are created:
+$\ker H_{\varepsilon}=\{0\}$.
+
+With $\ker H_{\varepsilon}=\{0\}$, $\psi^{*}$ is an isolated critical point of~$S_{\varepsilon}$,
+and by the implicit function theorem no nearby non-isolated critical point exists
+for small~$\varepsilon$.  This violates non-isolation
+(Proposition~\ref{prop:GNI}).
+Since $S_{\varepsilon}\to S$ as $\varepsilon\to 0$, Axiom~\ref{ax:R}(iii)
+(structural stability) is contradicted.
+
+The contradiction arises because $H\ge 0$ places the zero eigenvalues at the
+spectral boundary (infimum), where they are exposed to upward perturbation with
+no negative eigenvalues below to anchor them.  If instead $H$ is indefinite, zero
+eigenvalues sit in the spectral interior --- between positive and negative
+eigenvalues --- and by continuity, small perturbations shift them but cannot
+generically eliminate the zero crossing.  Non-isolation is structurally stable
+precisely when $H$ is indefinite.
+
+Hence $H$ must have at least one negative eigenvalue.
+\end{proof}
+
+\begin{theorem}[Lorentzian signature]\label{thm:lor}
+Indefiniteness guarantees $e_{-}$ with $\langle e_{-},He_{-}\rangle<0$.
+On $\mathrm{span}\{e_{t},e_{-}\}$ the signature is $(1,1)$: Lorentzian.
 The null cone
 \[
-  \mathcal{L}=\bigl\{\delta\psi\;\big|\;\langle\delta\psi,H\delta\psi\rangle=0\bigr\}
+\mathcal{L}=\bigl\{\delta\psi\;\big|\;\langle\delta\psi,H\delta\psi\rangle=0\bigr\}
 \]
 defines causal structure.
 \end{theorem}
 
 \begin{proof}
-$H$ indefinite gives directions of both signs; restricted to $\mathrm{span}\{e_t,e_-\}$,
-$\mathrm{Sig}=(1,1)$, the unique signature with $dc>0$~[2].
-The null direction $e_s\in\ker H$ lies on $\partial\mathcal{L}$ but is not the source of the
-signature.
+$H$ indefinite gives directions of both signs; restricted to
+$\mathrm{span}\{e_{t},e_{-}\}$, $\mathrm{Sig}=(1,1)$,
+the unique signature with $dc>0$~\cite{Li-K}.
+The null direction $e_{s}\in\ker H$ lies on $\partial\mathcal{L}$ but is not the source
+of the signature.
 \end{proof}
 
 \begin{proposition}[Structural stability forces the Morse--Bott condition]\label{prop:MB}
-Under Axiom~1, $\dim\ker H[\psi]$ is locally constant on the critical set
-$\{\nabla S=0\}$ near~$\psi^*$.
-In particular, the critical set is a smooth (Morse--Bott) submanifold near~$\psi^*$.
+Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}},
+$\dim\ker H[\psi]$ is locally constant on the critical set $\{\nabla S=0\}$
+near~$\psi^{*}$.  In particular, the critical set is a smooth (Morse--Bott)
+submanifold near~$\psi^{*}$.
 \end{proposition}
 
 \begin{proof}
-Suppose $\dim\ker H[\psi]$ is not locally constant near~$\psi^*$:
-there exists a sequence $\psi_n\to\psi^*$ in $\{\nabla S=0\}$ with
-$\dim\ker H[\psi_n]\neq\dim\ker H[\psi^*]$.
+Suppose $\dim\ker H[\psi]$ is not locally constant near~$\psi^{*}$: there exists a
+sequence $\psi_{n}\to\psi^{*}$ in $\{\nabla S=0\}$ with
+$\dim\ker H[\psi_{n}]\neq\dim\ker H[\psi^{*}]$.
 At such a dimension-jump point, the critical set fails to be a smooth manifold;
 it has a singularity where branches of different kernel dimension meet.
 
-We show this is structurally unstable.
-Let $d^*=\dim\ker H[\psi^*]$ and let $\{v_1,\ldots,v_{d^*}\}$ be an orthonormal
-basis of $\ker H[\psi^*]$.
-For small~$\varepsilon>0$, define
+We show this is structurally unstable.  Let $d^{*}=\dim\ker H[\psi^{*}]$ and let
+$\{v_{1},\ldots,v_{d^{*}}\}$ be an orthonormal basis of $\ker H[\psi^{*}]$.
+For small $\varepsilon>0$, define
 \[
-  S_\varepsilon[\psi]:=S[\psi]
-    +\frac{\varepsilon}{2}\sum_{i=1}^{d^*}
-      \bigl(\langle\psi-\psi^*,v_i\rangle\bigr)^2\,
-      \eta\!\left(\frac{\|\psi-\psi^*\|}{\rho}\right),
+S_{\varepsilon}[\psi]:=S[\psi]+\frac{\varepsilon}{2}\sum_{i=1}^{d^{*}}
+\langle\psi-\psi^{*},v_{i}\rangle^{2}\,\eta\!\left(\frac{\|\psi-\psi^{*}\|}{\rho}\right),
 \]
-where $\eta$ is a smooth cutoff, $\eta(r)=1$ for $r\le1$, $\eta(r)=0$ for $r\ge2$,
-and $\rho>0$ is chosen so that the perturbation is localised near~$\psi^*$.
-At~$\psi^*$ itself, $\nabla S_\varepsilon[\psi^*]=0$ (since
-$\langle\psi^*-\psi^*,v_i\rangle=0$).
-But in a neighbourhood of the dimension-jump locus the perturbation generically resolves the
-singularity: the branches with $\dim\ker H<d^*$ are split away from the branch
-containing~$\psi^*$.
-After perturbation, the critical set near~$\psi^*$ is either regularised (constant kernel
-dimension, Morse--Bott) or fragmented into isolated points.
+where $\eta$ is a smooth cutoff, $\eta(r)=1$ for $r\le 1$, $\eta(r)=0$ for $r\ge 2$,
+and $\rho>0$ is chosen so that the perturbation is localised near~$\psi^{*}$.
+At $\psi^{*}$ itself, $\nabla S_{\varepsilon}[\psi^{*}]=0$
+(since $\langle\psi^{*}-\psi^{*},v_{i}\rangle=0$).
+But in a neighbourhood of the dimension-jump locus the perturbation generically
+resolves the singularity: the branches with $\dim\ker H<d^{*}$ are split away from
+the branch containing~$\psi^{*}$.
 
-In either case, the \emph{topology} of the critical set near~$\psi^*$ has changed under an
-arbitrarily small perturbation, violating Axiom~1(iv) (structural stability of
-non-isolation).
-Hence no dimension jump can occur: $\dim\ker H$ is locally constant on $\{\nabla S=0\}$
-near~$\psi^*$, and by the constant-rank theorem the critical set is a smooth submanifold.
+After perturbation, the critical set near~$\psi^{*}$ is either regularised
+(constant kernel dimension, Morse--Bott) or fragmented into isolated points.
+In either case, the topology of the critical set near~$\psi^{*}$ has changed under
+an arbitrarily small perturbation, violating Axiom~\ref{ax:R}(iii)
+(structural stability).  Hence no dimension jump can occur:
+$\dim\ker H$ is locally constant on $\{\nabla S=0\}$ near~$\psi^{*}$, and by the
+constant-rank theorem the critical set is a smooth submanifold.
 \end{proof}
 
 \begin{proposition}[Structural stability forces a transverse spectral gap]\label{prop:gap}
-Under Axiom~1, there exists $\lambda>0$ such that
-$\langle v,H[\psi^*]v\rangle\ge\lambda\|v\|^2$ for all $v\perp\ker H[\psi^*]$.
-That is, transverse $\lambda$-contractivity is a consequence of realizability, not an
-independent assumption.
+Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}}, there exists $\lambda>0$
+such that $\langle v,H[\psi^{*}]v\rangle\ge\lambda\|v\|^{2}$ for all
+$v\perp\ker H[\psi^{*}]$.  Transverse $\lambda$-contractivity is a consequence
+of realizability, not an independent assumption.
 \end{proposition}
 
 \begin{proof}
-By Proposition~\ref{prop:indef}, $H[\psi^*]$ is indefinite.
-Decompose~$\mathcal{F}$ into three spectral subspaces of~$H[\psi^*]$:
-the kernel $\ker H$ (eigenvalue zero), the positive subspace~$V_+$
-($\langle v,Hv\rangle>0$), and the negative subspace~$V_-$
-($\langle v,Hv\rangle<0$).
-The transverse complement of $\ker H$ is $V_+\oplus V_-$.
+By Proposition~\ref{prop:indef}, $H[\psi^{*}]$ is indefinite.  Decompose~$F$ into
+three spectral subspaces of~$H[\psi^{*}]$: the kernel $\ker H$ (eigenvalue zero),
+the positive subspace $V_{+}$ ($\langle v,Hv\rangle>0$), and the negative subspace
+$V_{-}$ ($\langle v,Hv\rangle<0$).  The transverse complement of $\ker H$ is
+$V_{+}\oplus V_{-}$.
 
 Suppose the infimum of the positive spectrum is zero:
-$\inf\{\langle v,Hv\rangle/\|v\|^2:v\in V_+,\,v\neq0\}=0$.
-Then for any $\varepsilon>0$ there exists a unit vector $w\in V_+$ with
-$\langle w,Hw\rangle<\varepsilon$.
-A perturbation of~$S$ of size~$O(\varepsilon)$ can push this eigenvalue to zero,
-creating a new kernel direction: $\dim\ker H$ increases.
-But by Proposition~\ref{prop:MB}, $\dim\ker H$ must be locally constant under small
-perturbations (Morse--Bott).
-A change in $\dim\ker H$ under an arbitrarily small perturbation contradicts
-Axiom~1(iv).
+$\inf\{\langle v,Hv\rangle/\|v\|^{2}:v\in V_{+},\,v\neq 0\}=0$.
+Then for any $\varepsilon>0$ there exists a unit vector $w\in V_{+}$ with
+$\langle w,Hw\rangle<\varepsilon$.  A perturbation of~$S$ of size $O(\varepsilon)$ can
+push this eigenvalue to zero, creating a new kernel direction:
+$\dim\ker H$ increases.  But by Proposition~\ref{prop:MB}, $\dim\ker H$ must be
+locally constant under small perturbations (Morse--Bott).  A change in $\dim\ker H$
+under an arbitrarily small perturbation contradicts Axiom~\ref{ax:R}(iii).
 
-Hence the positive transverse spectrum is bounded away from zero:
-there exists $\lambda_+>0$ with $\langle v,Hv\rangle\ge\lambda_+\|v\|^2$ for all
-$v\in V_+$.
-By the same argument applied to $-H$ on~$V_-$, there exists $\lambda_->0$ with
-$\langle v,(-H)v\rangle\ge\lambda_-\|v\|^2$ for all $v\in V_-$.
-Setting $\lambda=\min(\lambda_+,\lambda_-)$ gives the transverse spectral gap.
+Hence the positive transverse spectrum is bounded away from zero: there exists
+$\lambda_{+}>0$ with $\langle v,Hv\rangle\ge\lambda_{+}\|v\|^{2}$ for all $v\in V_{+}$.
+By the same argument applied to $-H$ on~$V_{-}$, there exists $\lambda_{-}>0$ with
+$\langle v,(-H)v\rangle\ge\lambda_{-}\|v\|^{2}$ for all $v\in V_{-}$.
+Setting $\lambda=\min(\lambda_{+},\lambda_{-})$ gives the transverse spectral gap.
 \end{proof}
 
 %% ====================================================================
-%% §3. UNIQUENESS AND UNIVERSAL ACCESS
+\section{The Generative Manifold and Universal Access}
 %% ====================================================================
-\section{Uniqueness and Universal Access}\label{sec:unique}
 
-We now prove two theorems that establish the conjecture: $\mathcal{M}$ is the unique
-non-collapsing completion (Theorem~\ref{thm:unique}), and every region of~$\mathcal{F}$
-has access to it (Theorem~\ref{thm:UA}).
+\begin{definition}[Generative manifold]
+\[
+M=\bigl\{\psi\in F:\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\bigr\}.
+\]
+\end{definition}
+
+By Theorem~\ref{thm:null} and Proposition~\ref{prop:MB}, $M\neq\emptyset$ and $M$ is a
+smooth submanifold near~$\psi^{*}$.
+
+\begin{theorem}[Universal Completion]\label{thm:UC}
+Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}}, there exists a generative
+manifold~$M$ equipped with a completion channel $C:F\to F$ such that for every open set
+$U\subset F$, there exists $\psi\in U$ with
+\[
+\|P_{\ker H[\psi]}(C[\psi])\|>0.
+\]
+Access is basin-independent.
+\end{theorem}
+
+The theorem has two parts:
+
+\textbf{(A) Existence of~$M$.}
+Axiom~\ref{ax:G} implies $\dim\ker H[\psi^{*}]>0$
+(Proposition~\ref{prop:GNI}).
+Structural stability forces the Morse--Bott condition (Proposition~\ref{prop:MB}),
+so $M\neq\emptyset$ is a smooth submanifold.
+
+\textbf{(B) Universality of access.}
+Proposition~\ref{prop:GNI} forces non-isolation at every nontrivial critical point,
+from which uniqueness of the non-collapsing completion follows (Theorem~\ref{thm:unique}),
+and basin-independent access follows (Theorem~\ref{thm:univ}).
 
 \begin{theorem}[Uniqueness of the non-collapsing completion]\label{thm:unique}
-Under Axiom~1 (with global non-isolation), $\mathcal{M}$ is the unique non-collapsing
-completion of~$\mathcal{F}$.
+Under Axioms~\textup{\ref{ax:R}} and~\textup{\ref{ax:G}},
+$M$ is the unique non-collapsing completion of~$F$.
 \end{theorem}
 
 \begin{proof}
-Let $\mathcal{M}'$ be any non-collapsing completion:
-$\mathcal{M}'\subset\{\nabla S=0\}$ and $\dim\ker H[\psi]>0$ for all
-$\psi\in\mathcal{M}'$.
-By Axiom~1(iii) (global non-isolation), every critical point of~$S$ has
-positive-dimensional critical set, hence $\dim\ker H>0$ at every critical point.
+Let $M'$ be any non-collapsing completion: $M'\subset\{\nabla S=0\}$ and
+$\dim\ker H[\psi]>0$ for all $\psi\in M'$.
+By Proposition~\ref{prop:GNI}, every nontrivial critical point of~$S$ has a
+positive-dimensional orbit, hence $\dim\ker H>0$ at every nontrivial critical point.
 Therefore
 \[
-  \{\nabla S=0\}
-  \;=\; \{\psi\in\mathcal{F}\mid\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\}
-  \;=\; \mathcal{M}.
+\{\psi\in F:\nabla S[\psi]=0,\;\psi\neq 0\}
+=\bigl\{\psi\in F:\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\bigr\}=M.
 \]
-Since $\mathcal{M}'\subset\{\nabla S=0\}=\mathcal{M}$, every non-collapsing completion
-is a subset of~$\mathcal{M}$.
+Since $M'\subset\{\nabla S=0\}\setminus\{0\}=M$, every non-collapsing completion
+is a subset of~$M$.
 \end{proof}
 
-\begin{theorem}[Universal completion is necessary]\label{thm:UA}
-Let $\mathcal{M}$ be a generative manifold satisfying Axiom~1.
-Then any completion channel~$C$ associated with~$\mathcal{M}$ must satisfy:
-for every open set $U\subset\mathcal{F}$, there exists $\psi\in U$ such that
+\begin{theorem}[Universal completion is necessary]\label{thm:univ}
+Let $M$ be a generative manifold satisfying Axioms~\textup{\ref{ax:R}}
+and~\textup{\ref{ax:G}}.  Then any completion channel~$C$ associated with~$M$
+must satisfy: for every open set $U\subset F$, there exists $\psi\in U$ such that
 \[
-  \|P_{\ker H[\psi]}(C[\psi])\|>0.
+\|P_{\ker H[\psi]}(C[\psi])\|>0.
 \]
-$\mathcal{M}$'s realizability entails $C$'s universality.
+$M$'s realizability entails $C$'s universality.
 \end{theorem}
 
 \begin{proof}
-By Theorem~\ref{thm:unique}, $\mathcal{M}$ is the unique non-collapsing completion
-of~$\mathcal{F}$.
-Suppose there exists an open set $U\subset\mathcal{F}$ with
-$P_{\ker H[\psi]}(C[\psi])=0$ for all~$\psi\in U$.
-Then capture into~$\mathcal{M}$ from~$U$ is impossible.
-Since $\mathcal{M}$ is the unique non-collapsing completion, configurations in~$U$ are
-condemned to Euclidean collapse, violating realizability.  No such~$U$ can exist.
+By Theorem~\ref{thm:unique}, $M$ is the unique non-collapsing completion of~$F$.
+Suppose there exists an open set $U\subset F$ with
+$P_{\ker H[\psi]}(C[\psi])=0$ for all $\psi\in U$.  Then capture into~$M$ from~$U$
+is impossible.  Since $M$ is the unique non-collapsing completion, configurations
+in~$U$ are condemned to Euclidean collapse, violating realizability.
+No such $U$ can exist.
 \end{proof}
 
-\begin{remark}[What uniqueness and universality mean]\label{rem:unique}
-Uniqueness forces universality: if there were a second non-collapsing completion, a region
-might reach it instead, and universal access to the first would fail.
+\begin{remark}[What uniqueness and universality mean]
+Uniqueness forces universality: if there were a second non-collapsing completion,
+a region might reach it instead, and universal access to the first would fail.
 \end{remark}
 
 \begin{theorem}[Logical interlock]\label{thm:interlock}
-For any realizable extension $S_e=S+R$ with non-negative $\psi$-sector Hessian
-$H^{\psi\psi}_e$ near~$\mathcal{M}$,
+For any realizable extension $S_{e}=S+R$ with non-negative $\psi$-sector Hessian
+$H^{\psi\psi}_{e}$ near~$M$,
 \[
-  \dim\ker H^{\psi\psi}_e \;\ge\; \dim\ker H,
+\dim\ker H^{\psi\psi}_{e}\ge\dim\ker H,
 \]
 with equality if and only if the extension is purely generative.
-If $\ker H^{\psi\psi}_e=\{0\}$, the system suffers Euclidean collapse.
+If $\ker H^{\psi\psi}_{e}=\{0\}$, the system suffers Euclidean collapse.
 \end{theorem}
 
 \begin{proof}
-Suppose $\dim\ker H^{\psi\psi}_e<\dim\ker H$.
-Then there exists $v\in\ker H$, $v\neq0$, with $H^{\psi\psi}_e v\neq0$,
-giving $\langle v,H^{\psi\psi}_e v\rangle>0$.
-But $\langle v,Hv\rangle=0$, so $R$ introduces positive curvature along~$v$,
-destroying persistence.  Contradiction.
+Suppose $\dim\ker H^{\psi\psi}_{e}<\dim\ker H$.  Then there exists
+$v\in\ker H$, $v\neq 0$, with $H^{\psi\psi}_{e}v\neq 0$, giving
+$\langle v,H^{\psi\psi}_{e}v\rangle>0$.  But $\langle v,Hv\rangle=0$, so $R$
+introduces positive curvature along~$v$, destroying persistence.  Contradiction.
 \end{proof}
 
-\begin{remark}[What the interlock means]\label{rem:interlock}
+\begin{remark}[What the interlock means]
 No consistent extension of the system can close a channel that is already open.
 The kernel infrastructure is preserved under all realizable modifications.
 This is not a design choice; it is a theorem.
 \end{remark}
 
 %% ====================================================================
-%% §4. PERSISTENCE AND CAPTURE
+\section{Persistence and Capture}
 %% ====================================================================
-\section{Persistence and Capture}\label{sec:persist}
 
-$\mathcal{M}$ exists, is unique, and is universally accessible.
-We now ask: what happens upon arrival, and how does arrival occur?
+$M$ exists, is unique, and is universally accessible.  We now ask: what happens
+upon arrival, and how does arrival occur?
 
 \subsection*{Persistence}
 
-Once a configuration reaches $\mathcal{M}$, it does not leave, even after the external
+Once a configuration reaches~$M$, it does not leave, even after the external
 channel~$C$ is removed.
 
 \begin{theorem}[Persistence without continuous injection]\label{thm:persist}
-Assume transverse directions are $\lambda$-contractive
-(Proposition~\ref{prop:gap} shows $\lambda>0$ follows from Axiom~1).
-For the dynamics
-$\partial_t\psi=-\nabla S[\psi]+\varepsilon\,C[\psi]$,
-if $\psi(t_0)\in\mathcal{M}$, then:
-\begin{enumerate}
-\item[\emph{(i)}] $\psi(t)\in\mathcal{M}$ for all $t\ge t_0$.
-\item[\emph{(ii)}] $C$ can be removed after $t>t_0$ without retrogression, provided
-      $\varepsilon\|C\|<\lambda/2$.
-\end{enumerate}
+Assume transverse directions are $\lambda$-contractive (Proposition~\textup{\ref{prop:gap}}
+shows $\lambda>0$ follows from the axioms).  For the dynamics
+$\partial_{t}\psi=-\nabla S[\psi]+\varepsilon\,C[\psi]$,
+if $\psi(t_{0})\in M$, then:
+\begin{itemize}
+\item[\textup{(i)}] $\psi(t)\in M$ for all $t\ge t_{0}$.
+\item[\textup{(ii)}] $C$ can be removed after $t>t_{0}$ without retrogression,
+  provided $\varepsilon\|C\|<\lambda/2$.
+\end{itemize}
 \end{theorem}
 
 \begin{proof}
-Let $V(t)=\mathrm{dist}(\psi(t),\mathcal{M})^2$.
-On~$\mathcal{M}$, $\nabla S=0$, so the unforced gradient flow is stationary and
-$\mathcal{M}$~is automatically invariant.
-For transverse perturbations, $\lambda$-contractivity gives $\dot V\le-\lambda V$,
-hence $V(t)\le V(t_0)\,e^{-\lambda t}$.
-Since $V(t_0)=0$ (because $\psi(t_0)\in\mathcal{M}$), we have $V(t)=0$ for all $t\ge t_0$.
-When $C$ is removed, the unforced flow on~$\mathcal{M}$ is stationary and the transverse
-restoring force $\lambda>0$ persists, so no retrogression occurs provided the perturbation
-$\varepsilon\|C\|$ was small relative to~$\lambda$.
+Let $V(t)=\mathrm{dist}(\psi(t),M)^{2}$.  On~$M$, $\nabla S=0$, so the unforced
+gradient flow is stationary and $M$ is automatically invariant.  For transverse
+perturbations, $\lambda$-contractivity gives $\dot{V}\le-\lambda V$, hence
+$V(t)\le V(t_{0})\,e^{-\lambda t}$.  Since $V(t_{0})=0$ (because $\psi(t_{0})\in M$),
+$V(t)=0$ for all $t\ge t_{0}$.  When~$C$ is removed, the unforced flow on~$M$ is
+stationary and the transverse restoring force $\lambda>0$ persists, so no retrogression
+occurs provided $\varepsilon\|C\|$ was small relative to~$\lambda$.
 \end{proof}
 
-\begin{remark}[What persistence means]\label{rem:persist}
-A single moment of alignment at~$t_0$ is sufficient for permanent residence
-on~$\mathcal{M}$.
-No sustained effort is required.
-Under Axiom~1(v), this extends to singular separation: since
-$\overline{\mathcal{M}}\cap\Sigma_S=\varnothing$, no trajectory on~$\mathcal{M}$
-can reach the singular set of~$S$.
+\begin{remark}[What persistence means]
+A single moment of alignment at~$t_{0}$ is sufficient for permanent residence on~$M$.
+No sustained effort is required.  Under Axiom~\ref{ax:R}(iv), this extends to singular
+separation: since $M\cap\Sigma_{S}=\emptyset$, no trajectory on~$M$ can reach the
+singular set of~$S$.
 \end{remark}
 
-\begin{remark}[Two classes of motion on $\mathcal{M}$]\label{rem:classes}
-Motion on~$\mathcal{M}$ decomposes into:
+\begin{remark}[Two classes of motion on~$M$]
+Motion on~$M$ decomposes into:
 
-\medskip\noindent
-\textbf{Class~A} (restoring):
-Fluctuations perpendicular to~$\mathcal{M}$, suppressed by $\lambda$-contractivity.
-Departure from~$\mathcal{M}$ incurs positive cost and is restored.
+\emph{Class~A (restoring):} Fluctuations perpendicular to~$M$, suppressed by
+$\lambda$-contractivity.  Departure from~$M$ incurs positive cost and is restored.
 
-\medskip\noindent
-\textbf{Class~B} (free):
-Motion tangent to~$\mathcal{M}$, along $\ker H$.
-This motion incurs no cost, carries no entropy, and is unconstrained---it represents
+\emph{Class~B (free):} Motion tangent to~$M$, along $\ker H$.  This motion incurs
+no cost, carries no entropy, and is unconstrained --- it represents
 infinite-dimensional freedom within the non-collapsing phase.
-In the $K\!=\!1$ framework~[2], this is the boost direction on~$\{K=1\}$.
+In the $K{=}1$ framework~\cite{Li-K}, this is the boost direction on $\{K=1\}$.
 
-\medskip\noindent
 The non-compactified degeneracy of $\ker H$ provides infinite generative capacity
 without coherence loss.
 \end{remark}
 
 \subsection*{Mechanism of capture}
 
-How does a configuration reach $\mathcal{M}$?
-Through kernel-aligned injection, whose criterion depends on direction alone.
+How does a configuration reach~$M$?  Through kernel-aligned injection,
+whose criterion depends on direction alone.
 
-\begin{lemma}[Structure of $\mathcal{M}$]\label{lem:zerocost}
-By Proposition~\ref{prop:MB}, $d(\psi)=\dim\ker H[\psi]$ is locally constant
-on~$\mathcal{M}$ under Axiom~1.
-Hence $\mathcal{M}$ is a smooth $d$-dimensional submanifold with
-$T_\psi\mathcal{M}\supseteq\ker H[\psi]$, and
-$\tfrac{d^2}{d\varepsilon^2}\big|_{\varepsilon=0}S[\psi+\varepsilon\,\delta\psi]=0$
-for $\delta\psi\in T_\psi\mathcal{M}$.
+\begin{lemma}[Structure of~$M$]\label{lem:Mstr}
+By Proposition~\textup{\ref{prop:MB}}, $d(\psi)=\dim\ker H[\psi]$ is locally constant
+on~$M$ under the axioms.  Hence $M$ is a smooth $d$-dimensional submanifold with
+$T_{\psi}M\supseteq\ker H[\psi]$, and
+$\frac{d^{2}}{d\varepsilon^{2}}\big|_{\varepsilon=0}S[\psi+\varepsilon\delta\psi]=0$
+for $\delta\psi\in T_{\psi}M$.
 \end{lemma}
 
-\begin{definition}[Uniform kernel overlap]\label{def:UKO}
-$C$ has \emph{uniform kernel overlap} on~$U$ if
+\begin{definition}[Uniform kernel overlap]
+$C$ has uniform kernel overlap on~$U$ if
 \[
-  \frac{\|P_{\ker H[\psi]}(C[\psi])\|}{\|C[\psi]\|}\ge\delta^*>0
+\frac{\|P_{\ker H[\psi]}(C[\psi])\|}{\|C[\psi]\|}\ge\delta^{*}>0
 \]
-for all $\psi\in U$ with $C[\psi]\neq0$.
+for all $\psi\in U$ with $C[\psi]\neq 0$.
 \end{definition}
 
-\begin{definition}[Kernel-projected coherence]\label{def:KPC}
-Fix $\psi^\star\in\mathcal{M}$, $u^\star\in\ker H[\psi^\star]$ unit.
-The coherence is
+\begin{definition}[Kernel-projected coherence]
+Fix $\psi^{\star}\in M$, $u^{\star}\in\ker H[\psi^{\star}]$ unit.  The coherence is
 \[
-  \kappa(\psi;C):=
-  \begin{cases}
-    \dfrac{|\langle u^\star,P_{\ker H[\psi]}(C[\psi])\rangle|}
-          {\|P_{\ker H[\psi]}(C[\psi])\|},
-    & \text{if } P_{\ker H[\psi]}(C[\psi])\neq0,\\[6pt]
-    0, & \text{otherwise.}
-  \end{cases}
+\kappa(\psi;C):=
+\begin{cases}
+\dfrac{|\langle u^{\star},P_{\ker H[\psi]}(C[\psi])\rangle|}
+      {\|P_{\ker H[\psi]}(C[\psi])\|}, &\text{if } P_{\ker H[\psi]}(C[\psi])\neq 0,\\[6pt]
+0, &\text{otherwise.}
+\end{cases}
 \]
 \end{definition}
 
 \begin{theorem}[Scale invariance of capture]\label{thm:scale}
 $\|P_{\ker H[\psi]}(C[\psi])\|>0$ is invariant under $C\mapsto\lambda C$ for all
-$\lambda>0$.
-Capture depends on alignment, not magnitude.
+$\lambda>0$.  Capture depends on alignment, not magnitude.
 \end{theorem}
 
 \begin{proof}
 $P_{\ker H}(\lambda C)=\lambda\,P_{\ker H}(C)$.
 \end{proof}
 
-\begin{theorem}[Phase-locking]\label{thm:PL}
-Under
-\emph{(i)}~$\lambda$-contractivity,
-\emph{(ii)}~neutrality along $\ker H$,
-\emph{(iii)}~uniform kernel overlap on~$U$,
-\emph{(iv)}~$\dot S\le-\sigma<0$ outside~$U$:
-if $\kappa(\psi_0;C)\ge\kappa^*>0$, there exists finite~$\tau_{\mathrm{lock}}$ after which
-$\|P_{\ker H}(C)\|\ge\delta^*\|C\|$ and $\kappa\ge\kappa^*/2$.
-\end{theorem}
-
-\begin{proof}[Proof sketch]
-Condition~(iv) forces $S$ to decrease at rate~$\sigma$ outside~$U$, so the trajectory
-enters~$U$ in finite time.
-Inside~$U$, condition~(iii) guarantees kernel overlap~$\ge\delta^*$,
-and $\lambda$-contractivity suppresses transverse drift.
-The coherence~$\kappa$ is bounded below by continuity once the trajectory is within~$U$,
-giving phase-locking after finite~$\tau_{\mathrm{lock}}$.
-\end{proof}
-
-\begin{corollary}[Global capture chain]\label{cor:GCC}
-Assume condition~\emph{(iv)} of Theorem~\ref{thm:PL} holds globally:
-$\dot S\le-\sigma<0$ for all~$\psi$ outside every neighbourhood
-of~$\mathcal{M}$.
-Then for any $\psi_0\in\mathcal{F}$:
-\[
-  \psi_0
-  \;\xrightarrow[\text{condition (iv)}]{\text{energy descent}}\;
-  U
-  \;\xrightarrow[\text{Thm~\ref{thm:PL}}]{\text{phase-locking}}\;
-  \mathcal{M}.
-\]
-Theorem~\ref{thm:UA} ensures no open region of~$\mathcal{F}$ is excluded.
-\end{corollary}
-
-\begin{remark}[When condition (iv) holds]\label{rem:cond4}
-Condition~(iv) is satisfied whenever $S$ is coercive
-($S[\psi]\to\infty$ as $\|\psi\|\to\infty$) and $\mathcal{M}$ is the unique
-critical set.
-For compact~$\mathcal{F}$, condition~(iv) follows from the
-absence of critical points outside~$\mathcal{M}$.
+\begin{remark}[Physical content of scale invariance]
+The path to~$M$ requires no force, only direction: since capture is invariant under
+$C\mapsto\lambda C$ for all $\lambda>0$, the decisive quantity is the projection
+$P_{\ker H}(C)$, not the magnitude $\|C\|$.
 \end{remark}
 
-\begin{corollary}[Cost-independence of access]\label{cor:costindep}
-Access to $\mathcal{M}$ depends only on kernel alignment and is invariant with respect
-to~$S[\psi_0]$.
+\begin{theorem}[Phase-locking]\label{thm:phase}
+Under \textup{(i)}~$\lambda$-contractivity, \textup{(ii)}~neutrality along $\ker H$,
+\textup{(iii)}~uniform kernel overlap on~$U$,
+\textup{(iv)}~$\dot{S}\le-\sigma<0$ outside~$U$:
+if $\kappa(\psi_{0};C)\ge\kappa^{*}>0$, there exists finite~$\tau_{\mathrm{lock}}$
+after which $\|P_{\ker H}(C)\|\ge\delta^{*}\|C\|$ and $\kappa\ge\kappa^{*}/2$.
+\end{theorem}
+
+\begin{proof}[Proof outline]
+Condition~(iv) forces $S$ to decrease at rate~$\sigma$ outside~$U$, so the trajectory
+enters~$U$ in finite time.  Inside~$U$, condition~(iii) guarantees kernel overlap
+$\ge\delta^{*}$, and $\lambda$-contractivity suppresses transverse drift.  The
+coherence~$\kappa$ is bounded below by continuity once the trajectory is within~$U$,
+giving phase-locking after finite~$\tau_{\mathrm{lock}}$.
+A complete proof requires quantitative estimates on the transverse decay rate,
+which we defer to future work.
+\end{proof}
+
+\begin{corollary}[Global capture chain]\label{cor:chain}
+Assume condition~\textup{(iv)} of Theorem~\textup{\ref{thm:phase}} holds globally:
+$\dot{S}\le-\sigma<0$ for all~$\psi$ outside every neighbourhood of~$M$.
+Then for any $\psi_{0}\in F$:
+\[
+\psi_{0}\xrightarrow{\text{energy descent}}U
+\xrightarrow{\text{phase-locking}}M.
+\]
+Theorem~\textup{\ref{thm:univ}} ensures no open region of~$F$ is excluded.
 \end{corollary}
 
-\begin{definition}[Kernel-denial]\label{def:KD}
-$\psi$ exhibits \emph{kernel-denial} if $P_{\ker H[\psi]}(C[\psi])=0$.
-By Theorem~\ref{thm:UA}, this cannot persist on any open set.
+\begin{remark}[When condition~(iv) holds]
+Condition~(iv) is satisfied whenever $S$ is coercive ($S[\psi]\to\infty$ as
+$\|\psi\|\to\infty$) and $M$ is the unique critical set.  For compact~$F$,
+condition~(iv) follows from the absence of critical points outside~$M$.
+\end{remark}
+
+\begin{corollary}[Cost-independence of access]
+Access to~$M$ depends only on kernel alignment and is invariant with respect
+to~$S[\psi_{0}]$.
+\end{corollary}
+
+\begin{definition}[Kernel-denial]
+$\psi$ exhibits kernel-denial if $P_{\ker H[\psi]}(C[\psi])=0$.
+By Theorem~\ref{thm:univ}, this cannot persist on any open set.
 \end{definition}
 
-\begin{lemma}[Exclusion is self-imposed]\label{lem:exclusion}
-If kernel-denial persists, the configuration is excluded from~$\mathcal{M}$:
+\begin{lemma}[Exclusion is self-imposed]\label{lem:excl}
+If kernel-denial persists, the configuration is excluded from~$M$:
 \[
-  \limsup_{t\to\infty}\|P_{\ker H[\psi(t)]}(C[\psi(t)])\|=0
-  \quad\Longrightarrow\quad
-  \psi(t)\notin\mathcal{M}\;\text{for all large }t.
+\limsup_{t\to\infty}\|P_{\ker H[\psi(t)]}(C[\psi(t)])\|=0
+\implies\psi(t)\notin M\text{ for all large }t.
 \]
-By Theorem~\ref{thm:UA}, such persistence cannot occur on any open set.
+By Theorem~\textup{\ref{thm:univ}}, such persistence cannot occur on any open set.
 Exclusion is a geometric constraint, not an external selection rule.
 \end{lemma}
 
 %% ====================================================================
-%% §5. CONNECTEDNESS AND INTERNAL STRUCTURE
+\section{Connectedness and Internal Structure}
 %% ====================================================================
-\section{Connectedness and Internal Structure}\label{sec:connect}
 
-$\mathcal{M}$ is unique (\S\ref{sec:unique}), but it may have multiple connected components.
-We show that kernel-connected components merge, and that the connecting directions are
-indestructible.
+$M$ is unique (\S4), but it may have multiple connected components.
+We show that kernel-connected components merge, and that the connecting
+directions are indestructible.
 
 \begin{proposition}[Kernel-connected completions merge]\label{prop:merge}
-Let $\mathcal{M}_1,\mathcal{M}_2\subset\mathcal{F}$ both be non-collapsing completions:
-each satisfies $\nabla S=0$ and $\dim\ker H>0$.
-Suppose there exist $\psi_1\in\mathcal{M}_1$ and $\psi_2\in\mathcal{M}_2$ and a
-$C^1$~path $\gamma:[0,1]\to\mathcal{F}$ with $\gamma(0)=\psi_1$, $\gamma(1)=\psi_2$
-such that:
-\begin{enumerate}
-\item[\emph{(i)}] \textbf{Constant cost:} $S[\gamma(s)]=\mathrm{const}$ for all
-      $s\in[0,1]$.
-\item[\emph{(ii)}] \textbf{Kernel tangency:}
-      $\dot\gamma(s)\in\ker H[\gamma(s)]$ for all $s\in[0,1]$.
-\item[\emph{(iii)}] \textbf{Immersion:}
-      $\dot\gamma(s)\neq0$ for all $s\in[0,1]$.
-\end{enumerate}
-Then $\gamma$ lies entirely in the critical set $\{\nabla S=0\}$, and $\psi_1,\psi_2$ belong
-to the same connected component of~$\mathcal{M}$.
+Let $M_{1},M_{2}\subset F$ both be non-collapsing completions.
+Suppose there exist $\psi_{1}\in M_{1}$ and $\psi_{2}\in M_{2}$ and a $C^{1}$ path
+$\gamma:[0,1]\to F$ with $\gamma(0)=\psi_{1}$, $\gamma(1)=\psi_{2}$ such that:
+\begin{itemize}
+\item[\textup{(i)}] Constant cost: $S[\gamma(s)]=\mathrm{const}$ for all $s\in[0,1]$.
+\item[\textup{(ii)}] Kernel tangency: $\dot{\gamma}(s)\in\ker H[\gamma(s)]$ for all
+  $s\in[0,1]$.
+\item[\textup{(iii)}] Immersion: $\dot{\gamma}(s)\neq 0$ for all $s\in[0,1]$.
+\end{itemize}
+Then $\gamma$ lies entirely in the critical set $\{\nabla S=0\}$, and $\psi_{1}$,
+$\psi_{2}$ belong to the same connected component of~$M$.
 \end{proposition}
 
 \begin{proof}
-Condition~(ii) gives $\dot\gamma(s)\in\ker H[\gamma(s)]$, so
-$\langle\dot\gamma(s),H[\gamma(s)]\dot\gamma(s)\rangle=0$ for all~$s$.
-By Lemma~\ref{lem:zerocost}, motion along $\ker H$ incurs zero second-order cost.
+Condition~(ii) gives $\dot{\gamma}(s)\in\ker H[\gamma(s)]$, so
+$\langle\dot{\gamma}(s),H[\gamma(s)]\dot{\gamma}(s)\rangle=0$ for all~$s$.
+By Lemma~\ref{lem:Mstr}, motion along $\ker H$ incurs zero second-order cost.
 Condition~(i) strengthens this to exact constancy of~$S$.
 
 Differentiating,
 \[
-  \frac{d}{ds}\nabla S[\gamma(s)]= H[\gamma(s)]\dot\gamma(s)=0,
+\frac{d}{ds}\nabla S[\gamma(s)]=H[\gamma(s)]\dot{\gamma}(s)=0,
 \]
-where the last equality uses condition~(ii).
-Since $\nabla S[\gamma(0)]=0$, we have $\nabla S\equiv0$ along~$\gamma$.
+where the last equality uses condition~(ii).  Since $\nabla S[\gamma(0)]=0$,
+we have $\nabla S\equiv 0$ along~$\gamma$.
 
-Moreover, $\dim\ker H[\gamma(s)]>0$ for all~$s$, since $\dot\gamma(s)\neq0$
-by condition~(iii) and $\dot\gamma(s)\in\ker H[\gamma(s)]$ by condition~(ii).
-Thus every point of~$\gamma$ lies in~$\mathcal{M}$, and $\gamma$ connects
-$\psi_1$ to~$\psi_2$ within~$\mathcal{M}$.
+Moreover, $\dim\ker H[\gamma(s)]>0$ for all~$s$, since $\dot{\gamma}(s)\neq 0$
+by condition~(iii) and $\dot{\gamma}(s)\in\ker H[\gamma(s)]$ by condition~(ii).
+Thus every point of~$\gamma$ lies in~$M$, and $\gamma$ connects $\psi_{1}$
+to~$\psi_{2}$ within~$M$.
 \end{proof}
 
-\begin{remark}[Class~B motion as the connecting mechanism]\label{rem:classB}
-The path~$\gamma$ is precisely a Class~B trajectory (Remark~\ref{rem:classes}): zero cost,
-zero entropy, unconstrained motion along $\ker H$.
-Whenever two components of~$\mathcal{M}$ are linked by Class~B motion, they are parts of
-the same connected component.
+\begin{remark}[Class~B motion as the connecting mechanism]
+The path~$\gamma$ is precisely a Class~B trajectory:
+zero cost, zero entropy, unconstrained motion along $\ker H$.
+Whenever two components of~$M$ are linked by Class~B motion, they are parts
+of the same connected component.
 \end{remark}
 
-\begin{corollary}[Logical interlock preserves connecting directions]\label{cor:overlap}
-If a kernel direction~$v\in\ker H[\psi]$ is tangent to a Class~B path connecting two
-components of~$\mathcal{M}$, then $v\in\ker H^{\psi\psi}_e$ for every realizable
-extension~$S_e=S+R$ with $H^{\psi\psi}_e\ge0$ near~$\mathcal{M}$.
-The specific connecting direction---not merely the kernel dimension---is indestructible.
+\begin{corollary}[Logical interlock preserves connecting directions]\label{cor:connect}
+If a kernel direction $v\in\ker H[\psi]$ is tangent to a Class~B path connecting
+two components of~$M$, then $v\in\ker H^{\psi\psi}_{e}$ for every realizable extension
+$S_{e}=S+R$ with $H^{\psi\psi}_{e}\ge 0$ near~$M$.
+The specific connecting direction --- not merely the kernel dimension --- is
+indestructible.
 \end{corollary}
 
 \begin{proof}
 By Theorem~\ref{thm:interlock},
-$\dim\ker H^{\psi\psi}_e\ge\dim\ker H$.
-Since $H^{\psi\psi}_e\ge0$, if $H^{\psi\psi}_e v\neq0$ then
-$\langle v,H^{\psi\psi}_e v\rangle>0$, contradicting $\langle v,Hv\rangle=0$.
-Hence $v\in\ker H^{\psi\psi}_e$.
+$\dim\ker H^{\psi\psi}_{e}\ge\dim\ker H$.  Since $H^{\psi\psi}_{e}\ge 0$,
+if $H^{\psi\psi}_{e}v\neq 0$ then $\langle v,H^{\psi\psi}_{e}v\rangle>0$,
+contradicting $\langle v,Hv\rangle=0$.  Hence $v\in\ker H^{\psi\psi}_{e}$.
 \end{proof}
 
 %% ====================================================================
-%% §6. SUMMARY AND OPEN QUESTIONS
+\section{Summary and Open Questions}
 %% ====================================================================
-\section{Summary and Open Questions}\label{sec:summary}
 
-Under realizability (Axiom~1), Conjecture~\ref{conj:UC} is established.
-The uniqueness of~$\mathcal{M}$ is no longer a hypothesis but a theorem.
-The argument yields twelve structural consequences from Axiom~1 alone:
+Under realizability (Axiom~\ref{ax:R}) and continuous symmetry (Axiom~\ref{ax:G}),
+Theorem~\ref{thm:UC} is established.  The argument yields twelve structural
+consequences:
 
-\begin{enumerate}[leftmargin=*,itemsep=2pt]
-\item \textbf{Universal access} (Thm~\ref{thm:UA}):
+\begin{enumerate}
+\item \textbf{Universal access} (Thm~\ref{thm:univ}):
   basin-independent capture from every open set.
 \item \textbf{Indestructible channels} (Thm~\ref{thm:interlock}):
   no consistent extension can close an open channel.
@@ -670,73 +652,69 @@ The argument yields twelve structural consequences from Axiom~1 alone:
   a single moment of alignment suffices permanently.
 \item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
   alignment, not magnitude, determines access.
-\item \textbf{Global capture chain} (Cor~\ref{cor:GCC}):
-  energy descent $\to$ phase-locking $\to$ $\mathcal{M}$, from any initial state.
-\item \textbf{Cost-independence} (Cor~\ref{cor:costindep}):
-  prior cost $S[\psi_0]$ does not determine accessibility.
+\item \textbf{Global capture chain} (Cor~\ref{cor:chain}):
+  energy descent $\to$ phase-locking $\to$ $M$, from any initial state.
+\item \textbf{Cost-independence}: prior cost $S[\psi_{0}]$ does not determine accessibility.
 \item \textbf{Infinite generative bandwidth} (Class~B):
   non-compactified $\ker H$ gives unbounded zero-cost degrees of freedom.
-\item \textbf{Self-imposed exclusion} (Lem~\ref{lem:exclusion}):
+\item \textbf{Self-imposed exclusion} (Lem~\ref{lem:excl}):
   kernel-denial is the sole obstruction; it cannot persist on any open set.
-\item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}, Cor~\ref{cor:overlap}):
-  components linked by zero-cost paths belong to the same~$\mathcal{M}$; connecting
-  directions are indestructible.
+\item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}, Cor~\ref{cor:connect}):
+  components linked by zero-cost paths belong to the same~$M$;
+  connecting directions are indestructible.
 \item \textbf{Morse--Bott regularity} (Prop~\ref{prop:MB}):
-  $\mathcal{M}$ is smooth by Axiom~1(iv), not by assumption.
+  $M$ is smooth by Axiom~\ref{ax:R}(iii), not by assumption.
 \item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
-  $\lambda$-contractivity follows from Axiom~1, not independently assumed.
+  $\lambda$-contractivity follows from the axioms, not independently assumed.
 \item \textbf{Uniqueness} (Thm~\ref{thm:unique}):
-  global non-isolation forces $\{\nabla S=0\}=\mathcal{M}$;
-  Theorem~\ref{thm:UA} is unconditional.
+  continuous symmetry forces $\{\nabla S=0\}\setminus\{0\}=M$;
+  Theorem~\ref{thm:univ} is unconditional.
 \end{enumerate}
 
-\medskip
-\noindent\textbf{Open questions.}
-With the structural gaps closed, the remaining questions concern extensions beyond the
-variational framework.
+\begin{remark}[The role of continuous symmetry]
+Noether's theorem derives conserved quantities from continuous symmetry.
+The present work derives a second class of structural necessity from the same
+premise: the existence, uniqueness, and universal accessibility of the
+non-collapsing completion~$M$.  Both results are algebraic consequences of
+group invariance of the action functional.
+\end{remark}
+
+\medskip\noindent\textbf{Open questions.}
+
 \begin{itemize}
-\item \textbf{Connectedness of $\mathcal{M}$.}
-  Theorem~\ref{thm:unique} shows $\mathcal{M}$ is unique.
+\item \textbf{Connectedness of~$M$.}\enspace
+  Theorem~\ref{thm:unique} shows $M$ is unique.
   Proposition~\ref{prop:merge} shows kernel-connected components merge.
-  Whether $\mathcal{M}$ is connected (one component) or has multiple components with no
+  Whether $M$ is connected (one component) or has multiple components with no
   Class~B path between them remains open.
-
-\item \textbf{Higher dimensions.}
-  The $2\times2$ equivalence ($dc>0\Leftrightarrow$ Lorentzian) is proved in~[2].
-  Extension to $(1+3)$-dimensional spacetime requires additional structure.
-
-\item \textbf{Quantum.}
-  Does the Gromov non-squeezing theorem~[3] constrain fluctuations on~$\mathcal{M}$?
-
-\item \textbf{Bekenstein bound.}
-  Is there a maximum information density on~$\mathcal{M}$ related to
-  the Bekenstein entropy bound?
+\item \textbf{Higher dimensions.}\enspace
+  The $2\times 2$ equivalence ($dc>0\Leftrightarrow$ Lorentzian) is proved
+  in~\cite{Li-K}.  Extension to $(1{+}3)$-dimensional spacetime requires
+  additional structure; the three-directional realizability condition of~\cite{Li-R}
+  provides one route.
+\item \textbf{Quantum.}\enspace
+  Does the Gromov non-squeezing theorem~\cite{Gromov} constrain fluctuations on~$M$?
+\item \textbf{Bekenstein bound.}\enspace
+  Is there a maximum information density on~$M$ related to the Bekenstein entropy bound?
 \end{itemize}
 
-\medskip
-\noindent\textbf{Remark.}
-The twelve structural consequences listed above---universal access, indestructibility,
-persistence, scale invariance, cost-independence, and uniqueness among them---share the
-logical structure of the eighteenth vow in the \emph{Larger S\=utra of Immeasurable Life}:
-a conditional whose antecedent is the existence of the destination and whose consequent
-is the universality of access.
-The correspondence extends to each of the twelve consequences individually.
-Whether this structural coincidence reflects identity or analogy is a question the
-mathematics does not answer.
+\begin{thebibliography}{4}
 
-%% ====================================================================
+\bibitem{Li-R}
+Y.\,Y.\,N.~Li,
+\textit{Realizability and the Origin of Causality},
+preprint (2026).
 
-\begin{thebibliography}{9}
-\bibitem{1} Y.\,Y.\,N.\ Li,
-  \textit{Realizability and the Origin of Causality}, preprint (2026).
+\bibitem{Li-K}
+Y.\,Y.\,N.~Li,
+\textit{$K{=}1$ Chronogeometrodynamics: Lorentzian Geometry from Information Time},
+preprint (2026).
 
-\bibitem{2} Y.\,Y.\,N.\ Li,
-  \textit{K\!=\!1 Chronogeometrodynamics: Lorentzian Geometry from Information Time},
-  preprint (2026).
+\bibitem{Gromov}
+M.~Gromov,
+\textit{Pseudoholomorphic curves in symplectic manifolds},
+Invent.\ Math.\ \textbf{82} (1985) 307--347.
 
-\bibitem{3} M.\ Gromov,
-  Pseudoholomorphic curves in symplectic manifolds,
-  \textit{Invent.\ Math.}\ \textbf{82}, 307 (1985).
 \end{thebibliography}
 
 \end{document}
