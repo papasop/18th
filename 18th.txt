@@ -104,9 +104,9 @@ $S$ admits an attainable, nontrivial extremum $\psi^*\neq 0$ satisfying:
 \item[\textup{(i)}] \textbf{Stationarity:} $\nabla S[\psi^*]=0$.
 \item[\textup{(ii)}] \textbf{Non-collapse:} No nearby trajectory of
   $\partial_t\psi=-\nabla S[\psi]$ converges to $\psi\equiv 0$.
-\item[\textup{(iii)}] \textbf{Structural stability:} \textup{(i)--(ii)} and the non-isolation
-  of~$\psi^*$ in $\{\nabla S=0\}$ persist under
-  all sufficiently small perturbations of~$S$
+\item[\textup{(iii)}] \textbf{Structural stability:} \textup{(i)--(ii)}, the non-isolation
+  of~$\psi^*$ in $\{\nabla S=0\}$, and the value $\dim\ker H[\psi^*]$
+  all persist under all sufficiently small perturbations of~$S$
   (including perturbations that break gauge symmetry).
 \item[\textup{(iv)}] \textbf{Singular separation:}
   The closure of $\{\psi:\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\}$
@@ -119,13 +119,15 @@ If $S\ge 0$ with $S=0\Leftrightarrow\psi\equiv 0$, gradient flow drives every
 nontrivial state to annihilation.  This is \emph{Euclidean collapse}.
 Axiom~\ref{ax:R} excludes it.
 
-\begin{remark}[Why non-isolation appears in Axiom~\ref{ax:R}(iii)]
-Axiom~\ref{ax:G} derives non-isolation for~$S$ itself (Proposition~\ref{prop:GNI}).
-Axiom~\ref{ax:R}(iii) additionally requires that this derived property is
-\emph{robust}: it persists even under perturbations that break gauge symmetry.
-Without this, the indefiniteness proof (Theorem~\ref{thm:indef}) could not
-obtain a contradiction, because the perturbation~$S_\varepsilon$ preserves
-stationarity and non-collapse but destroys non-isolation.
+\begin{remark}[Why non-isolation and kernel dimension appear in Axiom~\ref{ax:R}(iii)]
+Axiom~\ref{ax:G} derives non-isolation and $\dim\ker H\ge\dim G$ for~$S$ itself
+(Proposition~\ref{prop:GNI}).
+Axiom~\ref{ax:R}(iii) additionally requires that these derived properties are
+\emph{robust}: they persist even under perturbations that break gauge symmetry.
+Without non-isolation persistence, the indefiniteness proof
+(Theorem~\ref{thm:indef}) could not obtain a contradiction.
+Without kernel-dimension persistence, the spectral gap
+(Proposition~\ref{prop:gap}) could not be established.
 \end{remark}
 
 \begin{axiom}[Continuous symmetry]\label{ax:G}
@@ -283,8 +285,9 @@ $\sigma_-(H)=\{\mu\in\sigma(H):\mu<0\}$ for the positive and negative parts
 of the spectrum.
 If $\inf\sigma_+(H)=0$, there exists a sequence of positive
 eigenvalues $\lambda_n\to 0$.  A perturbation of size $O(\lambda_n)$ pushes
-$\lambda_n$ to zero, increasing $\dim\ker H$ and violating Morse--Bott
-(Proposition~\ref{prop:MB}).  Hence $\inf\sigma_+(H)>0$.
+$\lambda_n$ to zero, increasing $\dim\ker H$---contradicting
+Axiom~\ref{ax:R}(iii), which requires $\dim\ker H[\psi^*]$ to be stable
+under small perturbations.  Hence $\inf\sigma_+(H)>0$.
 The same argument on $-H$ gives $\sup\sigma_-(H)<0$.
 Setting $\lambda=\min(\inf\sigma_+,|\sup\sigma_-|)$ gives the gap.
 \end{proof}
