@@ -319,6 +319,17 @@ gradient flow drives them toward $\psi=0$, violating Axiom~\ref{ax:R}(ii).
 No such~$U$ can exist.
 \end{proof}
 
+\begin{remark}[Scope of the proof]
+The proof uses Axiom~\ref{ax:R}(ii) as a global condition:
+no nontrivial configuration is condemned to collapse.
+As stated, Axiom~\ref{ax:R}(ii) is local (nearby~$\psi^*$).
+The global reach follows from two additional properties of gradient flow:
+$S$ is a Lyapunov function ($\dot{S}=-\|\nabla S\|^{2}\le 0$),
+and the only critical points are $M\cup\{0\}$ (Theorem~\ref{thm:unique}).
+Together these ensure that every trajectory eventually approaches $M\cup\{0\}$,
+at which point the local condition applies.
+\end{remark}
+
 \begin{theorem}[Indestructibility of gauge directions]\label{thm:interlock}
 Let $S_e=S+R$ be an extension that preserves Axiom~\textup{\ref{ax:G}}:
 $S_e[g\cdot\psi]=S_e[\psi]$ for all $g\in G$.
@@ -348,17 +359,22 @@ ones that cannot be closed.
 %% ====================================================================
 
 \begin{theorem}[Persistence without continuous injection]\label{thm:persist}
-Under $\lambda$-contractivity (Proposition~\ref{prop:gap}),
-if $\psi(t_0)\in M$ then $\psi(t)\in M$ for all $t\ge t_0$.
-The channel~$C$ can be removed after alignment without retrogression,
-provided $\varepsilon\|C\|<\lambda/2$.
+Under $\lambda$-contractivity (Proposition~\ref{prop:gap}):
+\begin{itemize}
+\item[\textup{(i)}] Under pure gradient flow ($\varepsilon=0$),
+  if $\psi(t_0)\in M$ then $\psi(t)\in M$ for all $t\ge t_0$.
+\item[\textup{(ii)}] If $C$~is removed at time~$t_0$ (setting $\varepsilon=0$ for $t>t_0$)
+  after $\psi(t_0)\in M$, no retrogression occurs.
+\end{itemize}
+A single moment of alignment suffices permanently once the channel is removed.
 \end{theorem}
 
 \begin{proof}
-Let $V(t)=\mathrm{dist}(\psi(t),M)^2$.  On~$M$, $\nabla S=0$ and the
-gradient flow is stationary; $M$ is automatically invariant.
-$\lambda$-contractivity gives $\dot{V}\le-\lambda V$.
+Let $V(t)=\mathrm{dist}(\psi(t),M)^2$.  On~$M$, $\nabla S=0$, so under
+pure gradient flow ($\varepsilon=0$), $M$ is invariant.
+For transverse displacements, $\lambda$-contractivity gives $\dot{V}\le-2\lambda V$.
 Since $V(t_0)=0$, $V(t)=0$ for all $t\ge t_0$.
+Part~(ii) follows by applying~(i) from $t=t_0$ onward.
 \end{proof}
 
 \begin{remark}[Role of singular separation]
@@ -382,6 +398,10 @@ Hence $M$ is a smooth submanifold with $T_\psi M\supseteq\ker H[\psi]$, and
 $\frac{d^2}{d\varepsilon^2}\big|_{\varepsilon=0}S[\psi+\varepsilon\delta\psi]=0$
 for $\delta\psi\in T_\psi M$.
 \end{lemma}
+
+\begin{proof}
+Immediate from Proposition~\ref{prop:MB} and the constant-rank theorem.
+\end{proof}
 
 \begin{theorem}[Scale invariance of capture]\label{thm:scale}
 $\|P_{\ker H[\psi]}(C[\psi])\|>0$ is invariant under $C\mapsto\lambda C$
@@ -431,6 +451,12 @@ Under condition~(iv) of Theorem~\ref{thm:PL} globally,
 $\psi_0\xrightarrow{\text{energy descent}}U\xrightarrow{\text{phase-locking}}M$
 for any $\psi_0\in\mathcal{F}$.
 \end{corollary}
+
+\begin{proof}
+Condition~(iv) gives energy descent into~$U$;
+Theorem~\ref{thm:PL} gives phase-locking within~$U$;
+Theorem~\ref{thm:univ} ensures no open region is excluded.
+\end{proof}
 
 \begin{corollary}[Cost-independence of access]\label{cor:costindep}
 Access to~$M$ is independent of the initial cost $S[\psi_0]$.
