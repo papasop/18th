@@ -166,6 +166,27 @@ The axiom does not postulate any property of the critical set;
 the consequences for the critical set are derived below.
 \end{remark}
 
+\begin{remark}[Consistency of the axioms: an explicit model]\label{rem:example}
+Let $\Sigma$ be a compact Riemannian manifold with $\dim\Sigma\ge 1$, and let
+$\mathcal{F}=H^{1}(\Sigma,\mathbb{C})$.  Let $G=\mathrm{U}(1)$ act by constant
+phase rotation: $g\cdot\psi=e^{i\theta}\psi$.  Define
+\[
+S[\psi]=\int_{\Sigma}\bigl(|\nabla\psi|^{2}+|\psi|^{4}(|\psi|^{2}-1)^{2}
++\varepsilon\,|\psi|^{4}\bigr)\,d\mu,\qquad\varepsilon>0\;\text{small}.
+\]
+Then $S\ge 0$ and $S[\psi]=0\Leftrightarrow\psi=0$
+(since $|\psi|^{4}[(|\psi|^{2}-1)^{2}+\varepsilon]=0$ only when $|\psi|=0$).
+For small~$\varepsilon$, there is a $\mathrm{U}(1)$-orbit of approximately constant
+critical points with $|\psi^{*}|\approx 1/\!\sqrt{2}$, satisfying
+Axiom~\ref{ax:R}(i).
+The Hessian at~$\psi^{*}$ is a Schr\"odinger operator $-\Delta+W$ on~$\Sigma$,
+which is Fredholm.  For $\Sigma$ of sufficient diameter, the lowest eigenmode of
+$-\Delta$ has small eigenvalue and $W<0$ in the radial direction, making
+the Hessian indefinite---consistent with Theorem~\ref{thm:indef}.
+Axiom~\ref{ax:R}(ii)--(iv) and Axiom~\ref{ax:G} can be verified by standard
+transversality and elliptic-regularity arguments.
+\end{remark}
+
 %% ====================================================================
 \section{Global Non-Isolation from Symmetry}\label{sec:GNI}
 %% ====================================================================
@@ -180,9 +201,13 @@ In particular, $\dim\ker H[\psi^*]\ge\dim G\ge 1$.
 \begin{proof}
 For any $\xi\in\mathfrak{g}$, Axiom~\ref{ax:G}(i) gives
 $S[\exp(t\xi)\cdot\psi^*]=S[\psi^*]$ for all~$t$.
-Invariance of~$S$ implies equivariance of $\nabla S$:
-$\nabla S[g\cdot\psi^*]=0$ for every $g\in G$.
-Hence $G\cdot\psi^*\subset\{\nabla S=0\}$.
+For any $g\in G$, differentiating $S[g\cdot\psi]=S[\psi]$ with respect to~$\psi$
+at $\psi=g^{-1}\cdot\psi^*$ gives
+$\langle\nabla S[\psi^*],\,Dg\cdot v\rangle=\langle\nabla S[g^{-1}\cdot\psi^*],\,v\rangle$
+for all~$v$; since $\nabla S[\psi^*]=0$, the left side vanishes, and since $Dg$ is
+invertible, $\nabla S[g^{-1}\cdot\psi^*]=0$.
+Hence $\nabla S[g\cdot\psi^*]=0$ for every $g\in G$, and
+$G\cdot\psi^*\subset\{\nabla S=0\}$.
 The action is free (Axiom~\ref{ax:G}(ii)), so the orbit map is an immersion:
 $\dim(G\cdot\psi^*)=\dim G\ge 1$.
 
@@ -199,7 +224,9 @@ so $\ker H[\psi^*]$ contains a subspace of dimension $\ge\dim G$.
 \begin{remark}[Comparison with Noether's theorem]
 Noether's theorem~\cite{Noether} derives conserved quantities from continuous symmetry.
 Proposition~\ref{prop:GNI} derives non-isolation of critical structure from the
-same premise.  Both are algebraic consequences of group invariance.
+same premise.  Both follow from group invariance of the action functional,
+though Noether's result is established physics while the present application
+is new.
 \end{remark}
 
 %% ====================================================================
@@ -317,8 +344,10 @@ is discrete.  Write $\sigma_+(H)=\{\mu\in\sigma(H):\mu>0\}$ and
 $\sigma_-(H)=\{\mu\in\sigma(H):\mu<0\}$ for the positive and negative parts
 of the spectrum.
 If $\inf\sigma_+(H)=0$, there exists a sequence of positive
-eigenvalues $\lambda_n\to 0$.  A perturbation of size $O(\lambda_n)$ pushes
-$\lambda_n$ to zero, increasing $\dim\ker H$---contradicting
+eigenvalues $\lambda_n\to 0$.  By analytic perturbation theory for
+self-adjoint Fredholm operators~\cite{Kato}, a perturbation of
+size $O(\lambda_n)$ pushes $\lambda_n$ to zero, increasing
+$\dim\ker H$---contradicting
 Axiom~\ref{ax:R}(iii), which requires $\dim\ker H[\psi^*]$ to be stable
 under small perturbations.  Hence $\inf\sigma_+(H)>0$.
 The same argument on $-H$ gives $\sup\sigma_-(H)<0$.
@@ -622,7 +651,7 @@ The analogy is limited: Noether's theorem is established physics with a century
 of verification, while the present framework awaits independent examination.
 \end{remark}
 
-\begin{thebibliography}{5}
+\begin{thebibliography}{6}
 
 \bibitem{Noether}
 E.~Noether,
@@ -644,6 +673,11 @@ Ann.\ of Math.\ \textbf{60} (1954) 248--261.
 R.\,S.~Palais,
 \textit{Morse theory on Hilbert manifolds},
 Topology \textbf{2} (1963) 299--340.
+
+\bibitem{Kato}
+T.~Kato,
+\textit{Perturbation Theory for Linear Operators},
+Springer, Berlin, 1966.
 
 \bibitem{AB}
 M.\,F.~Atiyah, R.~Bott,
