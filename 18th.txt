@@ -103,7 +103,8 @@ $S$ admits an attainable, nontrivial extremum $\psi^*\neq 0$ satisfying:
 \item[\textup{(i)}] \textbf{Stationarity:} $\nabla S[\psi^*]=0$.
 \item[\textup{(ii)}] \textbf{Non-collapse:} No nearby trajectory of
   $\partial_t\psi=-\nabla S[\psi]$ converges to $\psi\equiv 0$.
-\item[\textup{(iii)}] \textbf{Structural stability:} \textup{(i)--(ii)} persist under
+\item[\textup{(iii)}] \textbf{Structural stability:} \textup{(i)--(ii)} and the non-isolation
+  of~$\psi^*$ in $\{\nabla S=0\}$ persist under
   all sufficiently small perturbations of~$S$
   (including perturbations that break gauge symmetry).
 \item[\textup{(iv)}] \textbf{Singular separation:}
@@ -116,6 +117,15 @@ $S$ admits an attainable, nontrivial extremum $\psi^*\neq 0$ satisfying:
 If $S\ge 0$ with $S=0\Leftrightarrow\psi\equiv 0$, gradient flow drives every
 nontrivial state to annihilation.  This is \emph{Euclidean collapse}.
 Axiom~\ref{ax:R} excludes it.
+
+\begin{remark}[Why non-isolation appears in Axiom~\ref{ax:R}(iii)]
+Axiom~\ref{ax:G} derives non-isolation for~$S$ itself (Proposition~\ref{prop:GNI}).
+Axiom~\ref{ax:R}(iii) additionally requires that this derived property is
+\emph{robust}: it persists even under perturbations that break gauge symmetry.
+Without this, the indefiniteness proof (Theorem~\ref{thm:indef}) could not
+obtain a contradiction, because the perturbation~$S_\varepsilon$ preserves
+stationarity and non-collapse but destroys non-isolation.
+\end{remark}
 
 \begin{axiom}[Continuous symmetry]\label{ax:G}
 There exists a connected Lie group~$G$ with $\dim G\ge 1$ acting smoothly
@@ -309,23 +319,28 @@ gradient flow drives them toward $\psi=0$, violating Axiom~\ref{ax:R}(ii).
 No such~$U$ can exist.
 \end{proof}
 
-\begin{theorem}[Indestructibility of cost-free directions]\label{thm:interlock}
-For any consistent extension $S_e=S+R$ of the cost functional, write
-$H_e[\psi^*]$ for the Hessian of~$S_e$ at~$\psi^*$.
-If $H_e[\psi^*]\ge 0$ near~$M$, then
-$\ker H_e[\psi^*]\supseteq\ker H[\psi^*]$.
-No consistent modification can close a channel that is open.
+\begin{theorem}[Indestructibility of gauge directions]\label{thm:interlock}
+Let $S_e=S+R$ be an extension that preserves Axiom~\textup{\ref{ax:G}}:
+$S_e[g\cdot\psi]=S_e[\psi]$ for all $g\in G$.
+Then at every nontrivial critical point of~$S_e$,
+\[
+\ker H_e[\psi^*]\supseteq\{\xi_\mathcal{F}(\psi^*):\xi\in\mathfrak{g}\}.
+\]
+No gauge-preserving extension can close a gauge direction.
 \end{theorem}
 
 \begin{proof}
-If $v\in\ker H[\psi^*]$ and $H_e[\psi^*] v\neq 0$, then
-$\langle v,H_e[\psi^*] v\rangle>0$, contradicting $\langle v,H[\psi^*]v\rangle=0$.
+$S_e$ satisfies Axiom~\ref{ax:G} with the same~$G$.
+By Proposition~\ref{prop:GNI} applied to~$S_e$:
+$H_e[\psi^*]\xi_\mathcal{F}(\psi^*)=0$ for all $\xi\in\mathfrak{g}$.
+Hence $\{\xi_\mathcal{F}(\psi^*):\xi\in\mathfrak{g}\}\subset\ker H_e[\psi^*]$.
 \end{proof}
 
-\begin{remark}[Analogy with topological protection]
-The indestructibility of cost-free directions is analogous to symmetry-protected
-zero-energy modes in condensed matter: the zero mode sits at a value bounded on
-one side and cannot be moved without violating the bound.
+\begin{remark}[Scope of indestructibility]
+Directions in $\ker H[\psi^*]$ beyond the gauge orbit (if any) are not
+protected by this theorem.  The gauge directions---which include all
+connecting directions along Class~B paths within gauge orbits---are the
+ones that cannot be closed.
 \end{remark}
 
 %% ====================================================================
@@ -461,13 +476,14 @@ Since $\dot\gamma\neq 0$ and $\dot\gamma\in\ker H$,
 every point has $\dim\ker H>0$, hence $\gamma\subset M$.
 \end{proof}
 
-\begin{corollary}[Indestructibility of connecting directions]\label{cor:connect}
-If $v\in\ker H[\psi]$ is tangent to a Class~B path connecting two components
-of~$M$, then $v\in\ker H_e[\psi^*]$ for every consistent extension with $H_e\ge 0$.
+\begin{corollary}[Gauge connecting directions are indestructible]\label{cor:connect}
+If $v=\xi_\mathcal{F}(\psi)$ for some $\xi\in\mathfrak{g}$ is tangent to a Class~B
+path connecting two components of~$M$, then $v\in\ker H_e[\psi]$ for every
+gauge-preserving extension~$S_e$.
 \end{corollary}
 
 \begin{proof}
-By Theorem~\ref{thm:interlock}, $\ker H_e[\psi^*]\supseteq\ker H[\psi^*]$.
+By Theorem~\ref{thm:interlock}, gauge directions lie in $\ker H_e$.
 \end{proof}
 
 %% ====================================================================
@@ -479,8 +495,8 @@ Under Axioms~\ref{ax:R} and~\ref{ax:G}, the following twelve properties hold:
 \begin{enumerate}
 \item \textbf{Universal access} (Thm~\ref{thm:univ}):
   basin-independent capture from every open set.
-\item \textbf{Indestructible channels} (Thm~\ref{thm:interlock}):
-  no consistent extension can close an open channel.
+\item \textbf{Indestructible gauge directions} (Thm~\ref{thm:interlock}):
+  no gauge-preserving extension can close a gauge direction.
 \item \textbf{Persistence} (Thm~\ref{thm:persist}):
   a single moment of alignment suffices permanently.
 \item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
@@ -496,7 +512,7 @@ Under Axioms~\ref{ax:R} and~\ref{ax:G}, the following twelve properties hold:
   kernel-denial is the sole obstruction; it cannot persist on any open set.
 \item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}, Cor~\ref{cor:connect}):
   components linked by zero-cost paths are parts of the same~$M$;
-  connecting directions are indestructible.
+  gauge connecting directions are indestructible.
 \item \textbf{Morse--Bott regularity} (Prop~\ref{prop:MB}):
   $M$ is smooth, by structural stability.
 \item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
