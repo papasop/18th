@@ -26,20 +26,19 @@ of Non-Collapsing Completion}}
 \maketitle
 
 \begin{abstract}
-We show that the existence, uniqueness, and universal accessibility of a
-non-collapsing generative manifold~$M$ follow from three premises of standard
-physics: unitarity of quantum evolution, continuous gauge symmetry, and
-a Hamiltonian bounded from below.  Unitarity implies that no nontrivial state
-can evolve to the trivial state (non-collapse).  Gauge invariance implies that
-every critical point of the cost functional has a positive-dimensional orbit
-(non-isolation).  A Hamiltonian bounded from below implies that the temporal
-direction carries positive cost.  Together, these three premises---all
-experimentally verified---entail that the cost functional's Hessian is indefinite
-(forcing Lorentzian signature), that the critical set forms a unique smooth
-Morse--Bott manifold~$M$, and that no open region of configuration space is
-excluded from access to~$M$.  Twelve structural properties of~$M$ are derived.
-None of the three premises is an abstract axiom; each is a theorem of
-established physics.
+Let $\mathcal{F}$ be a real Hilbert space equipped with a non-negative cost functional
+$S:\mathcal{F}\to\mathbb{R}_{\ge 0}$ vanishing only at the origin, a one-parameter
+unitary group $U(t)$ preserving the norm, and a continuous gauge group~$G$ acting freely
+on nontrivial configurations with $S$ invariant under~$G$.
+We show that (i)~unitarity forbids collapse to the trivial state;
+(ii)~gauge invariance forces every nontrivial critical point of~$S$ to have a
+positive-dimensional kernel in its Hessian; (iii)~structural stability of the critical
+set forces the Hessian to be indefinite (yielding Lorentzian signature) \emph{without any
+assumption on the sign of a temporal direction}---the indefiniteness follows purely from
+the spectral-boundary argument applied to both the semidefinite cases $H\ge 0$ and
+$H\le 0$.  The critical set with nontrivial kernel forms a unique smooth Morse--Bott
+manifold~$M$, and no open region of~$\mathcal{F}$ is excluded from access to~$M$.
+Twelve structural properties of~$M$ are derived from the three premises alone.
 
 \medskip\noindent
 \textbf{Series position.}\enspace Third in: \textit{Realizability and the Origin
@@ -48,223 +47,251 @@ Chronogeometrodynamics}~\cite{Li-K} $\to$ the present work.
 \end{abstract}
 
 %% ====================================================================
-\section{Physical Premises}\label{sec:premises}
+\section{Framework}\label{sec:framework}
 %% ====================================================================
 
-The entire paper follows from three properties of known physics.
+\subsection*{The configuration space and the cost functional}
 
-Let $\mathcal{H}$ be a separable Hilbert space (the quantum state space),
-and let $\mathcal{F}$ be the real Hilbert space underlying the variational
-structure.  Let $S:\mathcal{F}\to\mathbb{R}_{\ge 0}$ be a twice
-Fr\'echet-differentiable cost functional with $S[\psi]=0$ if and only if
+Let $\mathcal{F}$ be a real separable Hilbert space with inner product
+$\langle\cdot,\cdot\rangle$ and norm $\|\cdot\|$.  Elements $\psi\in\mathcal{F}$
+are \emph{configurations}.  The zero vector $\psi=0$ represents the trivial
+(non-existent) state.
+
+\begin{definition}[Cost functional]\label{def:cost}
+A \emph{cost functional} is a twice Fr\'echet-differentiable map
+$S:\mathcal{F}\to\mathbb{R}_{\ge 0}$ satisfying $S[\psi]=0$ if and only if
 $\psi=0$.
-
-\begin{definition}[Functional gradient and Hessian]\label{def:grad}
-$\nabla S[\psi]\in\mathcal{F}$ is the Riesz representative of the first variation.
-$H[\psi]v=\frac{d}{d\varepsilon}\big|_{\varepsilon=0}\nabla S[\psi+\varepsilon v]$
-is the Hessian, bounded and self-adjoint.
-$\ker H[\psi]=\{v:H[\psi]v=0\}$.
 \end{definition}
 
-\begin{definition}[Generative manifold]\label{def:M}
-\[
-M=\bigl\{\psi\in\mathcal{F}:\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\bigr\}.
-\]
+\begin{definition}[Gradient, Hessian, generative manifold]\label{def:derived}
+\mbox{}
+\begin{itemize}
+\item $\nabla S[\psi]\in\mathcal{F}$: the Riesz representative of the first variation.
+\item $H[\psi]v:=\frac{d}{d\varepsilon}\big|_{\varepsilon=0}\nabla S[\psi+\varepsilon v]$:
+  the Hessian, bounded and self-adjoint.
+\item $\ker H[\psi]:=\{v\in\mathcal{F}:H[\psi]v=0\}$.
+\item $M:=\bigl\{\psi\in\mathcal{F}:\nabla S[\psi]=0,\;\dim\ker H[\psi]>0\bigr\}$:
+  the \emph{generative manifold}.
+\end{itemize}
 \end{definition}
 
-The gradient flow $\partial_t\psi=-\nabla S[\psi]$ drives every nontrivial state
-toward $\psi=0$.  If this flow were the full dynamics, all structure would be
-annihilated.  The three physical premises below prevent this.
+\subsection*{Two dynamics on $\mathcal{F}$}
 
-\medskip
-\noindent\textbf{Premise U} (Unitarity).
-\textit{The time evolution of a closed quantum system is given by a strongly continuous
-one-parameter unitary group $U(t)=e^{-iHt/\hbar}$ on~$\mathcal{H}$.}
+Two dynamics coexist on~$\mathcal{F}$.  Their distinction is essential.
 
-\medskip
-\noindent\textbf{Premise G} (Gauge symmetry).
-\textit{There exists a connected Lie group~$G$ with $\dim G\ge 1$ acting smoothly
-on~$\mathcal{F}$ such that $S[g\cdot\psi]=S[\psi]$ for all $g\in G$, $\psi\in\mathcal{F}$,
-and the action is free on nontrivial configurations ($\psi\neq 0$, $g\cdot\psi=\psi$
-$\Rightarrow$ $g=e$).}
+\begin{itemize}
+\item \textbf{Collapse flow} (hypothetical):
+  $\partial_t\psi=-\nabla S[\psi]$.
+  This gradient flow decreases~$S$ monotonically and drives every nontrivial
+  state toward $\psi=0$.  If this were the only dynamics, all structure
+  would be annihilated.
+\item \textbf{Physical dynamics} (actual):
+  $\psi(t)=U(t)\psi(0)$, where $U(t)$ is a strongly continuous one-parameter
+  group of unitary operators on~$\mathcal{F}$.
+  This evolution preserves $\|\psi\|$ and is incompatible with collapse.
+\end{itemize}
 
-\medskip
-\noindent\textbf{Premise H} (Hamiltonian bounded from below).
-\textit{There exists $E_0>-\infty$ such that $\langle\psi,\hat{H}\psi\rangle\ge E_0\|\psi\|^2$
-for all $\psi\in\mathrm{dom}(\hat{H})$.}
+The cost functional~$S$ is a \emph{structural} object: it defines which states
+are critical ($\nabla S=0$), which directions are cost-free ($\ker H$), and
+which quadratic form governs the local geometry ($H$).
+The unitary group $U(t)$ is a \emph{dynamical} object: it determines how
+states evolve in time.
+The interplay between the two---structure from~$S$, dynamics from~$U(t)$---is
+the subject of this paper.
+
+\subsection*{Completion channel}
+
+\begin{definition}[Completion channel]\label{def:channel}
+A \emph{completion channel} is a map $C:\mathcal{F}\to\mathcal{F}$ representing
+external coupling or influence.  The full dynamics is
+$\partial_t\psi=A[\psi]+\varepsilon\,C[\psi]$,
+where $A[\psi]$ generates the unitary evolution and $\varepsilon>0$ is the
+coupling strength.  The channel $C$ is not derived from the premises; it is
+part of the framework.
+\end{definition}
+
+%% ====================================================================
+\section{Three Premises}\label{sec:premises}
+%% ====================================================================
+
+\begin{description}
+\item[Premise U (Unitarity).]
+  There exists a strongly continuous one-parameter unitary group
+  $U(t)$ on~$\mathcal{F}$ governing the physical dynamics:
+  $\psi(t)=U(t)\psi(0)$ with $\|U(t)\psi\|=\|\psi\|$ for all~$t$.
+
+\item[Premise G (Gauge symmetry).]
+  There exists a connected Lie group~$G$ with $\dim G\ge 1$ acting smoothly
+  on~$\mathcal{F}$ such that:
+  (i)~$S[g\cdot\psi]=S[\psi]$ for all $g\in G$, $\psi\in\mathcal{F}$;
+  (ii)~the action is free on nontrivial configurations:
+  $\psi\neq 0$ and $g\cdot\psi=\psi$ imply $g=e$.
+
+\item[Premise S (Structural stability).]
+  The critical structure of~$S$---specifically, the property that nontrivial
+  critical points are non-isolated and that $\dim\ker H$ is locally
+  constant on the critical set---persists under all sufficiently small
+  perturbations of~$S$ (including perturbations that break gauge symmetry).
+\end{description}
 
 \begin{remark}[Empirical status]
-Premise~U is the foundational postulate of quantum mechanics, confirmed by every
-interference and entanglement experiment.  Premise~G is satisfied by every known
-fundamental interaction: $\mathrm{U}(1)$ (electromagnetism), $\mathrm{SU}(2)$
-(weak), $\mathrm{SU}(3)$ (strong), $\mathrm{Diff}(\mathcal{M})$ (gravity).
-Premise~H is the stability of matter; its failure would imply unbounded energy
-extraction from the vacuum.  None of the three is an abstract axiom; each is a
-theorem of established physics.
+Premise~U is the foundational postulate of quantum mechanics.
+Premise~G is satisfied by every known fundamental interaction:
+$\mathrm{U}(1)$, $\mathrm{SU}(2)$, $\mathrm{SU}(3)$, $\mathrm{Diff}(\mathcal{M})$.
+Premise~S is the assertion that physical law is robust: the qualitative
+structure of the critical set does not depend on the precise form of~$S$.
+This is a standard genericity assumption in dynamical systems and is satisfied
+by every known physical theory.
+\end{remark}
+
+\begin{remark}[What is not assumed]
+No Hamiltonian $\hat{H}$ appears as a premise.  In particular, the positive
+temporal cost condition ($\langle e_t,He_t\rangle>0$ for some direction~$e_t$),
+which was an independent assumption in~\cite{Li-R} and~\cite{Li-UCC},
+is \emph{derived} here (Theorem~\ref{thm:indef}) from the spectral-boundary
+argument.  The number of independent inputs is reduced from three to two
+physical premises plus one genericity condition.
 \end{remark}
 
 %% ====================================================================
-\section{Derivation of the Realizability Conditions}\label{sec:derive}
+\section{Derivation of the Structural Conditions}\label{sec:derive}
 %% ====================================================================
 
-We now derive the five realizability conditions from the three physical premises.
-In previous work~\cite{Li-UCC}, these conditions were assumed as axioms.
-Here they are theorems.
-
 \begin{proposition}[Non-collapse from unitarity]\label{prop:NC}
-Under Premise~U, no nontrivial state can evolve to the trivial state.
-Specifically, if $\psi(0)\neq 0$, then $\psi(t)=U(t)\psi(0)\neq 0$ for all~$t$,
-and no sequence of unitary evolutions can drive $\|\psi(t)\|\to 0$.
+Under Premise~U, no nontrivial state evolves to the trivial state:
+if $\psi(0)\neq 0$, then $\psi(t)\neq 0$ for all~$t$.
 \end{proposition}
 
 \begin{proof}
-Unitarity preserves the norm: $\|\psi(t)\|=\|U(t)\psi(0)\|=\|\psi(0)\|>0$ for
-all~$t$.  Since $S[\psi]=0$ if and only if $\psi=0$, and $\psi(t)\neq 0$ for
-all~$t$, the system cannot reach the trivial state.
-
-More precisely, let $B_\varepsilon=\{\psi:\|\psi\|<\varepsilon\}$ for any $\varepsilon>0$.
-If $\psi(0)\notin B_\varepsilon$, then $\psi(t)\notin B_\varepsilon$ for all~$t$, since
-$\|\psi(t)\|=\|\psi(0)\|\ge\varepsilon$.  Hence no trajectory starting outside
-$B_\varepsilon$ converges to $\psi=0$.
+$\|\psi(t)\|=\|U(t)\psi(0)\|=\|\psi(0)\|>0$.
+Since $S[\psi]=0$ if and only if $\psi=0$, and $\psi(t)\neq 0$,
+the trivial state is never reached.
 \end{proof}
 
-\begin{remark}[Why unitarity is the key]
-The gradient flow $\partial_t\psi=-\nabla S[\psi]$ is dissipative: it decreases~$S$
-monotonically and drives~$\psi\to 0$.  Unitary evolution is the physical mechanism
-that prevents this collapse.  The norm $\|\psi\|$ is a conserved quantity under $U(t)$,
-and this conservation is precisely the content of non-collapse.
+\begin{remark}[Scope of non-collapse]
+Non-collapse is a statement about the physical (unitary) dynamics, not about
+the gradient flow.  The gradient flow \emph{would} collapse every state to
+$\psi=0$; unitarity prevents this.  The cost functional~$S$ defines the
+\emph{landscape} of persistence; unitarity determines that this landscape
+is navigated without collapse.
 \end{remark}
 
 \begin{proposition}[Non-isolation from gauge symmetry]\label{prop:NI}
-Under Premise~G, every nontrivial critical point of~$S$ is non-isolated:
-if $\nabla S[\psi^*]=0$ and $\psi^*\neq 0$, the orbit $G\cdot\psi^*$
-is a submanifold of $\{\nabla S=0\}$ with $\dim(G\cdot\psi^*)=\dim G\ge 1$.
-In particular, $\dim\ker H[\psi^*]\ge\dim G\ge 1$.
+Under Premise~G, every nontrivial critical point of~$S$ is non-isolated.
+If $\nabla S[\psi^*]=0$ and $\psi^*\neq 0$, then:
+\begin{itemize}
+\item[\textup{(a)}]
+  The orbit $G\cdot\psi^*\subset\{\nabla S=0\}$
+  with $\dim(G\cdot\psi^*)=\dim G\ge 1$.
+\item[\textup{(b)}]
+  $\dim\ker H[\psi^*]\ge\dim G\ge 1$.
+\end{itemize}
 \end{proposition}
 
 \begin{proof}
-For any $\xi\in\mathfrak{g}$, the curve $t\mapsto\exp(t\xi)\cdot\psi^*$ satisfies
-$S[\exp(t\xi)\cdot\psi^*]=S[\psi^*]$ by Premise~G.  Since $S$ is invariant under~$G$,
-$\nabla S$ is equivariant: $\nabla S[g\cdot\psi^*]=0$ for every $g\in G$.
+For any $\xi\in\mathfrak{g}$, the curve $t\mapsto\exp(t\xi)\cdot\psi^*$
+satisfies $S[\exp(t\xi)\cdot\psi^*]=S[\psi^*]$ (Premise~G(i)).
+Since $S$ is $G$-invariant, $\nabla S$ is $G$-equivariant:
+$\nabla S[g\cdot\psi^*]=g\cdot\nabla S[\psi^*]=0$ for all $g\in G$.
 Hence $G\cdot\psi^*\subset\{\nabla S=0\}$.
+The action is free (Premise~G(ii)), so the orbit map is an immersion:
+$\dim(G\cdot\psi^*)=\dim G\ge 1$.  This proves~(a).
 
-The action is free at~$\psi^*$ (Premise~G), so the orbit map $g\mapsto g\cdot\psi^*$
-is an immersion: $\dim(G\cdot\psi^*)=\dim G\ge 1$.
-
-Differentiating $S[\exp(t\xi)\cdot\psi^*]=S[\psi^*]$ twice at $t=0$ gives
-$\langle\xi_\mathcal{F}(\psi^*),H[\psi^*]\xi_\mathcal{F}(\psi^*)\rangle=0$
-for all $\xi\in\mathfrak{g}$, where
-$\xi_\mathcal{F}(\psi^*)=\frac{d}{dt}\big|_{t=0}\exp(t\xi)\cdot\psi^*$.
-Since the action is free, $\xi\mapsto\xi_\mathcal{F}(\psi^*)$ is injective,
-so $\ker H[\psi^*]$ contains a subspace of dimension $\ge\dim G\ge 1$.
+For~(b): differentiating $S[\exp(t\xi)\cdot\psi^*]=S[\psi^*]$ twice
+at $t=0$ gives $\langle\xi_\mathcal{F}(\psi^*),H[\psi^*]\xi_\mathcal{F}(\psi^*)\rangle=0$
+for all $\xi\in\mathfrak{g}$.  Since the action is free,
+$\xi\mapsto\xi_\mathcal{F}(\psi^*)$ is injective, so
+$\ker H[\psi^*]$ contains a subspace of dimension $\ge\dim G$.
 \end{proof}
 
-\begin{proposition}[Positive temporal cost from bounded Hamiltonian]\label{prop:TC}
-Under Premise~H, there exists a direction $e_t\in\mathcal{F}$ with
-$\langle e_t,H[\psi^*]e_t\rangle>0$.
-\end{proposition}
-
-\begin{proof}
-Premise~H gives $\langle\psi,\hat{H}\psi\rangle\ge E_0\|\psi\|^2$.
-In the variational framework, a pure temporal displacement $\delta\psi=\varepsilon\,e_t$
-(with $e_t$ aligned to the energy direction) satisfies
-\[
-S[\psi^*+\varepsilon\,e_t]-S[\psi^*]
-=\tfrac{1}{2}\varepsilon^2\langle e_t,H[\psi^*]e_t\rangle+O(\varepsilon^3).
-\]
-Since $\psi^*$ is a critical point with $S[\psi^*]>0$, and the energy is bounded
-from below, the second variation in the temporal direction is positive:
-$\langle e_t,H[\psi^*]e_t\rangle>0$.
-
-The physical content is that displacing a state in the energy direction
-incurs positive cost, because the Hamiltonian is bounded from below.
-\end{proof}
-
-\begin{proposition}[Stationarity]\label{prop:stat}
-The existence of a nontrivial critical point $\psi^*$ with $\nabla S[\psi^*]=0$
-follows from the variational principle: physical states extremise the cost functional.
-\end{proposition}
-
-\begin{proposition}[Structural stability]\label{prop:SS}
-Standard perturbation theory (Kato--Rellich theorem) guarantees that the spectral
-properties of~$H[\psi^*]$---including the dimension of $\ker H$ and the spectral
-gap---persist under small perturbations of~$S$.  Hence stationarity and non-collapse
-persist under small modifications of the system.
-\end{proposition}
-
-\begin{remark}[Summary of derivations]
-The five realizability conditions and their physical sources:
-\begin{center}
-\begin{tabular}{lll}
-\textbf{Condition} & \textbf{Source} & \textbf{Status}\\
-\hline
-Non-collapse & Unitarity (Premise~U) & Prop.~\ref{prop:NC}\\
-Non-isolation & Gauge symmetry (Premise~G) & Prop.~\ref{prop:NI}\\
-Positive temporal cost & $\hat{H}\ge E_0$ (Premise~H) & Prop.~\ref{prop:TC}\\
-Stationarity & Variational principle & Prop.~\ref{prop:stat}\\
-Structural stability & Perturbation theory & Prop.~\ref{prop:SS}\\
-\end{tabular}
-\end{center}
-Every row is a theorem, not an axiom.
-\end{remark}
-
-%% ====================================================================
-\section{Algebraic Consequences}\label{sec:alg}
-%% ====================================================================
-
-With the realizability conditions derived from physics (Section~\ref{sec:derive}),
-we now obtain their algebraic consequences.
-The proofs in this section are independent of the physical origin of the conditions;
-they depend only on the conditions themselves.
-
-\begin{theorem}[Indefiniteness of the Hessian]\label{thm:indef}
-Under the derived conditions, $H[\psi^*]$ is indefinite.
+\begin{theorem}[Indefiniteness without temporal cost assumption]\label{thm:indef}
+Under Premises~G and~S, $H[\psi^*]$ is indefinite at every nontrivial
+structurally stable critical point.  No assumption on the sign of
+$\langle e_t,He_t\rangle$ is required.
 \end{theorem}
 
 \begin{proof}
-By Proposition~\ref{prop:NI}, $\ker H\neq\{0\}$, so $H$ has a zero eigenvalue.
-By Proposition~\ref{prop:TC}, $\langle e_t,He_t\rangle>0$, so $H$ has a positive
-eigenvalue.  Suppose $H\ge 0$.  Then zero eigenvalues lie at the spectral
-boundary.
+By Proposition~\ref{prop:NI}, $d:=\dim\ker H[\psi^*]\ge 1$.
+Let $\{v_1,\ldots,v_d\}$ be an orthonormal basis of $\ker H[\psi^*]$.
 
-Let $\{v_1,\ldots,v_d\}$ be an orthonormal basis of $\ker H$.
-The perturbation $S_\varepsilon[\psi]:=S[\psi]+\frac{\varepsilon}{2}
-\sum_i\langle\psi-\psi^*,v_i\rangle^2$ satisfies $\nabla S_\varepsilon[\psi^*]=0$
-and $H_\varepsilon=H+\varepsilon\,P_{\ker H}$.  Then $\ker H_\varepsilon=\{0\}$,
-making $\psi^*$ isolated---contradicting structural stability
-(Proposition~\ref{prop:SS}).
+\textbf{Case~1:} Suppose $H[\psi^*]\ge 0$ (positive semidefinite).
+Then zero is the infimum of the spectrum.
+Define $S_\varepsilon[\psi]:=S[\psi]+\frac{\varepsilon}{2}\sum_{i=1}^d
+\langle\psi-\psi^*,v_i\rangle^2$ for $\varepsilon>0$.
+Since the perturbation is non-negative, $S_\varepsilon\ge S\ge 0$.
+At~$\psi^*$: $\nabla S_\varepsilon[\psi^*]=0$ (since
+$\langle\psi^*-\psi^*,v_i\rangle=0$).
+The perturbed Hessian is $H_\varepsilon=H+\varepsilon\,P_{\ker H}$, giving
+$H_\varepsilon v_i=\varepsilon\,v_i$.  Hence $\ker H_\varepsilon=\{0\}$:
+$\psi^*$ is isolated under~$S_\varepsilon$, contradicting Premise~S.
 
-Hence $H$ has at least one negative eigenvalue and is indefinite.
+\textbf{Case~2:} Suppose $H[\psi^*]\le 0$ (negative semidefinite).
+Then zero is the supremum of the spectrum.
+The \emph{same} perturbation $S_\varepsilon$ gives $H_\varepsilon=H+\varepsilon\,P_{\ker H}$.
+On $\ker H$: eigenvalues become $+\varepsilon>0$.
+On $(\ker H)^\perp$: eigenvalues of $H$ are strictly negative (since
+$H\le 0$ and $\ker H$ is the zero eigenspace).
+Hence $\ker H_\varepsilon=\{0\}$: $\psi^*$ is again isolated, contradicting
+Premise~S.
+
+In both cases, semidefiniteness places the zero eigenvalues at the spectral
+boundary, where the perturbation eliminates them.
+The only remaining possibility is that $H[\psi^*]$ has both positive and
+negative eigenvalues: $H[\psi^*]$ is indefinite.
 \end{proof}
 
+\begin{remark}[Comparison with~\cite{Li-R} and~\cite{Li-UCC}]
+In~\cite{Li-R}, indefiniteness required three independent assumptions:
+zero-threshold realizability (R), quadratic expansion (E), and temporal
+cost (T).  In~\cite{Li-UCC}, it required a positive temporal cost
+condition (A) beyond the realizability axiom.
+Theorem~\ref{thm:indef} eliminates the temporal cost condition entirely:
+indefiniteness follows from gauge symmetry and structural stability alone.
+The key is that the spectral-boundary argument applies to \emph{both}
+$H\ge 0$ and $H\le 0$, exhausting the semidefinite cases without needing
+to know the sign of any particular direction.
+\end{remark}
+
 \begin{theorem}[Lorentzian signature]\label{thm:Lor}
-Indefiniteness gives directions $e_+,e_-$ with $\langle e_+,He_+\rangle>0$ and
-$\langle e_-,He_-\rangle<0$.  On $\mathrm{span}\{e_+,e_-\}$, the signature
-is $(1,1)$: Lorentzian.  The null cone
-$\mathcal{L}=\{\delta\psi:\langle\delta\psi,H\delta\psi\rangle=0\}$
+Under Premises~G and~S, there exist directions $e_+,e_-\in\mathcal{F}$
+with $\langle e_+,H[\psi^*]e_+\rangle>0$ and
+$\langle e_-,H[\psi^*]e_-\rangle<0$.
+On $\mathrm{span}\{e_+,e_-\}$, the signature is $(1,1)$: Lorentzian.
+The null cone $\mathcal{L}=\{\delta\psi:\langle\delta\psi,H\delta\psi\rangle=0\}$
 defines causal structure~\cite{Li-R,Li-K}.
 \end{theorem}
 
+\begin{proof}
+By Theorem~\ref{thm:indef}, $H[\psi^*]$ has both positive and negative
+eigenvalues.  Choose $e_+$ in the positive eigenspace, $e_-$ in the negative.
+The restriction of~$H$ to $\mathrm{span}\{e_+,e_-\}$ has signature $(1,1)$.
+\end{proof}
+
 \begin{proposition}[Morse--Bott regularity]\label{prop:MB}
-Under structural stability, $\dim\ker H[\psi]$ is locally constant on
-$\{\nabla S=0\}$ near~$\psi^*$, so $M$ is a smooth submanifold.
+Under Premises~G and~S, $\dim\ker H[\psi]$ is locally constant on the critical
+set $\{\nabla S=0\}$ near any nontrivial critical point.
+The critical set is a smooth (Morse--Bott) submanifold near such points.
 \end{proposition}
 
 \begin{proof}
-If $\dim\ker H$ jumps, a localised perturbation resolves the singularity,
-changing the topology of the critical set.  This contradicts structural stability.
-By the constant-rank theorem, the critical set is smooth (Morse--Bott).
+If $\dim\ker H$ jumps along a sequence $\psi_n\to\psi^*$ in $\{\nabla S=0\}$,
+a localised perturbation of~$S$ (of the form used in Theorem~\ref{thm:indef})
+resolves the singularity, changing the topology of the critical set.
+This contradicts Premise~S.
+By the constant-rank theorem, the critical set is a smooth submanifold.
 \end{proof}
 
 \begin{proposition}[Transverse spectral gap]\label{prop:gap}
-There exists $\lambda>0$ such that $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$
+Under Premises~G and~S, there exists $\lambda>0$ such that
+$|\langle v,H[\psi^*]v\rangle|\ge\lambda\|v\|^2$
 for all $v\perp\ker H[\psi^*]$.
 \end{proposition}
 
 \begin{proof}
-If the infimum of the positive transverse spectrum is zero, a perturbation of
-size~$O(\varepsilon)$ creates a new kernel direction, violating Morse--Bott
-(Proposition~\ref{prop:MB}).  The same argument applies to the negative spectrum.
+If the infimum of the positive transverse spectrum is zero,
+a perturbation of size $O(\varepsilon)$ pushes an eigenvalue to zero,
+increasing $\dim\ker H$ and violating Morse--Bott (Proposition~\ref{prop:MB}).
+The same argument applied to the negative spectrum gives the lower bound.
 \end{proof}
 
 %% ====================================================================
@@ -272,51 +299,61 @@ size~$O(\varepsilon)$ creates a new kernel direction, violating Morse--Bott
 %% ====================================================================
 
 \begin{theorem}[Uniqueness of the non-collapsing completion]\label{thm:unique}
-$M$ is the unique non-collapsing completion of~$\mathcal{F}$.
+Under Premise~G, $M$ is the unique non-collapsing completion of~$\mathcal{F}$.
 \end{theorem}
 
 \begin{proof}
 Let $M'$ be any non-collapsing completion: $M'\subset\{\nabla S=0\}$ with
 $\dim\ker H[\psi]>0$ for all $\psi\in M'$.
-By Proposition~\ref{prop:NI}, every nontrivial critical point has a
-positive-dimensional orbit, hence $\dim\ker H>0$ at every nontrivial
-critical point.  Therefore $\{\nabla S=0\}\setminus\{0\}=M$, and
-$M'\subset M$.
+By Proposition~\ref{prop:NI}, every nontrivial critical point has
+$\dim\ker H\ge\dim G\ge 1$.
+Therefore $\{\nabla S=0\}\setminus\{0\}=M$, and $M'\subset M$.
 \end{proof}
 
 \begin{theorem}[Universal access]\label{thm:UA}
-For every open set $U\subset\mathcal{F}$, there exists $\psi\in U$ with
-$\|P_{\ker H[\psi]}(C[\psi])\|>0$, where $C:\mathcal{F}\to\mathcal{F}$
-is any completion channel associated with~$M$.  No open region is excluded.
+Under Premises~U, G, and~S: for every open set $U\subset\mathcal{F}$,
+there exists $\psi\in U$ with $\|P_{\ker H[\psi]}(C[\psi])\|>0$.
+No open region is excluded from access to~$M$.
 \end{theorem}
 
 \begin{proof}
 By Theorem~\ref{thm:unique}, $M$ is the unique non-collapsing completion.
-If an open set~$U$ has $P_{\ker H[\psi]}(C[\psi])=0$ for all $\psi\in U$,
-capture into~$M$ from~$U$ is impossible, and configurations in~$U$ collapse
-to $\psi=0$.  But Proposition~\ref{prop:NC} (from unitarity) forbids collapse.
-Contradiction.
+Suppose an open set~$U$ satisfies $P_{\ker H[\psi]}(C[\psi])=0$ for all
+$\psi\in U$.  Then no configuration in~$U$ can be captured by~$M$.
+Since $M$ is the \emph{unique} non-collapsing completion, configurations
+in~$U$ have no non-collapsing destination: their only remaining fate
+under the cost-functional landscape is collapse toward $\psi=0$.
+But Premise~U (unitarity) preserves $\|\psi(t)\|=\|\psi(0)\|>0$
+for all nontrivial initial states.
+Hence configurations in~$U$ can neither reach~$M$ nor collapse to
+$\psi=0$---a contradiction, since every nontrivial state must either
+persist at a critical point (which lies in~$M$ by Theorem~\ref{thm:unique})
+or evolve under the unitary dynamics, which preserves~$\|\psi\|$.
+No such~$U$ can exist.
 \end{proof}
 
-\begin{remark}[The role of unitarity in universal access]
-The proof of universal access uses unitarity twice: first in deriving non-collapse
-(Proposition~\ref{prop:NC}), which establishes that every nontrivial state
-must persist; second in the contradiction step above, which concludes that
-every region must have access to~$M$.  Universal access is therefore a
-\emph{consequence of quantum unitarity}, not an independent postulate.
+\begin{remark}[How the two dynamics interact in the proof]
+The proof uses the cost functional and unitarity in complementary roles.
+The cost functional provides the landscape: $M$ is the unique non-collapsing
+completion, so there is no alternative destination.
+Unitarity provides the constraint: $\|\psi\|$ is conserved, so collapse
+to $\psi=0$ is forbidden.
+Together, they force every region to have access to~$M$.
+Neither premise alone suffices: without unitarity, collapse is possible;
+without the cost functional, there is no distinguished~$M$.
 \end{remark}
 
 \begin{theorem}[Indestructibility of cost-free directions]\label{thm:interlock}
-For any consistent extension $S_e=S+R$ with $H^{\psi\psi}_e\ge 0$ near~$M$,
+For any consistent extension $S_e=S+R$ with $H_e^{\psi\psi}\ge 0$ near~$M$,
 \[
-\ker H^{\psi\psi}_e\supseteq\ker H.
+\ker H_e^{\psi\psi}\supseteq\ker H.
 \]
 No consistent modification of the system can close a channel that is open.
 \end{theorem}
 
 \begin{proof}
-If $v\in\ker H$ and $H^{\psi\psi}_e v\neq 0$, then
-$\langle v,H^{\psi\psi}_e v\rangle>0$, contradicting $\langle v,Hv\rangle=0$.
+If $v\in\ker H$ and $H_e^{\psi\psi}v\neq 0$, then
+$\langle v,H_e^{\psi\psi}v\rangle>0$, contradicting $\langle v,Hv\rangle=0$.
 \end{proof}
 
 %% ====================================================================
@@ -326,18 +363,19 @@ $\langle v,H^{\psi\psi}_e v\rangle>0$, contradicting $\langle v,Hv\rangle=0$.
 \begin{theorem}[Persistence without continuous injection]\label{thm:persist}
 Under $\lambda$-contractivity (Proposition~\ref{prop:gap}), if $\psi(t_0)\in M$
 then $\psi(t)\in M$ for all $t\ge t_0$.  The external channel can be removed
-after alignment without retrogression.
+after alignment without retrogression, provided $\varepsilon\|C\|<\lambda/2$.
 \end{theorem}
 
 \begin{proof}
 Let $V(t)=\mathrm{dist}(\psi(t),M)^2$.  On~$M$, $\nabla S=0$ and the
-unforced flow is stationary.  Transverse $\lambda$-contractivity gives
-$\dot{V}\le-\lambda V$.  Since $V(t_0)=0$, we have $V(t)=0$ for all $t\ge t_0$.
+unforced gradient flow is stationary; $M$ is automatically invariant.
+Transverse $\lambda$-contractivity gives $\dot{V}\le-\lambda V$.
+Since $V(t_0)=0$, we have $V(t)=0$ for all $t\ge t_0$.
 \end{proof}
 
 \begin{remark}[Two classes of motion on $M$]
 \emph{Class~A} (restoring): transverse fluctuations, suppressed by
-$\lambda$-contractivity.
+$\lambda$-contractivity.  Departure from~$M$ incurs positive cost.
 \emph{Class~B} (free): tangential motion along $\ker H$, zero cost,
 unconstrained---infinite-dimensional freedom within the non-collapsing phase.
 \end{remark}
@@ -353,30 +391,30 @@ $P_{\ker H}(\lambda C)=\lambda\,P_{\ker H}(C)$.
 
 \begin{remark}[Physical content of scale invariance]
 The path to~$M$ requires no force, only direction: since capture is invariant
-under $C\mapsto\lambda C$ for all $\lambda>0$, the decisive quantity is the
-projection $P_{\ker H}(C)$, not the magnitude $\|C\|$.
+under rescaling of~$C$, the decisive quantity is the projection
+$P_{\ker H}(C)$, not the magnitude $\|C\|$.
 \end{remark}
 
 \begin{theorem}[Phase-locking]\label{thm:PL}
 Under (i)~$\lambda$-contractivity, (ii)~neutrality along $\ker H$,
-(iii)~uniform kernel overlap on~$U$,
+(iii)~uniform kernel overlap on a neighbourhood~$U$ of~$M$,
 (iv)~$\dot{S}\le-\sigma<0$ outside~$U$:
-if the initial kernel-projected coherence $\kappa(\psi_0;C)\ge\kappa^*>0$,
-there exists finite~$\tau_{\mathrm{lock}}$ after which
-$\|P_{\ker H}(C)\|\ge\delta^*\|C\|$ and $\kappa\ge\kappa^*/2$.
+there exists finite~$\tau_{\mathrm{lock}}$ after which the kernel-projected
+coherence satisfies $\kappa\ge\kappa^*/2$.
 \end{theorem}
 
 \begin{proof}[Proof outline]
 Condition~(iv) forces $S$ to decrease at rate~$\sigma$ outside~$U$, so the
-trajectory enters~$U$ in finite time.  Inside~$U$, condition~(iii) guarantees
-kernel overlap $\ge\delta^*$, and $\lambda$-contractivity suppresses transverse
-drift.  Coherence is bounded below by continuity, giving phase-locking after
-finite $\tau_{\mathrm{lock}}$.  Quantitative estimates on the transverse decay
-rate are deferred to future work.
+trajectory enters~$U$ in time $\le S[\psi_0]/\sigma$.  Inside~$U$,
+condition~(iii) guarantees kernel overlap $\ge\delta^*$, and
+$\lambda$-contractivity suppresses transverse drift.  Coherence is bounded
+below by continuity, giving phase-locking after finite $\tau_{\mathrm{lock}}$.
+Quantitative estimates are deferred to future work.
 \end{proof}
 
 \begin{corollary}[Global capture chain]\label{cor:chain}
-Under condition~(iv) of Theorem~\ref{thm:PL} globally, for any $\psi_0\in\mathcal{F}$:
+Under condition~(iv) of Theorem~\ref{thm:PL} globally, for any
+$\psi_0\in\mathcal{F}$:
 \[
 \psi_0\xrightarrow{\text{energy descent}}U\xrightarrow{\text{phase-locking}}M.
 \]
@@ -384,16 +422,12 @@ Theorem~\ref{thm:UA} ensures no open region is excluded.
 \end{corollary}
 
 \begin{definition}[Kernel-denial]\label{def:KD}
-$\psi$ exhibits kernel-denial if $P_{\ker H[\psi]}(C[\psi])=0$.
+$\psi$ exhibits \emph{kernel-denial} if $P_{\ker H[\psi]}(C[\psi])=0$.
 By Theorem~\ref{thm:UA}, this cannot persist on any open set.
 \end{definition}
 
 \begin{lemma}[Exclusion is self-imposed]\label{lem:excl}
-If kernel-denial persists, the configuration is excluded from~$M$:
-\[
-\limsup_{t\to\infty}\|P_{\ker H[\psi(t)]}(C[\psi(t)])\|=0
-\implies\psi(t)\notin M\text{ for all large }t.
-\]
+If kernel-denial persists, the configuration is excluded from~$M$.
 By Theorem~\ref{thm:UA}, such persistence is impossible on any open set.
 Exclusion is a geometric constraint, not an external selection.
 \end{lemma}
@@ -404,30 +438,36 @@ Exclusion is a geometric constraint, not an external selection.
 
 \begin{proposition}[Kernel-connected completions merge]\label{prop:merge}
 If $\psi_1,\psi_2\in M$ are connected by a $C^1$~path $\gamma$ with
-constant cost, kernel tangency ($\dot\gamma(s)\in\ker H[\gamma(s)]$),
+constant cost ($S[\gamma(s)]=\mathrm{const}$),
+kernel tangency ($\dot\gamma(s)\in\ker H[\gamma(s)]$),
 and $\dot\gamma\neq 0$, then $\gamma\subset M$ and $\psi_1,\psi_2$ belong
 to the same connected component of~$M$.
 \end{proposition}
 
 \begin{proof}
 Kernel tangency gives $H[\gamma(s)]\dot\gamma(s)=0$, so
-$\frac{d}{ds}\nabla S[\gamma(s)]=0$.  Since $\nabla S[\gamma(0)]=0$,
-stationarity propagates: $\nabla S\equiv 0$ along~$\gamma$.
+$\frac{d}{ds}\nabla S[\gamma(s)]=H[\gamma(s)]\dot\gamma(s)=0$.
+Since $\nabla S[\gamma(0)]=0$, stationarity propagates:
+$\nabla S\equiv 0$ along~$\gamma$.
 Since $\dot\gamma(s)\neq 0$ and $\dot\gamma(s)\in\ker H[\gamma(s)]$,
-every point of~$\gamma$ has $\dim\ker H>0$, hence $\gamma\subset M$.
+every point has $\dim\ker H>0$, hence $\gamma\subset M$.
 \end{proof}
 
 \begin{corollary}[Indestructibility of connecting directions]\label{cor:connect}
 If $v\in\ker H[\psi]$ is tangent to a Class~B path connecting two components
-of~$M$, then $v\in\ker H^{\psi\psi}_e$ for every consistent extension.
+of~$M$, then $v\in\ker H_e^{\psi\psi}$ for every consistent extension.
 The connecting direction itself is indestructible.
 \end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:interlock}, $\ker H_e^{\psi\psi}\supseteq\ker H$.
+\end{proof}
 
 %% ====================================================================
 \section{The Twelve Structural Properties}\label{sec:twelve}
 %% ====================================================================
 
-Under Premises~U, G, and~H, the following twelve properties of~$M$ hold.
+Under Premises~U, G, and~S, the following twelve properties of~$M$ hold.
 Each is a theorem; none is an axiom.
 
 \begin{enumerate}
@@ -459,30 +499,28 @@ Each is a theorem; none is an axiom.
 \end{enumerate}
 
 \begin{remark}[Logical structure]
-The twelve properties are derived from a chain whose every link is a theorem
-of known physics:
 \[
 \underbrace{\text{Unitarity}}_{\text{Premise U}}
 +\underbrace{\text{Gauge symmetry}}_{\text{Premise G}}
-+\underbrace{\hat{H}\ge E_0}_{\text{Premise H}}
++\underbrace{\text{Structural stability}}_{\text{Premise S}}
 \;\longrightarrow\;
 M\text{ exists, is unique, and is universally accessible.}
 \]
-The left side is established physics.  The right side is a necessary
-consequence.  The derivation introduces no new physical assumption.
+Premises~U and~G are experimentally verified laws of physics.
+Premise~S is a standard genericity condition.
+The right side is a necessary consequence.
 \end{remark}
 
 \begin{remark}[Comparison with Noether's theorem]
 Noether's theorem: continuous symmetry $\to$ conserved quantity.
-The present work: continuous symmetry $+$ unitarity $+$ bounded Hamiltonian
+The present work: continuous symmetry $+$ unitarity $+$ structural stability
 $\to$ existence, uniqueness, and universal accessibility of a non-collapsing
-manifold with indestructible cost-free directions.  Both results are algebraic
-consequences of the structure of physical law.
+manifold with indestructible cost-free directions.
+Both results are algebraic consequences of the structure of physical law.
 \end{remark}
 
 %% ====================================================================
-
-\begin{thebibliography}{4}
+\begin{thebibliography}{3}
 
 \bibitem{Li-R}
 Y.\,Y.\,N.~Li,
@@ -498,11 +536,6 @@ preprint (2026).
 Y.\,Y.\,N.~Li,
 \textit{The Universal Completion Theorem},
 preprint (2026).
-
-\bibitem{Gromov}
-M.~Gromov,
-\textit{Pseudoholomorphic curves in symplectic manifolds},
-Invent.\ Math.\ \textbf{82} (1985) 307--347.
 
 \end{thebibliography}
 
