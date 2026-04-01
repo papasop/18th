@@ -72,7 +72,7 @@ $\delta S[\psi;\delta\psi]=\langle\delta\psi,\nabla S[\psi]\rangle$.
 \begin{definition}[Hessian, null space]\label{def:Hess}
 $H[\psi]v=\frac{d}{d\varepsilon}\big|_{\varepsilon=0}\nabla S[\psi+\varepsilon v]$,
 bounded and self-adjoint.
-$\ker H[\psi]=\{v\in\mathcal{F}:Hv=0\}$.
+$\ker H[\psi]=\{v\in\mathcal{F}:H[\psi]v=0\}$.
 \end{definition}
 
 \begin{definition}[Generative manifold]\label{def:M}
@@ -157,7 +157,9 @@ $\dim(G\cdot\psi^*)=\dim G\ge 1$.
 
 Differentiating $S[\exp(t\xi)\cdot\psi^*]=S[\psi^*]$ twice at $t=0$ gives
 $\langle\xi_\mathcal{F}(\psi^*),H[\psi^*]\xi_\mathcal{F}(\psi^*)\rangle=0$
-for all $\xi\in\mathfrak{g}$.
+for all $\xi\in\mathfrak{g}$, where
+$\xi_\mathcal{F}(\psi^*)=\frac{d}{dt}\big|_{t=0}\exp(t\xi)\cdot\psi^*$
+is the infinitesimal generator at~$\psi^*$.
 Since the action is free, $\xi\mapsto\xi_\mathcal{F}(\psi^*)$ is injective,
 so $\ker H[\psi^*]$ contains a subspace of dimension $\ge\dim G$.
 \end{proof}
@@ -188,7 +190,9 @@ Define $S_\varepsilon[\psi]:=S[\psi]+\frac{\varepsilon}{2}\sum_{i=1}^d
 \langle\psi-\psi^*,v_i\rangle^2$ for $\varepsilon>0$.
 Since the perturbation is non-negative, $S_\varepsilon\ge S\ge 0$.
 At~$\psi^*$: $\nabla S_\varepsilon[\psi^*]=0$.
-The perturbed Hessian is $H_\varepsilon=H+\varepsilon\,P_{\ker H}$, giving
+The perturbed Hessian is $H_\varepsilon=H+\varepsilon\,P_{\ker H}$, where
+$P_{\ker H}=\sum_{i=1}^d\langle v_i,\cdot\rangle v_i$ is the orthogonal projection
+onto $\ker H$.  Then
 $H_\varepsilon v_i=\varepsilon\,v_i$.  Hence $\ker H_\varepsilon=\{0\}$:
 $\psi^*$ is isolated under~$S_\varepsilon$, contradicting Axiom~\ref{ax:R}(iii).
 
@@ -262,7 +266,10 @@ $v\perp\ker H[\psi^*]$.
 
 \begin{proof}
 Since $H[\psi^*]$ is Fredholm (Definition~\ref{def:cost}), its non-zero spectrum
-is discrete.  If $\inf\sigma_+(H)=0$, there exists a sequence of positive
+is discrete.  Write $\sigma_+(H)=\{\mu\in\sigma(H):\mu>0\}$ and
+$\sigma_-(H)=\{\mu\in\sigma(H):\mu<0\}$ for the positive and negative parts
+of the spectrum.
+If $\inf\sigma_+(H)=0$, there exists a sequence of positive
 eigenvalues $\lambda_n\to 0$.  A perturbation of size $O(\lambda_n)$ pushes
 $\lambda_n$ to zero, increasing $\dim\ker H$ and violating Morse--Bott
 (Proposition~\ref{prop:MB}).  Hence $\inf\sigma_+(H)>0$.
