@@ -40,8 +40,9 @@ Structural stability then forces the Hessian to be indefinite---yielding Lorentz
 signature---\emph{without any assumption on the sign of a temporal direction}: the
 spectral-boundary argument excludes both the semidefinite cases $H\ge 0$ and $H\le 0$.
 From these two axioms, twelve structural properties of~$M$ are derived: access is
-basin-independent, capture depends on alignment alone, the channel infrastructure is
-indestructible under any consistent extension, and exclusion is geometrically self-imposed.
+basin-independent, capture depends on alignment alone, gauge directions are
+indestructible under any symmetry-preserving extension, and exclusion is
+geometrically self-imposed.
 \end{abstract}
 
 %% ====================================================================
@@ -551,7 +552,7 @@ Under Axioms~\ref{ax:R} and~\ref{ax:G}, the following twelve properties hold:
 Noether's theorem~\cite{Noether} derives conserved quantities from continuous symmetry.
 The present work derives a second structural necessity from the same premise,
 augmented by structural stability: the existence of a unique non-collapsing manifold
-with indestructible cost-free directions.
+with indestructible gauge directions.
 \end{remark}
 
 \begin{thebibliography}{5}
