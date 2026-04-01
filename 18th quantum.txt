@@ -252,6 +252,18 @@ The only remaining possibility is that $H[\psi^*]$ has both positive and
 negative eigenvalues: $H[\psi^*]$ is indefinite.
 \end{proof}
 
+\begin{remark}[The perturbation breaks gauge symmetry]
+The perturbation $S_\varepsilon[\psi]=S[\psi]+\frac{\varepsilon}{2}\sum_i
+\langle\psi-\psi^*,v_i\rangle^2$ is \emph{not} $G$-invariant:
+under $g\in G$, $\langle g\cdot\psi-\psi^*,v_i\rangle\neq\langle\psi-\psi^*,v_i\rangle$
+in general, because $g$ moves $\psi$ but the centre~$\psi^*$ and
+directions~$v_i$ are fixed.
+This is precisely why Premise~S requires persistence under perturbations
+that break gauge symmetry: the proof of indefiniteness depends on it.
+A weaker premise (persistence under gauge-invariant perturbations only)
+would not suffice for Theorem~\ref{thm:indef}.
+\end{remark}
+
 \begin{remark}[Elimination of the temporal cost condition]
 In previous realizability-based derivations of Lorentzian signature,
 indefiniteness required three independent assumptions:
@@ -308,10 +320,20 @@ for all $v\perp\ker H[\psi^*]$.
 \end{proposition}
 
 \begin{proof}
-If the infimum of the positive transverse spectrum is zero,
-a perturbation of size $O(\varepsilon)$ pushes an eigenvalue to zero,
-increasing $\dim\ker H$ and violating Morse--Bott (Proposition~\ref{prop:MB}).
-The same argument applied to the negative spectrum gives the lower bound.
+Since $H[\psi^*]$ is Fredholm (Definition~\ref{def:cost}), its non-zero spectrum
+is discrete: every non-zero spectral value is an isolated eigenvalue of finite
+multiplicity.  In particular, the positive transverse eigenvalues form a
+discrete set bounded away from zero unless $\inf\sigma_+(H)=0$.
+
+Suppose $\inf\sigma_+(H)=0$.  Then there exists a sequence of positive eigenvalues
+$\lambda_n\to 0$ with unit eigenvectors $w_n$.
+A perturbation of~$S$ of size $O(\lambda_n)$ pushes $\lambda_n$ to zero,
+creating a new kernel direction and increasing $\dim\ker H$.
+This violates Morse--Bott regularity (Proposition~\ref{prop:MB}).
+
+Hence $\inf\sigma_+(H)>0$.  The same argument applied to $-H$ on the negative
+eigenspace gives $\sup\sigma_-(H)<0$.
+Setting $\lambda=\min(\inf\sigma_+,|\sup\sigma_-|)$ gives the transverse spectral gap.
 \end{proof}
 
 %% ====================================================================
@@ -581,6 +603,32 @@ Noether's theorem~\cite{Noether} derives conserved quantities from continuous sy
 The present work derives a second structural necessity from the same premise,
 augmented by structural stability: the existence of a unique non-collapsing
 manifold with indestructible cost-free directions.
+\end{remark}
+
+\begin{remark}[Closed versus open systems]
+The eight properties in the first tier (G$+$S) and the two in the second (U)
+hold for closed quantum systems with no external influence.
+The access theorems (tier~3) require a completion channel $C\neq 0$, which
+represents coupling to an environment, an external field, or a measurement apparatus.
+In a strictly closed system ($C=0$), $M$ still exists, is unique, Lorentzian,
+smooth, and indestructible---but no mechanism steers configurations toward it.
+The present framework is therefore most naturally interpreted in the context of
+open quantum systems or quantum field theories with external sources,
+rather than isolated Hamiltonian dynamics.
+\end{remark}
+
+\begin{remark}[Scope of universal access]
+The conditional form of Theorem~\ref{thm:UA}---``if the dynamics excludes
+indefinite non-critical persistence''---reflects a genuine limitation.
+A free particle undergoing unitary evolution in flat space can persist
+indefinitely without approaching any critical point of~$S$.
+Establishing universal access as an unconditional theorem would require
+additional structure: either compactness of sublevel sets of~$S$
+(ensuring precompactness of orbits), or a dissipative component in the
+dynamics (ensuring energy descent), or a topological obstruction
+(preventing orbits from avoiding~$M$ indefinitely).
+Which of these conditions holds in physically relevant systems is an
+open question.
 \end{remark}
 
 \begin{thebibliography}{5}
