@@ -68,14 +68,11 @@ $S:\mathcal{F}\to\mathbb{R}_{\ge 0}$ satisfying:
 \end{itemize}
 \end{definition}
 
-\begin{definition}[Functional gradient]\label{def:grad}
-$\nabla S[\psi]\in\mathcal{F}$ is the Riesz representative:
-$\delta S[\psi;\delta\psi]=\langle\delta\psi,\nabla S[\psi]\rangle$.
-\end{definition}
-
-\begin{definition}[Hessian, null space]\label{def:Hess}
-$H[\psi]v=\frac{d}{d\varepsilon}\big|_{\varepsilon=0}\nabla S[\psi+\varepsilon v]$,
-bounded and self-adjoint.
+\begin{definition}[Gradient, Hessian, null space]\label{def:Hess}
+$\nabla S[\psi]\in\mathcal{F}$: the Riesz representative,
+$\langle\delta\psi,\nabla S[\psi]\rangle=\delta S[\psi;\delta\psi]$.
+$H[\psi]v=\frac{d}{d\varepsilon}\big|_{\varepsilon=0}\nabla S[\psi+\varepsilon v]$:
+the Hessian, bounded and self-adjoint.
 $\ker H[\psi]=\{v\in\mathcal{F}:H[\psi]v=0\}$.
 \end{definition}
 
@@ -447,6 +444,8 @@ On~$M$, $\nabla S[\psi]=0$, so the gradient flow $\partial_t\psi=-\nabla S[\psi]
 is identically zero: $M$ is invariant.
 If $\psi(t_0)\in M$, then $\psi(t)=\psi(t_0)\in M$ for all $t\ge t_0$.
 Removing~$C$ at $t_0$ restores pure gradient flow, and invariance applies.
+Axiom~\ref{ax:R}(iv) ensures $\overline{M}\cap\Sigma_S=\varnothing$, so
+no trajectory on~$M$ encounters the singular set.
 \end{proof}
 
 \begin{remark}[Invariance versus stability]
@@ -459,75 +458,40 @@ Reaching~$M$ requires the channel~$C$; once on~$M$, remaining on~$M$
 requires only the absence of transverse forcing.
 \end{remark}
 
-\begin{remark}[Role of singular separation]
-Axiom~\ref{ax:R}(iv) ensures $\overline{M}\cap\Sigma_S=\varnothing$:
-no trajectory on~$M$ can reach the singular set of~$S$.
-Persistence therefore extends to all future time without encountering
-points where the Hessian ceases to exist.
-\end{remark}
-
 \begin{remark}[Two classes of motion on~$M$]
+By Proposition~\ref{prop:MB}, $M$ is a smooth submanifold with
+$T_\psi M\supseteq\ker H[\psi]$.
 \emph{Class~A} (transverse): fluctuations perpendicular to~$M$.
-The spectral gap (Proposition~\ref{prop:gap}) ensures $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$
-for $v\perp\ker H$.  Positive-eigenvalue directions are restored by gradient flow;
-negative-eigenvalue directions are repelled (see the Remark above).
+The spectral gap ensures $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$
+for $v\perp\ker H$; positive-eigenvalue directions are restored by gradient flow,
+negative-eigenvalue directions are repelled.
 \emph{Class~B} (free): tangential motion along $\ker H$, zero cost,
 unconstrained---$\dim G$ directions of cost-free motion at each point,
 and $M$ itself may be non-compact, so Class~B trajectories extend without bound.
 \end{remark}
 
-\begin{lemma}[Structure of~$M$]\label{lem:Mstr}
-$\dim\ker H[\psi]$ is locally constant on~$M$ (Proposition~\ref{prop:MB}).
-Hence $M$ is a smooth submanifold with $T_\psi M\supseteq\ker H[\psi]$, and
-$\frac{d^2}{d\varepsilon^2}\big|_{\varepsilon=0}S[\psi+\varepsilon\delta\psi]=0$
-for $\delta\psi\in T_\psi M$.
-\end{lemma}
-
-\begin{proof}
-Immediate from Proposition~\ref{prop:MB} and the constant-rank theorem.
-\end{proof}
-
-\begin{theorem}[Scale invariance of capture]\label{thm:scale}
-$\|P_{\ker H[\psi]}(C[\psi])\|>0$ is invariant under $C\mapsto\lambda C$
-for all $\lambda>0$.  Capture depends on alignment, not magnitude.
-\end{theorem}
-
-\begin{proof}
-$P_{\ker H}(\lambda C)=\lambda\,P_{\ker H}(C)$.
-\end{proof}
-
-\begin{remark}[Physical content of scale invariance]
+\begin{remark}[Scale invariance]
+Since $P_{\ker H}(\lambda C)=\lambda\,P_{\ker H}(C)$, the capture criterion
+$\|P_{\ker H}(C)\|>0$ depends on alignment alone, not magnitude.
 The path to~$M$ requires no force, only direction.
 \end{remark}
 
-\begin{definition}[Uniform kernel overlap]\label{def:UKO}
-$C$ has \emph{uniform kernel overlap} on~$U$ if
-$\|P_{\ker H[\psi]}(C[\psi])\|/\|C[\psi]\|\ge\delta^*>0$
-for all $\psi\in U$ with $C[\psi]\neq 0$.
-\end{definition}
-
-\begin{definition}[Kernel-projected coherence]\label{def:KPC}
-Fix $\psi^\star\in M$ and a unit vector $u^\star\in\ker H[\psi^\star]$.
-The coherence of~$C$ at~$\psi$ is
-$\kappa(\psi;C):=|\langle u^\star,P_{\ker H[\psi]}(C[\psi])\rangle|/\|P_{\ker H[\psi]}(C[\psi])\|$
-when $P_{\ker H[\psi]}(C[\psi])\neq 0$, and $\kappa=0$ otherwise.
-\end{definition}
-
 \begin{theorem}[Phase-locking]\label{thm:PL}
-Under (i)~transverse spectral gap (Proposition~\ref{prop:gap}),
-(ii)~neutrality along $\ker H$,
+Say $C$ has \emph{uniform kernel overlap} $\ge\delta^*$ on an open set~$U$ if
+$\|P_{\ker H[\psi]}(C[\psi])\|/\|C[\psi]\|\ge\delta^*>0$ for all $\psi\in U$
+with $C[\psi]\neq 0$.
+Under (i)~transverse spectral gap, (ii)~neutrality along $\ker H$,
 (iii)~uniform kernel overlap on~$U$,
 (iv)~$\dot{S}\le-\sigma<0$ outside~$U$:
-if $\kappa(\psi_0;C)\ge\kappa^*>0$, there exists finite~$\tau_{\mathrm{lock}}$
-after which the kernel-projected coherence satisfies $\kappa\ge\kappa^*/2$.
+there exists finite~$\tau_{\mathrm{lock}}$ after which
+$\|P_{\ker H}(C)\|\ge\delta^*\|C\|$.
 \end{theorem}
 
 \begin{proof}[Proof outline]
 Condition~(iv) forces $S$ to decrease at rate~$\sigma$ outside~$U$, so the
 trajectory enters~$U$ in time $\le S[\psi_0]/\sigma$.  Inside~$U$,
 condition~(iii) guarantees kernel overlap $\ge\delta^*$, and
-the spectral gap suppresses transverse drift.  Coherence is bounded
-below by continuity, giving phase-locking after finite $\tau_{\mathrm{lock}}$.
+the spectral gap suppresses transverse drift.
 Quantitative estimates are deferred to future work.
 \end{proof}
 
@@ -543,30 +507,15 @@ Theorem~\ref{thm:PL} gives phase-locking within~$U$;
 Theorem~\ref{thm:univ} ensures no open region is excluded.
 \end{proof}
 
-\begin{corollary}[Cost-independence of access]\label{cor:costindep}
-Access to~$M$ is independent of the initial cost $S[\psi_0]$.
-\end{corollary}
-
-\begin{proof}
-By Theorem~\ref{thm:univ}, every open set has access to~$M$.
-For any $c>0$, the sublevel set $\{\psi:S[\psi]<c\}$ and the superlevel set
-$\{\psi:S[\psi]>c\}$ are both open (by continuity of~$S$), hence both have access.
-\end{proof}
-
-\begin{definition}[Kernel-denial]\label{def:KD}
-$\psi$ exhibits \emph{kernel-denial} if $P_{\ker H[\psi]}(C[\psi])=0$.
-\end{definition}
-
 \begin{lemma}[Exclusion is self-imposed]\label{lem:excl}
-If kernel-denial persists along a trajectory, the trajectory is excluded from~$M$.
-Such persistence is impossible on any open set.
+If $P_{\ker H[\psi(t)]}(C[\psi(t)])=0$ (\emph{kernel-denial}) persists
+along a trajectory, the trajectory is excluded from~$M$.
+Such persistence is impossible on any open set (Theorem~\ref{thm:univ}).
 \end{lemma}
 
 \begin{proof}
-If $P_{\ker H[\psi(t)]}(C[\psi(t)])=0$ for all large~$t$, no kernel alignment
-occurs and the trajectory cannot approach~$M$ via~$C$.
-By Theorem~\ref{thm:univ}, $P_{\ker H}(C)\neq 0$ somewhere in every open set,
-so kernel-denial cannot hold on any open set.
+Kernel-denial precludes kernel alignment, blocking approach to~$M$ via~$C$.
+By Theorem~\ref{thm:univ}, $P_{\ker H}(C)\neq 0$ somewhere in every open set.
 \end{proof}
 
 %% ====================================================================
@@ -635,14 +584,19 @@ which itself requires the existence of~$C$ with nonzero kernel projection.
 \begin{enumerate}\setcounter{enumi}{8}
 \item \textbf{Universal access} (Thm~\ref{thm:univ}):
   for every open set, $P_{\ker H}(C)\neq 0$ somewhere.
-\item \textbf{Scale-invariant capture} (Thm~\ref{thm:scale}):
-  capture depends on alignment, not magnitude.
+\item \textbf{Scale-invariant capture}:
+  $P_{\ker H}(\lambda C)=\lambda P_{\ker H}(C)$;
+  the path to~$M$ requires direction, not force.
 \item \textbf{Self-imposed exclusion} (Lem~\ref{lem:excl}):
   kernel-denial cannot persist on any open set.
 \item \textbf{Global capture chain} (Cor~\ref{cor:chain}):
   under additional energy-descent conditions,
   $\psi_0\to U\to M$ from any initial state.
 \end{enumerate}
+
+Access is cost-independent: since every open set has access
+(including all sub- and superlevel sets of~$S$), the value $S[\psi_0]$
+does not determine accessibility.
 
 \begin{remark}[What the separation shows]
 The eight geometric properties (1--8) are unconditional consequences of
