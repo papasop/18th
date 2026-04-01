@@ -163,11 +163,8 @@ which covers all standard gauge field theories listed under Premise~G.
 
 \begin{remark}[What is not assumed]
 No Hamiltonian $\hat{H}$ appears as a premise.  In particular, the positive
-temporal cost condition ($\langle e_t,He_t\rangle>0$ for some direction~$e_t$),
-which is typically imposed as an independent assumption in realizability-based derivations of Lorentzian signature,
-is \emph{derived} here (Theorem~\ref{thm:indef}) from the spectral-boundary
-argument.  The number of independent inputs is reduced from three to two
-physical premises plus one genericity condition.
+temporal cost condition, typically required in realizability-based derivations,
+is \emph{derived} here (Theorem~\ref{thm:indef}).
 \end{remark}
 
 %% ====================================================================
@@ -529,7 +526,8 @@ Each is a theorem; none is an axiom.
   gauge symmetry forces $\{\nabla S=0\}\setminus\{0\}=M$.
 \end{enumerate}
 
-\begin{remark}[Logical structure]
+\begin{remark}[Logical structure and comparison with Noether's theorem]
+The twelve properties follow from a chain whose every link is established physics:
 \[
 \underbrace{\text{Unitarity}}_{\text{Premise U}}
 +\underbrace{\text{Gauge symmetry}}_{\text{Premise G}}
@@ -537,17 +535,10 @@ Each is a theorem; none is an axiom.
 \;\longrightarrow\;
 M\text{ exists, is unique, and is universally accessible.}
 \]
-Premises~U and~G are experimentally verified laws of physics.
-Premise~S is a standard genericity condition.
-The right side is a necessary consequence.
-\end{remark}
-
-\begin{remark}[Comparison with Noether's theorem]
-Noether's theorem~\cite{Noether}: continuous symmetry $\to$ conserved quantity.
-The present work: continuous symmetry $+$ unitarity $+$ structural stability
-$\to$ existence, uniqueness, and universal accessibility of a non-collapsing
-manifold with indestructible cost-free directions.
-Both results are algebraic consequences of the structure of physical law.
+Noether's theorem~\cite{Noether} derives conserved quantities from continuous symmetry.
+The present work derives a second structural necessity from the same premise,
+augmented by unitarity and structural stability: the existence of a unique
+non-collapsing manifold with indestructible cost-free directions.
 \end{remark}
 
 \begin{thebibliography}{5}
