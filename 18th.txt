@@ -360,23 +360,28 @@ ones that cannot be closed.
 %% ====================================================================
 
 \begin{theorem}[Persistence without continuous injection]\label{thm:persist}
-Under $\lambda$-contractivity (Proposition~\ref{prop:gap}):
-\begin{itemize}
-\item[\textup{(i)}] Under pure gradient flow ($\varepsilon=0$),
-  if $\psi(t_0)\in M$ then $\psi(t)\in M$ for all $t\ge t_0$.
-\item[\textup{(ii)}] If $C$~is removed at time~$t_0$ (setting $\varepsilon=0$ for $t>t_0$)
-  after $\psi(t_0)\in M$, no retrogression occurs.
-\end{itemize}
+Under pure gradient flow ($\varepsilon=0$):
+if $\psi(t_0)\in M$ then $\psi(t)\in M$ for all $t\ge t_0$.
+If $C$~is removed at time~$t_0$ after $\psi(t_0)\in M$, no retrogression occurs.
 A single moment of alignment suffices permanently once the channel is removed.
 \end{theorem}
 
 \begin{proof}
-Let $V(t)=\mathrm{dist}(\psi(t),M)^2$.  On~$M$, $\nabla S=0$, so under
-pure gradient flow ($\varepsilon=0$), $M$ is invariant.
-For transverse displacements, $\lambda$-contractivity gives $\dot{V}\le-2\lambda V$.
-Since $V(t_0)=0$, $V(t)=0$ for all $t\ge t_0$.
-Part~(ii) follows by applying~(i) from $t=t_0$ onward.
+On~$M$, $\nabla S[\psi]=0$, so the gradient flow $\partial_t\psi=-\nabla S[\psi]$
+is identically zero: $M$ is invariant.
+If $\psi(t_0)\in M$, then $\psi(t)=\psi(t_0)\in M$ for all $t\ge t_0$.
+Removing~$C$ at $t_0$ restores pure gradient flow, and invariance applies.
 \end{proof}
+
+\begin{remark}[Invariance versus stability]
+Persistence is an invariance result, not a stability result.
+Since $H[\psi^*]$ is indefinite, $M$ is a saddle of the gradient flow:
+perturbations in the $V_+$~direction (positive eigenvalues of~$H$) are restored,
+but perturbations in the $V_-$~direction (negative eigenvalues) grow
+exponentially under gradient flow.
+Reaching~$M$ requires the channel~$C$; once on~$M$, remaining on~$M$
+requires only the absence of transverse forcing.
+\end{remark}
 
 \begin{remark}[Role of singular separation]
 Axiom~\ref{ax:R}(iv) ensures $\overline{M}\cap\Sigma_S=\varnothing$:
@@ -386,8 +391,10 @@ points where the Hessian ceases to exist.
 \end{remark}
 
 \begin{remark}[Two classes of motion on~$M$]
-\emph{Class~A} (restoring): transverse fluctuations, suppressed by
-$\lambda$-contractivity.
+\emph{Class~A} (transverse): fluctuations perpendicular to~$M$.
+The spectral gap (Proposition~\ref{prop:gap}) ensures $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$
+for $v\perp\ker H$.  Positive-eigenvalue directions are restored by gradient flow;
+negative-eigenvalue directions are repelled (see the Remark above).
 \emph{Class~B} (free): tangential motion along $\ker H$, zero cost,
 unconstrained---$\dim G$ directions of cost-free motion at each point,
 and $M$ itself may be non-compact, so Class~B trajectories extend without bound.
@@ -431,7 +438,8 @@ when $P_{\ker H[\psi]}(C[\psi])\neq 0$, and $\kappa=0$ otherwise.
 \end{definition}
 
 \begin{theorem}[Phase-locking]\label{thm:PL}
-Under (i)~$\lambda$-contractivity, (ii)~neutrality along $\ker H$,
+Under (i)~transverse spectral gap (Proposition~\ref{prop:gap}),
+(ii)~neutrality along $\ker H$,
 (iii)~uniform kernel overlap on~$U$,
 (iv)~$\dot{S}\le-\sigma<0$ outside~$U$:
 if $\kappa(\psi_0;C)\ge\kappa^*>0$, there exists finite~$\tau_{\mathrm{lock}}$
@@ -442,7 +450,7 @@ after which the kernel-projected coherence satisfies $\kappa\ge\kappa^*/2$.
 Condition~(iv) forces $S$ to decrease at rate~$\sigma$ outside~$U$, so the
 trajectory enters~$U$ in time $\le S[\psi_0]/\sigma$.  Inside~$U$,
 condition~(iii) guarantees kernel overlap $\ge\delta^*$, and
-$\lambda$-contractivity suppresses transverse drift.  Coherence is bounded
+the spectral gap suppresses transverse drift.  Coherence is bounded
 below by continuity, giving phase-locking after finite $\tau_{\mathrm{lock}}$.
 Quantitative estimates are deferred to future work.
 \end{proof}
@@ -543,7 +551,7 @@ Under Axioms~\ref{ax:R} and~\ref{ax:G}, the following twelve properties hold:
 \item \textbf{Morse--Bott regularity} (Prop~\ref{prop:MB}):
   $M$ is smooth, by structural stability.
 \item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
-  $\lambda$-contractivity follows from the axioms.
+  $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$ for $v\perp\ker H$; follows from the axioms.
 \item \textbf{Uniqueness} (Thm~\ref{thm:unique}):
   continuous symmetry forces $\{\nabla S=0\}\setminus\{0\}=M$.
 \end{enumerate}
