@@ -29,30 +29,62 @@ of Basin-Independent Access}}
 
 \begin{abstract}
 What structure must exist in a variational system that forbids the annihilation of
-all configurations?  We show: exactly one---a smooth generative manifold~$M$, universally
-accessible, permanently retentive, and equipped with cost-free degrees of freedom.
+all configurations?  We show that it is unique: a smooth manifold~$M$ of
+non-collapsing critical points, equipped with cost-free degrees of freedom
+and---when an external coupling exists---universally accessible and permanently
+retentive.
 The argument rests on two axioms: \emph{realizability} (the system admits a structurally
 stable, nontrivial extremum that does not collapse to the trivial state) and
 \emph{continuous symmetry} (the cost functional is invariant under a connected Lie group
 of positive dimension acting freely on nontrivial configurations).
-Continuous symmetry implies that every critical point is non-isolated.
+Continuous symmetry implies that every nontrivial critical point is non-isolated.
 Structural stability then forces the Hessian to be indefinite---yielding
 Lorentzian signature on every two-dimensional subspace containing directions
 of both signs---\emph{without any assumption on the sign of a temporal direction}: the
 spectral-boundary argument excludes both the semidefinite cases $H\ge 0$ and $H\le 0$.
-From these two axioms, twelve structural properties of~$M$ are derived: access is
-basin-independent, capture depends on alignment alone, gauge directions are
+From the two axioms alone, eight geometric properties of~$M$ are derived;
+four further access properties follow when an external completion channel~$C$
+is present.  Among them: capture depends on alignment alone, gauge directions are
 indestructible under any symmetry-preserving extension, and exclusion is
 geometrically self-imposed.
 By \emph{necessity} we mean that these properties are forced by the axioms:
-any system satisfying realizability and continuous symmetry must exhibit them.
+any system satisfying realizability and continuous symmetry must exhibit
+the geometric properties, and any such system admitting a completion channel
+must additionally exhibit the access properties.
 \end{abstract}
+
+%% ====================================================================
+\section{Introduction}\label{sec:intro}
+%% ====================================================================
+
+Consider a cost functional $S\ge 0$ with $S=0$ only at the trivial
+configuration.  Gradient flow drives every state toward annihilation.
+The question is: what additional structure must a system possess if
+annihilation is to be avoided?
+
+We show that two axioms suffice---realizability (a structurally stable
+nontrivial extremum exists) and continuous symmetry (the cost is invariant
+under a Lie group acting freely)---and that their algebraic consequences are
+rigid.  The central result is a spectral-boundary argument
+(Theorem~\ref{thm:indef}): if the Hessian were semidefinite on either side,
+a single perturbation would eliminate the kernel, contradicting structural
+stability.  This forces indefiniteness---and hence Lorentzian
+signature---without any assumption on the sign of a distinguished direction.
+
+The paper is organised as follows.
+Section~\ref{sec:axioms} states the axioms, definitions, and an explicit
+model demonstrating their consistency.
+Section~\ref{sec:GNI} derives non-isolation from symmetry.
+Section~\ref{sec:alg} proves indefiniteness, Lorentzian signature,
+Morse--Bott regularity, and the spectral gap.
+Section~\ref{sec:unique} establishes uniqueness and universal access.
+Section~\ref{sec:persist} treats persistence and capture.
+Section~\ref{sec:connect} gives connectedness results.
+Section~\ref{sec:summary} summarises all twelve properties in two tiers.
 
 %% ====================================================================
 \section{The Axioms}\label{sec:axioms}
 %% ====================================================================
-
-The entire paper follows from two axioms.
 
 Let $\mathcal{F}$ be a real separable Hilbert space with inner product
 $\langle\cdot,\cdot\rangle$ and norm $\|\cdot\|$.
@@ -650,4 +682,4 @@ Philos.\ Trans.\ R.\ Soc.\ Lond.\ A \textbf{308} (1983) 523--615.
 
 \end{thebibliography}
 
-\end{document}
+\end{document}}
