@@ -303,9 +303,10 @@ $M$ is the unique non-collapsing completion of~$\mathcal{F}$.
 
 \begin{proof}
 By Proposition~\ref{prop:GNI}, every nontrivial critical point has
-$\dim\ker H\ge\dim G\ge 1$.
-Therefore $\{\nabla S=0\}\setminus\{0\}=M$, and every non-collapsing
-completion $M'\subset M$.
+$\dim\ker H\ge\dim G\ge 1$, hence lies in~$M$.
+Therefore $\{\nabla S=0\}\setminus\{0\}\subset M$.
+Any non-collapsing completion $M'$ satisfies $M'\subset\{\nabla S=0\}\setminus\{0\}$
+(since $\psi=0$ is the collapsed state), hence $M'\subset M$.
 \end{proof}
 
 \begin{theorem}[Universal completion is necessary]\label{thm:univ}
@@ -556,7 +557,7 @@ Under Axioms~\ref{ax:R} and~\ref{ax:G}, the following twelve properties hold:
 \item \textbf{Spectral gap} (Prop~\ref{prop:gap}):
   $|\langle v,Hv\rangle|\ge\lambda\|v\|^2$ for $v\perp\ker H$; follows from the axioms.
 \item \textbf{Uniqueness} (Thm~\ref{thm:unique}):
-  continuous symmetry forces $\{\nabla S=0\}\setminus\{0\}=M$.
+  every non-collapsing completion is contained in~$M$.
 \end{enumerate}
 
 \begin{remark}[Logical structure]
