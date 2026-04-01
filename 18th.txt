@@ -180,9 +180,12 @@ For small~$\varepsilon$, there is a $\mathrm{U}(1)$-orbit of approximately const
 critical points with $|\psi^{*}|\approx 1/\!\sqrt{2}$, satisfying
 Axiom~\ref{ax:R}(i).
 The Hessian at~$\psi^{*}$ is a Schr\"odinger operator $-\Delta+W$ on~$\Sigma$,
-which is Fredholm.  For $\Sigma$ of sufficient diameter, the lowest eigenmode of
-$-\Delta$ has small eigenvalue and $W<0$ in the radial direction, making
-the Hessian indefinite---consistent with Theorem~\ref{thm:indef}.
+which is Fredholm.  In the radial direction, the constant mode ($k=0$) has
+eigenvalue $W=V''(s_{0})<0$ (since $s_{0}\approx 1/2$ is a local maximum
+of the potential restricted to constant configurations), while high-frequency
+modes have eigenvalue $\lambda_{k}+W>0$ for $k$ large.
+The Hessian is therefore indefinite for any compact~$\Sigma$---consistent
+with Theorem~\ref{thm:indef}.
 Axiom~\ref{ax:R}(ii)--(iv) and Axiom~\ref{ax:G} can be verified by standard
 transversality and elliptic-regularity arguments.
 \end{remark}
