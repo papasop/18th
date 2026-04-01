@@ -39,11 +39,6 @@ the spectral-boundary argument applied to both the semidefinite cases $H\ge 0$ a
 $H\le 0$.  The critical set with nontrivial kernel forms a unique smooth Morse--Bott
 manifold~$M$, and no open region of~$\mathcal{F}$ is excluded from access to~$M$.
 Twelve structural properties of~$M$ are derived from the three premises alone.
-
-\medskip\noindent
-\textbf{Series position.}\enspace Third in: \textit{Realizability and the Origin
-of Causality}~\cite{Li-R} $\to$ \textit{$K{=}1$
-Chronogeometrodynamics}~\cite{Li-K} $\to$ the present work.
 \end{abstract}
 
 %% ====================================================================
@@ -147,7 +142,7 @@ by every known physical theory.
 \begin{remark}[What is not assumed]
 No Hamiltonian $\hat{H}$ appears as a premise.  In particular, the positive
 temporal cost condition ($\langle e_t,He_t\rangle>0$ for some direction~$e_t$),
-which was an independent assumption in~\cite{Li-R} and~\cite{Li-UCC},
+which is typically imposed as an independent assumption in realizability-based derivations of Lorentzian signature,
 is \emph{derived} here (Theorem~\ref{thm:indef}) from the spectral-boundary
 argument.  The number of independent inputs is reduced from three to two
 physical premises plus one genericity condition.
@@ -240,11 +235,11 @@ The only remaining possibility is that $H[\psi^*]$ has both positive and
 negative eigenvalues: $H[\psi^*]$ is indefinite.
 \end{proof}
 
-\begin{remark}[Comparison with~\cite{Li-R} and~\cite{Li-UCC}]
-In~\cite{Li-R}, indefiniteness required three independent assumptions:
-zero-threshold realizability (R), quadratic expansion (E), and temporal
-cost (T).  In~\cite{Li-UCC}, it required a positive temporal cost
-condition (A) beyond the realizability axiom.
+\begin{remark}[Elimination of the temporal cost condition]
+In previous realizability-based derivations of Lorentzian signature,
+indefiniteness required three independent assumptions:
+a zero-threshold condition on spatial displacements, a quadratic expansion
+of the cost function, and a positive temporal cost condition.
 Theorem~\ref{thm:indef} eliminates the temporal cost condition entirely:
 indefiniteness follows from gauge symmetry and structural stability alone.
 The key is that the spectral-boundary argument applies to \emph{both}
@@ -258,7 +253,7 @@ with $\langle e_+,H[\psi^*]e_+\rangle>0$ and
 $\langle e_-,H[\psi^*]e_-\rangle<0$.
 On $\mathrm{span}\{e_+,e_-\}$, the signature is $(1,1)$: Lorentzian.
 The null cone $\mathcal{L}=\{\delta\psi:\langle\delta\psi,H\delta\psi\rangle=0\}$
-defines causal structure~\cite{Li-R,Li-K}.
+defines causal structure.
 \end{theorem}
 
 \begin{proof}
@@ -518,25 +513,5 @@ $\to$ existence, uniqueness, and universal accessibility of a non-collapsing
 manifold with indestructible cost-free directions.
 Both results are algebraic consequences of the structure of physical law.
 \end{remark}
-
-%% ====================================================================
-\begin{thebibliography}{3}
-
-\bibitem{Li-R}
-Y.\,Y.\,N.~Li,
-\textit{Realizability and the Origin of Causality},
-preprint (2026).
-
-\bibitem{Li-K}
-Y.\,Y.\,N.~Li,
-\textit{$K{=}1$ Chronogeometrodynamics: Lorentzian Geometry from Information Time},
-preprint (2026).
-
-\bibitem{Li-UCC}
-Y.\,Y.\,N.~Li,
-\textit{The Universal Completion Theorem},
-preprint (2026).
-
-\end{thebibliography}
 
 \end{document}
