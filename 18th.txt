@@ -30,7 +30,7 @@ of Basin-Independent Access}}
 \begin{abstract}
 What structure must exist in a variational system that forbids the annihilation of
 all configurations?  We show: exactly one---a smooth generative manifold~$M$, universally
-accessible, permanently retentive, and equipped with infinite cost-free degrees of freedom.
+accessible, permanently retentive, and equipped with cost-free degrees of freedom.
 The argument rests on two axioms: \emph{realizability} (the system admits a structurally
 stable, nontrivial extremum that does not collapse to the trivial state) and
 \emph{continuous symmetry} (the cost functional is invariant under a connected Lie group
@@ -346,11 +346,19 @@ $\lambda$-contractivity gives $\dot{V}\le-\lambda V$.
 Since $V(t_0)=0$, $V(t)=0$ for all $t\ge t_0$.
 \end{proof}
 
+\begin{remark}[Role of singular separation]
+Axiom~\ref{ax:R}(iv) ensures $\overline{M}\cap\Sigma_S=\varnothing$:
+no trajectory on~$M$ can reach the singular set of~$S$.
+Persistence therefore extends to all future time without encountering
+points where the Hessian ceases to exist.
+\end{remark}
+
 \begin{remark}[Two classes of motion on~$M$]
 \emph{Class~A} (restoring): transverse fluctuations, suppressed by
 $\lambda$-contractivity.
 \emph{Class~B} (free): tangential motion along $\ker H$, zero cost,
-unconstrained---infinite-dimensional freedom within the non-collapsing phase.
+unconstrained---$\dim G$ directions of cost-free motion at each point,
+and $M$ itself may be non-compact, so Class~B trajectories extend without bound.
 \end{remark}
 
 \begin{lemma}[Structure of~$M$]\label{lem:Mstr}
@@ -409,15 +417,31 @@ $\psi_0\xrightarrow{\text{energy descent}}U\xrightarrow{\text{phase-locking}}M$
 for any $\psi_0\in\mathcal{F}$.
 \end{corollary}
 
+\begin{corollary}[Cost-independence of access]\label{cor:costindep}
+Access to~$M$ is independent of the initial cost $S[\psi_0]$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:univ}, every open set has access to~$M$.
+For any $c>0$, the sublevel set $\{\psi:S[\psi]<c\}$ and the superlevel set
+$\{\psi:S[\psi]>c\}$ are both open (by continuity of~$S$), hence both have access.
+\end{proof}
+
 \begin{definition}[Kernel-denial]\label{def:KD}
 $\psi$ exhibits \emph{kernel-denial} if $P_{\ker H[\psi]}(C[\psi])=0$.
 \end{definition}
 
 \begin{lemma}[Exclusion is self-imposed]\label{lem:excl}
-If kernel-denial persists, the configuration is excluded from~$M$.
-By Theorem~\ref{thm:univ}, such persistence is impossible on any open set.
-Exclusion is a geometric constraint, not an external selection.
+If kernel-denial persists along a trajectory, the trajectory is excluded from~$M$.
+Such persistence is impossible on any open set.
 \end{lemma}
+
+\begin{proof}
+If $P_{\ker H[\psi(t)]}(C[\psi(t)])=0$ for all large~$t$, no kernel alignment
+occurs and the trajectory cannot approach~$M$ via~$C$.
+By Theorem~\ref{thm:univ}, $P_{\ker H}(C)\neq 0$ somewhere in every open set,
+so kernel-denial cannot hold on any open set.
+\end{proof}
 
 %% ====================================================================
 \section{Connectedness and Internal Structure}\label{sec:connect}
@@ -463,10 +487,11 @@ Under Axioms~\ref{ax:R} and~\ref{ax:G}, the following twelve properties hold:
   alignment, not magnitude, determines access.
 \item \textbf{Global capture chain} (Cor~\ref{cor:chain}):
   energy descent $\to$ phase-locking $\to$ $M$, from any initial state.
-\item \textbf{Cost-independence}:
+\item \textbf{Cost-independence} (Cor~\ref{cor:costindep}):
   prior cost $S[\psi_0]$ does not determine accessibility.
-\item \textbf{Infinite generative bandwidth} (Class~B):
-  non-compactified $\ker H$ gives unbounded zero-cost degrees of freedom.
+\item \textbf{Unbounded generative capacity} (Class~B):
+  $\ker H$ provides $\dim G$ cost-free directions at each point;
+  $M$ may be non-compact, so Class~B motion extends without bound.
 \item \textbf{Self-imposed exclusion} (Lem~\ref{lem:excl}):
   kernel-denial is the sole obstruction; it cannot persist on any open set.
 \item \textbf{Kernel-connected merging} (Prop~\ref{prop:merge}, Cor~\ref{cor:connect}):
