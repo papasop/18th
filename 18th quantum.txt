@@ -106,6 +106,17 @@ coupling strength.  The channel $C$ is not derived from the premises; it is
 part of the framework.
 \end{definition}
 
+\begin{remark}[Physical realisations of~$C$]
+The completion channel is not an abstract device; it has concrete realisations in
+each major physical framework.  In open quantum systems, $C$ corresponds to the
+Lindblad dissipator coupling the system to an environment.  In classical field
+theory, $C$ corresponds to external source terms $J^\mu$ in the equations of motion.
+In the path-integral formulation, $C$ corresponds to the insertion of boundary
+conditions or the coupling to a background field.
+The theorems of this paper require only the \emph{existence} of some~$C$ with
+nonzero kernel projection, not a specific choice.
+\end{remark}
+
 %% ====================================================================
 \section{Three Premises}\label{sec:premises}
 %% ====================================================================
@@ -138,6 +149,17 @@ Premise~S is the assertion that physical law is robust: the qualitative
 structure of the critical set does not depend on the precise form of~$S$.
 This is a standard genericity assumption in dynamical systems and is satisfied
 by every known physical theory.
+\end{remark}
+
+\begin{remark}[When Premise~S holds rigorously]
+In infinite-dimensional settings, Premise~S is satisfied whenever the Hessian
+$H[\psi^*]$ is a Fredholm operator---that is, $\ker H$ is finite-dimensional and
+the range of~$H$ is closed.  Under this condition, the implicit function theorem
+and the constant-rank theorem apply in the standard way, and small perturbations
+cannot change $\dim\ker H$ discontinuously.
+The Fredholm property holds for elliptic operators on compact manifolds,
+which covers all standard gauge field theories
+($\mathrm{U}(1)$, $\mathrm{SU}(2)$, $\mathrm{SU}(3)$, Yang--Mills on compact domains).
 \end{remark}
 
 \begin{remark}[What is not assumed]
@@ -359,6 +381,17 @@ No consistent modification of the system can close a channel that is open.
 If $v\in\ker H$ and $H_e^{\psi\psi}v\neq 0$, then
 $\langle v,H_e^{\psi\psi}v\rangle>0$, contradicting $\langle v,Hv\rangle=0$.
 \end{proof}
+
+\begin{remark}[Analogy with topological protection]
+The indestructibility of cost-free directions under consistent extensions is
+analogous to topologically protected zero-energy modes in condensed matter
+physics: symmetry-protected edge states cannot be gapped by any perturbation
+that respects the protecting symmetry.  Here, the protecting structure is not
+a discrete symmetry but the algebraic constraint $\langle v,Hv\rangle=0$
+combined with non-negative definiteness of the extension.
+The mechanism is the same: the zero mode sits at a value (zero) that is
+bounded on one side, so it cannot be moved without violating the bound.
+\end{remark}
 
 %% ====================================================================
 \section{Persistence and Capture}\label{sec:persist}
